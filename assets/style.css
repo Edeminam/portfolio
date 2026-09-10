@@ -482,7 +482,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 .stack-inner {
-  max-width: 1280px;
+  max-width: 1380px;
   margin: 0 auto;
 }
 
@@ -497,7 +497,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   margin-bottom: clamp(48px, 6vw, 72px);
 }
 
-/* Two-column layout */
+/* Three-column layout */
 .stack-cols {
   display: flex;
   align-items: flex-start;
@@ -510,7 +510,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   align-self: stretch;
   background: var(--grey-border);
   flex-shrink: 0;
-  margin: 0 clamp(36px, 5vw, 72px);
+  margin: 0 clamp(24px, 3vw, 48px);
 }
 
 /* Individual column */
@@ -535,7 +535,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 .stack-col-title {
   font-family: var(--font-display);
-  font-size: clamp(22px, 2.8vw, 36px);
+  font-size: clamp(20px, 2.2vw, 32px);
   font-weight: 900;
   letter-spacing: -0.02em;
   color: var(--white);
@@ -545,7 +545,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 .stack-col-desc {
   font-family: var(--font-body);
-  font-size: clamp(13px, 1.2vw, 15px);
+  font-size: clamp(13px, 1.15vw, 15px);
   color: var(--text-muted);
   line-height: 1.65;
   margin-bottom: clamp(28px, 3.5vw, 40px);
@@ -599,7 +599,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 /* ── RESPONSIVE ──────────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .stack-cols {
     flex-direction: column;
     gap: 48px;
