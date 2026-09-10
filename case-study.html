@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selected Works &amp; Case Studies — Emmanuel Brendan</title>
+  <meta name="description" content="Explore Emmanuel Brendan's live digital products across AI-Product Engineering, full-stack Next.js web applications, and senior UI/UX design case studies." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .cs-index-hero {
+      position: relative;
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding: var(--nav-h) var(--section-px) 40px;
+      background: var(--black);
+    }
+    .cs-index-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 0%, rgba(60,60,75,0.55) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 100%, rgba(192,57,43,0.05) 0%, transparent 60%),
+        linear-gradient(180deg, #111 0%, #090909 100%);
+    }
+    .cs-index-hero-content { position: relative; z-index: 1; }
+    .cs-index-tag {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .cs-index-title {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 10vw, 130px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: rgba(230,230,230,0.88);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .cs-index-sub {
+      font-family: var(--font-body);
+      font-size: clamp(15px, 1.8vw, 20px);
+      line-height: 1.65;
+      color: rgba(232,232,232,0.68);
+      letter-spacing: 0.01em;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .cs-index-list {
+      padding: 0 var(--section-px) clamp(80px, 10vw, 140px);
+      background: var(--black);
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .cs-index-num { font-family: var(--font-body); font-size: 13px; color: var(--text-muted); letter-spacing: 0.08em; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo" aria-label="Emmanuel Brendan Home">
+      <svg width="28" height="28" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#BEBEBE" d="M30 34v10L10 64H0V54l20-20zm34 20v10H54L34 44V34h10zM30 20v10H20L0 10V0h10zm34-10L44 30H34V20L54 0h10z"/>
+      </svg>
+      <span class="nav-logo-text">EMMANUEL<br/>BRENDAN</span>
+    </a>
+    <div class="nav-links">
+      <a href="mailto:hello@emmanuelbrendan.com" class="nav-link-email">Email <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener" class="nav-icon-link" aria-label="LinkedIn">in</a>
+      <a href="https://behance.net" target="_blank" rel="noopener" class="nav-icon-link" aria-label="Behance">Be</a>
+    </div>
+  </nav>
+
+  <!-- STICKY DOCK -->
+  <div class="sticky-dock visible" id="sticky-dock">
+    <button class="dock-asterisk" id="dock-menu-btn" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/></svg>
+    </button>
+    <a href="https://cal.com" target="_blank" rel="noopener" class="dock-cta">
+      <span class="dock-cta-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="2.5" fill="white" opacity="0.8"/><circle cx="16" cy="8" r="2.5" fill="white" opacity="0.8"/><circle cx="8" cy="16" r="2.5" fill="white" opacity="0.8"/><circle cx="16" cy="16" r="2.5" fill="white" opacity="0.8"/></svg></span>
+      <span class="dock-cta-text">BOOK A CALL</span>
+    </a>
+    <a href="index.html" class="dock-work">HOME</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="cs-index-hero">
+    <div class="cs-index-bg"></div>
+    <div class="cs-index-hero-content">
+      <div class="cs-index-tag">PORTFOLIO OF LIVE WORK</div>
+      <h1 class="cs-index-title">SELECTED<br/>WORKS</h1>
+      <p class="cs-index-sub">12 live digital products across AI-Product Engineering, full-stack Next.js applications, GovTech systems, and conversion-focused product design.</p>
+    </div>
+  </section>
+
+  <!-- WORK FILTER TABS -->
+  <div class="work-filter-bar">
+    <button class="work-filter-tab active" data-filter="all">All Works <span class="work-tab-count">12</span></button>
+    <button class="work-filter-tab" data-filter="code">AI &amp; Built With Code <span class="work-tab-count">5</span></button>
+    <button class="work-filter-tab" data-filter="design">UI/UX Case Studies <span class="work-tab-count">7</span></button>
+  </div>
+
+  <!-- PROJECTS LIST -->
+  <div class="cs-index-list">
+
+    <!-- 01 TECHRISE DTI (Code) -->
+    <article class="cs-card" data-category="code">
+      <a href="pages/techrise.html" class="cs-card-link">
+        <div class="cs-card-inner">
+          <div class="cs-card-image"><img src="assets/images/project-techrise.jpg" alt="TechRise DTI platform mockup" loading="lazy"/></div>
+          <div class="cs-card-info">
+            <div class="cs-card-meta">
+              <div class="cs-card-meta-left">
+                <span class="cs-index-num">01</span>
+                <h2 class="cs-name">TECHRISE DTI</h2>
+              </div>
+              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <span class="cs-code-badge">Built With Code</span>
+                <span class="cs-live-badge">Live &bull; techrisedti.org</span>
+              </div>
+            </div>
+            <p class="cs-desc">Digital transformation initiative for Africa. Designed and coded the responsive web platform empowering youth with tech literacy, coding skills, and offline-first mobile performance.</p>
+            <div class="cs-tags">
+              <span class="cs-tag">Next.js</span>
+              <span class="cs-tag">TypeScript</span>
+              <span class="cs-tag">Tailwind CSS</span>
+              <span class="cs-metric-badge">50k+ Empowered</span>
+              <span class="cs-metric-badge">99/100 Lighthouse</span>
+            </div>
+            <span class="cs-link">VIEW PROJECT &amp; CODE <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 02 DEV & DESIGN HQ (Code) -->
+    <article class="cs-card" data-category="code">
+      <a href="pages/devdesign.html" class="cs-card-link">
+        <div class="cs-card-inner">
+          <div class="cs-card-image"><img src="assets/images/project-devdesign.jpg" alt="Dev and Design HQ platform mockup" loading="lazy"/></div>
+          <div class="cs-card-info">
+            <div class="cs-card-meta">
+              <div class="cs-card-meta-left">
+                <span class="cs-index-num">02</span>
+                <h2 class="cs-name">DEV &amp; DESIGN HQ</h2>
+              </div>
+              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <span class="cs-code-badge">Built With Code</span>
+                <span class="cs-live-badge">Live &bull; devdesignhq.com</span>
+              </div>
+            </div>
+            <p class="cs-desc">Full-stack educational platform for career-defining bootcamps and live masterclasses. Built with Next.js App Router, Turbopack, and Radix UI primitives for seamless student onboarding.</p>
+            <div class="cs-tags">
+              <span class="cs-tag">Next.js 14</span>
+              <span class="cs-tag">Turbopack</span>
+              <span class="cs-tag">Radix UI</span>
+              <span class="cs-metric-badge">&lt;80ms Edge Latency</span>
+              <span class="cs-metric-badge">100% Accessible</span>
+            </div>
+            <span class="cs-link">VIEW PROJECT &amp; CODE <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 03 WITHIN EHR (Code & Design) -->
+    <article class="cs-card" data-category="code,design">
+      <a href="pages/withinehr.html" class="cs-card-link">
+        <div class="cs-card-inner">
+          <div class="cs-card-image"><img src="assets/images/project-withinehr.jpg" alt="WithinEHR AI healthcare platform" loading="lazy"/></div>
+          <div class="cs-card-info">
+            <div class="cs-card-meta">
+              <div class="cs-card-meta-left">
+                <span class="cs-index-num">03</span>
+                <h2 class="cs-name">WITHIN EHR</h2>
+              </div>
+              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <span class="cs-code-badge">AI &amp; Code</span>
+                <span class="cs-live-badge">Live &bull; withinehr.com</span>
+              </div>
+            </div>
+            <p class="cs-desc">AI-powered electronic health records and clinical practice SaaS. Architected ambient audio transcription, automated SOAP note generation, and high-converting marketing funnels.</p>
+            <div class="cs-tags">
+              <span class="cs-tag">HealthTech</span>
+              <span class="cs-tag">AI Clinical SaaS</span>
+              <span class="cs-metric-badge">10x Note Speed</span>
+              <span class="cs-metric-badge">3.4x Conversion</span>
+            </div>
+            <span class="cs-link">VIEW CASE STUDY <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 04 MARA EVENTS (Code) -->
+    <article class="cs-card" data-category="code">
+      <a href="pages/mara.html" class="cs-card-link">
+        <div class="cs-card-inner">
+          <div class="cs-card-image"><img src="assets/images/project-mara.jpg" alt="Mara Events platform mockup" loading="lazy"/></div>
+          <div class="cs-card-info">
+            <div class="cs-card-meta">
+              <div class="cs-card-meta-left">
+                <span class="cs-index-num">04</span>
+                <h2 class="cs-name">MARA EVENTS</h2>
+              </div>
+              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <span class="cs-code-badge">Built With Code</span>
+                <span class="cs-live-badge">Live &bull; mara-events.com</span>
+              </div>
+            </div>
+            <p class="cs-desc">Luxury event production and bespoke celebration portal in Nigeria. Engineered the interactive guest registration flow, consultation calendar, and 60fps animations.</p>
+            <div class="cs-tags">
+              <span class="cs-tag">Interactive Web App</span>
+              <span class="cs-tag">Ticketing Engine</span>
+              <span class="cs-metric-badge">+120% Inquiries</span>
+              <span class="cs-metric-badge">&lt;2s Media Load</span>
+            </div>
+            <span class="cs-link">VIEW PROJECT &amp; CODE <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 05 VERONICA ANTHONY (Code) -->
+    <article class="cs-card" data-category="code">
+      <a href="pages/vaf.html" class="cs-card-link">
+        <div class="cs-card-inner">
+          <div class="cs-card-image"><img src="assets/images/project-vaf.jpg" alt="Veronica Anthony Foundation mockup" loading="lazy"/></div>
+          <div class="cs-card-info">
+            <div class="cs-card-meta">
+              <div class="cs-card-meta-left">
+                <span class="cs-index-num">05</span>
+                <h2 class="cs-name">VERONICA ANTHONY</h2>
+              </div>
+              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <span class="cs-code-badge">Built With Code</span>
+                <span class="cs-live-badge">Live &bull; veronicaanthonyfoundation.org</span>
+              </div>
+            </div>
+            <p class="cs-desc">Philanthropic platform for climate action, education, and healthcare. Designed and built with Tailwind CSS and Radix colors for transparent impact telemetry and donor conversion.</p>
+            <div class="cs-tags">
+              <span class="cs-tag">Tailwind CSS</span>
+              <span class="cs-tag">Radix UI</span>
+              <span class="cs-metric-badge">48k+ Trees</span>
+              <span class="cs-metric-badge">+140% Donations</span>
+            </div>
+            <span class="cs-link">VIEW PROJECT &amp; CODE <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 06 IDEC (Design) -->
+    <article class="cs-card" data-category="design">
+      <a href="pages/idec.html" class="cs-card-link">
+        <div class="cs-card-inner">
+          <div class="cs-card-image"><img src="assets/images/project-idec.jpg" alt="IDEC Customs Duty Exemption portal" loading="lazy"/></div>
+          <div class="cs-card-info">
+            <div class="cs-card-meta">
+              <div class="cs-card-meta-left">
+                <span class="cs-index-num">06</span>
+                <h2 class="cs-name">IDEC</h2>
+              </div>
+              <span class="cs-live-badge">Live &bull; idec.gov.ng</span>
+            </div>
+            <p class="cs-desc">Nigeria's official Import Duty Exemption Certificate portal. Digitizing duty waiver processing, inter-agency customs audits, and tamper-proof QR verification for the Federal Ministry of Finance.</p>
+            <div class="cs-tags">
+              <span class="cs-tag">GovTech</span>
+              <span class="cs-tag">Customs Automation</span>
+              <span class="cs-metric-badge">48hrs Turnaround</span>
+              <span class="cs-metric-badge">&#8358;400B+ Processed</span>
+            </div>
+            <span class="cs-link">VIEW CASE STUDY <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 07 VREG (Design) -->
+    <article class="cs-card" data-category="design">
+      <a href="pages/vreg.html" class="cs-card-link">
+        <div class="cs-card-inner">
+          <div class="cs-card-image"><img src="assets/images/project-vreg.jpg" alt="VREG National Vehicle Registry" loading="lazy"/></div>
+          <div class="cs-card-info">
+            <div class="cs-card-meta">
+              <div class="cs-card-meta-left">
+                <span class="cs-index-num">07</span>
+                <h2 class="cs-name">VREG</h2>
+              </div>
+              <span class="cs-live-badge">Live &bull; vreg.gov.ng</span>
+            </div>
+            <p class="cs-desc">The National Vehicle Identification System connecting Nigeria Customs, commercial banks, port terminals, and vehicle owners to verify VIN records, eliminate duty evasion, and halt vehicular theft.</p>
+            <div class="cs-tags">
+              <span class="cs-tag">GovTech</span>
+              <span class="cs-tag">VIN Registry</span>
+              <span class="cs-metric-badge">2.4M+ Vehicles</span>
+              <span class="cs-metric-badge">+35% Tariff Revenue</span>
+            </div>
+            <span class="cs-link">VIEW CASE STUDY <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 08 SPRING CAKES (Design) -->
+    <article class="cs-card" data-category="design">
+      <a href="pages/springcakes.html" class="cs-card-link">
+        <div class="cs-card-inner">
+          <div class="cs-card-image"><img src="assets/images/project-springcakes.jpg" alt="Spring Cakes luxury e-commerce and builder" loading="lazy"/></div>
+          <div class="cs-card-info">
+            <div class="cs-card-meta">
+              <div class="cs-card-meta-left">
+                <span class="cs-index-num">08</span>
+                <h2 class="cs-name">SPRING CAKES</h2>
+              </div>
+              <span class="cs-live-badge">Live &bull; springcakes.co.uk</span>
+            </div>
+            <p class="cs-desc">Luxury artisanal confectionery studio in Stockport, United Kingdom. Editorial digital storefront and bespoke cake builder enabling clients to configure custom celebration cakes in under 2 minutes.</p>
+            <div class="cs-tags">
+              <span class="cs-tag">E-Commerce</span>
+              <span class="cs-tag">Luxury Branding</span>
+              <span class="cs-metric-badge">+68% Mobile Orders</span>
+              <span class="cs-metric-badge">4.9★ Reviews</span>
+            </div>
+            <span class="cs-link">VIEW CASE STUDY <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 09 WORKNATION (Design) -->
+    <article class="cs-card" data-category="design">
+      <a href="pages/worknation.html" class="cs-card-link">
+        <div class="cs-card-inner">
+          <div class="cs-card-image"><img src="assets/images/project-worknation.jpg" alt="WorkNation talent ecosystem" loading="lazy"/></div>
+          <div class="cs-card-info">
+            <div class="cs-card-meta">
+              <div class="cs-card-meta-left">
+                <span class="cs-index-num">09</span>
+                <h2 class="cs-name">WORKNATION</h2>
+              </div>
+              <span class="cs-live-badge">Live &bull; worknation.africa</span>
+            </div>
+            <p class="cs-desc">Africa's digital workforce platform connecting 500k+ vetted professionals with global employers through verifiable skill credentials, assessments, and intelligent hiring corridors.</p>
+            <div class="cs-tags">
+              <span class="cs-tag">EdTech</span>
+              <span class="cs-tag">Workforce Platform</span>
+              <span class="cs-metric-badge">500k+ Talents</span>
+              <span class="cs-metric-badge">40+ Global Partners</span>
+            </div>
+            <span class="cs-link">VIEW CASE STUDY <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 10 MYKA (Design) -->
+    <article class="cs-card" data-category="design">
+      <a href="pages/myka.html" class="cs-card-link">
+        <div class="cs-card-inner">
+          <div class="cs-card-image"><img src="assets/images/project-myka.jpg" alt="Myka Insurtech platform" loading="lazy"/></div>
+          <div class="cs-card-info">
+            <div class="cs-card-meta">
+              <div class="cs-card-meta-left">
+                <span class="cs-index-num">10</span>
+                <h2 class="cs-name">MYKA</h2>
+              </div>
+              <span class="cs-live-badge">Live &bull; myka.ng</span>
+            </div>
+            <p class="cs-desc">On-demand digital insurance platform for motor, gadget, home, and health. Created the mobile-first quote engine, 3-minute policy issuance flow, and photo-backed instant claims submission experience.</p>
+            <div class="cs-tags">
+              <span class="cs-tag">Insurtech</span>
+              <span class="cs-tag">Fintech Mobile</span>
+              <span class="cs-metric-badge">&lt;3min Issuance</span>
+              <span class="cs-metric-badge">+85% Retention</span>
+            </div>
+            <span class="cs-link">VIEW CASE STUDY <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 11 NASARAWA CBTAS (Design) -->
+    <article class="cs-card" data-category="design">
+      <a href="pages/cbtas.html" class="cs-card-link">
+        <div class="cs-card-inner">
+          <div class="cs-card-image"><img src="assets/images/project-cbtas.jpg" alt="Nasarawa CBTAS Tax Administration" loading="lazy"/></div>
+          <div class="cs-card-info">
+            <div class="cs-card-meta">
+              <div class="cs-card-meta-left">
+                <span class="cs-index-num">11</span>
+                <h2 class="cs-name">NASARAWA CBTAS</h2>
+              </div>
+              <span class="cs-live-badge">Live &bull; nasarawa.cbtas.com</span>
+            </div>
+            <p class="cs-desc">Community-based revenue collection and taxpayer enumeration platform for Nasarawa State Internal Revenue Service. Designed offline field agent POS interfaces and central executive monitoring dashboards.</p>
+            <div class="cs-tags">
+              <span class="cs-tag">GovTech</span>
+              <span class="cs-tag">Tax Administration</span>
+              <span class="cs-metric-badge">140k+ Traders</span>
+              <span class="cs-metric-badge">4.8x IGR Expansion</span>
+            </div>
+            <span class="cs-link">VIEW CASE STUDY <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 12 POSSAP (Design) -->
+    <article class="cs-card" data-category="design">
+      <a href="pages/possap.html" class="cs-card-link">
+        <div class="cs-card-inner">
+          <div class="cs-card-image"><img src="assets/images/project-possap.jpg" alt="POSSAP Police Specialized Services" loading="lazy"/></div>
+          <div class="cs-card-info">
+            <div class="cs-card-meta">
+              <div class="cs-card-meta-left">
+                <span class="cs-index-num">12</span>
+                <h2 class="cs-name">POSSAP</h2>
+              </div>
+              <span class="cs-live-badge">Live &bull; possap.gov.ng</span>
+            </div>
+            <p class="cs-desc">Police Specialized Services Automation Project for the Nigeria Police Force. Designed citizen self-service portals, biometric appointment booking, and internal command consoles for character clearance certificates and permits.</p>
+            <div class="cs-tags">
+              <span class="cs-tag">GovTech</span>
+              <span class="cs-tag">Public Safety</span>
+              <span class="cs-metric-badge">1.2M+ Clearances</span>
+              <span class="cs-metric-badge">70% Faster Turnaround</span>
+            </div>
+            <span class="cs-link">VIEW CASE STUDY <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </div>
+        </div>
+      </a>
+    </article>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <svg width="22" height="22" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill="rgba(255,255,255,0.5)" d="M30 34v10L10 64H0V54l20-20zm34 20v10H54L34 44V34h10zM30 20v10H20L0 10V0h10zm34-10L44 30H34V20L54 0h10z"/>
+        </svg>
+        <span class="footer-logo-text">EMMANUEL<br/>BRENDAN</span>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:hello@emmanuelbrendan.com" class="footer-link-email">Email <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-icon" aria-label="LinkedIn">in</a>
+        <a href="https://behance.net" target="_blank" rel="noopener" class="footer-icon" aria-label="Behance">Be</a>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/main.js"></script>
+</body>
+</html>
