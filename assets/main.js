@@ -147,7 +147,7 @@
     const autoReveal = document.querySelectorAll(
       '.about-statement, .about-body, .stack-eyebrow, .stack-col, .works-header, .services-label, .services-content, ' +
       '.testimonials-label, .testimonials-inner, .trusted-label, .logos-grid, ' +
-      '.contact-left, .contact-right, .life-label, .life-strip, .footer-inner'
+      '.contact-left, .contact-right, .life-header, .life-marquee-container, .footer-inner'
     );
     autoReveal.forEach(el => el.classList.add('reveal'));
 
@@ -271,29 +271,6 @@
         if (toast) toast.remove();
         form.reset();
       }, 4000);
-    });
-  }
-
-  /* ── DRAG SCROLL (Life strip) ─────────────────────────── */
-  const strip = document.querySelector('.life-strip');
-  if (strip) {
-    let isDown = false;
-    let startX;
-    let scrollLeftStart;
-
-    strip.addEventListener('mousedown', e => {
-      isDown = true;
-      startX = e.pageX - strip.offsetLeft;
-      scrollLeftStart = strip.scrollLeft;
-    });
-    strip.addEventListener('mouseleave', () => isDown = false);
-    strip.addEventListener('mouseup', () => isDown = false);
-    strip.addEventListener('mousemove', e => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - strip.offsetLeft;
-      const walk = (x - startX) * 1.5;
-      strip.scrollLeft = scrollLeftStart - walk;
     });
   }
 

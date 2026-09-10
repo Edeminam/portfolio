@@ -1507,54 +1507,167 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 .form-submit:active { transform: scale(0.99); }
 
-/* ── LIFE BEHIND THE DESK ────────────────────────────────── */
+/* ── LIFE BEHIND THE DESK (Xavien-exact 35mm filmstrip marquee) ── */
 .life-section {
-  padding: clamp(80px, 10vw, 120px) 0;
+  padding: 96px 0 108px 0;
   background: var(--black);
   border-top: 1px solid var(--grey-border);
   overflow: hidden;
-}
-.life-label {
-  padding: 0 var(--section-px);
-  margin-bottom: 40px;
-  font-family: var(--font-display);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  color: var(--text-muted);
-  text-transform: uppercase;
-}
-.life-strip {
-  display: flex;
-  gap: 16px;
-  padding: 0 var(--section-px);
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  scroll-snap-type: x mandatory;
-  cursor: grab;
-}
-.life-strip:active { cursor: grabbing; }
-.life-strip::-webkit-scrollbar { display: none; }
-.life-film-item {
-  flex-shrink: 0;
-  width: clamp(180px, 22vw, 280px);
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid var(--grey-border);
-  scroll-snap-align: start;
-  transition: transform 0.3s ease;
-}
-.life-film-item:nth-child(even) { margin-top: 30px; }
-.life-film-item:hover { transform: translateY(-8px) scale(1.02); }
-.life-film-item img {
+  position: relative;
   width: 100%;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-  filter: grayscale(60%) brightness(0.8);
-  transition: filter 0.3s;
 }
-.life-film-item:hover img { filter: grayscale(0%) brightness(1); }
+
+.life-header {
+  text-align: center;
+  margin-bottom: 48px;
+  padding: 0 var(--section-px);
+}
+
+.life-title {
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.life-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  user-select: none;
+  -webkit-user-select: none;
+  padding: 8px 0;
+}
+
+.life-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: filmstripScroll 36s linear infinite;
+  will-change: transform;
+}
+
+.life-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.life-marquee-group {
+  display: flex;
+  gap: 24px;
+  padding-right: 24px;
+  flex-shrink: 0;
+}
+
+@keyframes filmstripScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* 35mm Analog Filmstrip Negative Card */
+.filmstrip-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #181818;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 14px 10px;
+  width: 272px;
+  height: 236px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.filmstrip-card:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.8);
+}
+
+/* Vertical Sprocket Holes Columns */
+.sprocket-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 18px;
+  padding: 2px 0;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.sprocket-hole {
+  width: 9px;
+  height: 14px;
+  background: #000000;
+  border-radius: 2px;
+  display: block;
+}
+
+/* Centered Photo Frame */
+.filmstrip-photo-wrap {
+  position: relative;
+  width: 196px;
+  height: 196px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #0c0c0c;
+  flex-shrink: 0;
+}
+
+.filmstrip-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.filmstrip-card:hover .filmstrip-photo-wrap img {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .life-section {
+    padding: 68px 0 76px 0;
+  }
+  .life-header {
+    margin-bottom: 32px;
+  }
+  .filmstrip-card {
+    width: 236px;
+    height: 206px;
+    padding: 12px 8px;
+  }
+  .sprocket-col {
+    width: 15px;
+  }
+  .sprocket-hole {
+    width: 7px;
+    height: 12px;
+  }
+  .filmstrip-photo-wrap {
+    width: 172px;
+    height: 172px;
+  }
+  .life-marquee-group {
+    gap: 16px;
+    padding-right: 16px;
+  }
+}
 
 /* ── FOOTER ──────────────────────────────────────────────── */
 .footer {
