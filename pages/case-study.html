@@ -9,65 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/style.css" />
-  <style>
-    .cs-index-hero {
-      position: relative;
-      min-height: 75vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-      padding: var(--nav-h) var(--section-px) 40px;
-      background: var(--black);
-    }
-    .cs-index-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 70% 60% at 50% 0%, rgba(60,60,75,0.55) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 40% at 80% 100%, rgba(192,57,43,0.05) 0%, transparent 60%),
-        linear-gradient(180deg, #111 0%, #090909 100%);
-    }
-    .cs-index-hero-content { position: relative; z-index: 1; }
-    .cs-index-tag {
-      display: inline-block;
-      font-family: var(--font-display);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.25em;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-    .cs-index-title {
-      font-family: var(--font-display);
-      font-size: clamp(42px, 10vw, 130px);
-      font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      color: rgba(230,230,230,0.88);
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-    .cs-index-sub {
-      font-family: var(--font-body);
-      font-size: clamp(15px, 1.8vw, 20px);
-      line-height: 1.65;
-      color: rgba(232,232,232,0.68);
-      letter-spacing: 0.01em;
-      max-width: 680px;
-      margin: 0 auto;
-    }
-    .cs-index-list {
-      padding: 0 var(--section-px) clamp(80px, 10vw, 140px);
-      background: var(--black);
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-    .cs-index-num { font-family: var(--font-body); font-size: 13px; color: var(--text-muted); letter-spacing: 0.08em; }
-  </style>
+  <link rel="stylesheet" href="../assets/case-study.css" />
 </head>
 <body>
 
@@ -127,7 +69,7 @@
                 <span class="cs-index-num">01</span>
                 <h2 class="cs-name">TECHRISE DTI</h2>
               </div>
-              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <div class="cs-badges-wrap">
                 <span class="cs-code-badge">Built With Code</span>
                 <span class="cs-live-badge">Live &bull; techrisedti.org</span>
               </div>
@@ -157,7 +99,7 @@
                 <span class="cs-index-num">02</span>
                 <h2 class="cs-name">DEV &amp; DESIGN HQ</h2>
               </div>
-              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <div class="cs-badges-wrap">
                 <span class="cs-code-badge">Built With Code</span>
                 <span class="cs-live-badge">Live &bull; devdesignhq.com</span>
               </div>
@@ -187,7 +129,7 @@
                 <span class="cs-index-num">03</span>
                 <h2 class="cs-name">WITHIN EHR</h2>
               </div>
-              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <div class="cs-badges-wrap">
                 <span class="cs-code-badge">AI &amp; Code</span>
                 <span class="cs-live-badge">Live &bull; withinehr.com</span>
               </div>
@@ -216,7 +158,7 @@
                 <span class="cs-index-num">04</span>
                 <h2 class="cs-name">MARA EVENTS</h2>
               </div>
-              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <div class="cs-badges-wrap">
                 <span class="cs-code-badge">Built With Code</span>
                 <span class="cs-live-badge">Live &bull; mara-events.com</span>
               </div>
@@ -245,7 +187,7 @@
                 <span class="cs-index-num">05</span>
                 <h2 class="cs-name">VERONICA ANTHONY</h2>
               </div>
-              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <div class="cs-badges-wrap">
                 <span class="cs-code-badge">Built With Code</span>
                 <span class="cs-live-badge">Live &bull; veronicaanthonyfoundation.org</span>
               </div>
@@ -447,17 +389,182 @@
 
   </div>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-logo">
-        <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M14 2L2 26H6L14 10L22 26H26L14 2Z" fill="white"/></svg>
-        <span class="footer-logo-text">EMMANUEL<br/>BRENDAN</span>
+    <!-- TESTIMONIALS SECTION -->
+  <section class="testimonials" id="testimonials">
+    <div class="testimonials-label">TESTIMONIALS</div>
+    <div class="testimonials-inner">
+      <div class="testimonials-tabs">
+        <button class="tab-person active" data-tab="0">
+          <img src="../assets/images/avatar-anderson.jpg" alt="Anderson Bonsor" class="tab-avatar" loading="lazy"/>
+          <div class="tab-info"><strong>ANDERSON BONSOR</strong><span>Partner - Deducto</span></div>
+        </button>
+        <button class="tab-person" data-tab="1">
+          <img src="../assets/images/avatar-kevin.jpg" alt="Kevin Kelly" class="tab-avatar" loading="lazy"/>
+          <div class="tab-info"><strong>KEVIN KELLY</strong><span>CEO - FX Supps</span></div>
+        </button>
+        <button class="tab-person" data-tab="2">
+          <img src="../assets/images/avatar-kamil.jpg" alt="Kamil Broniowski" class="tab-avatar" loading="lazy"/>
+          <div class="tab-info"><strong>KAMIL BRONIOWSKI</strong><span>Founder &amp; CEO, Osbix</span></div>
+        </button>
       </div>
-      <div class="footer-links">
-        <a href="mailto:hello@emmanuelbrendan.com" class="footer-link-email">Email <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-icon" aria-label="LinkedIn">in</a>
-        <a href="https://behance.net" target="_blank" rel="noopener" class="footer-icon" aria-label="Behance">Be</a>
+      <div class="testimonials-quote-area">
+        <div class="testimonial-quote active" data-quote="0">
+          <div class="tq-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>"Emmanuel Brendan redesigned our main landing page and within two weeks we were seeing more qualified enquiries"</blockquote>
+        </div>
+        <div class="testimonial-quote" data-quote="1">
+          <div class="tq-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>"Working with Emmanuel was a game changer. The conversion rate on our supplement store went up 40% in the first month."</blockquote>
+        </div>
+        <div class="testimonial-quote" data-quote="2">
+          <div class="tq-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>"The attention to detail and strategic thinking Emmanuel brings to every project is unmatched. Our sign-up rate doubled."</blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUSTED BY SECTION -->
+  <section class="trusted-by" id="trusted">
+    <div class="trusted-label">&#9702;TRUSTED BY&#9702;</div>
+
+    <!-- Row 1 — scrolls LEFT -->
+    <div class="marquee-row" aria-hidden="true">
+      <div class="marquee-track marquee-track--left">
+        <!-- Set 1 -->
+        <div class="logo-card"><span class="lc-icon">&#9632;</span>Federal Ministry</div>
+        <div class="logo-card"><span class="lc-icon">&#9651;</span>Nigeria Customs</div>
+        <div class="logo-card"><span class="lc-icon">&#9678;</span>VREG Nigeria</div>
+        <div class="logo-card"><span class="lc-icon">&#10022;</span>WithinEHR</div>
+        <div class="logo-card"><span class="lc-icon">&#9854;</span>TechRise DTI</div>
+        <div class="logo-card"><span class="lc-icon">&#9642;</span>WorkNation</div>
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <div class="logo-card"><span class="lc-icon">&#9632;</span>Federal Ministry</div>
+        <div class="logo-card"><span class="lc-icon">&#9651;</span>Nigeria Customs</div>
+        <div class="logo-card"><span class="lc-icon">&#9678;</span>VREG Nigeria</div>
+        <div class="logo-card"><span class="lc-icon">&#10022;</span>WithinEHR</div>
+        <div class="logo-card"><span class="lc-icon">&#9854;</span>TechRise DTI</div>
+        <div class="logo-card"><span class="lc-icon">&#9642;</span>WorkNation</div>
+      </div>
+    </div>
+
+    <!-- Row 2 — scrolls RIGHT -->
+    <div class="marquee-row" aria-hidden="true">
+      <div class="marquee-track marquee-track--right">
+        <!-- Set 1 -->
+        <div class="logo-card"><span class="lc-icon">&#9674;</span>DevDesign HQ</div>
+        <div class="logo-card"><span class="lc-icon">&#9651;</span>Springcakes UK</div>
+        <div class="logo-card"><span class="lc-icon">&#9678;</span>Mara Events</div>
+        <div class="logo-card"><span class="lc-icon">&#10025;</span>Veronica Anthony</div>
+        <div class="logo-card"><span class="lc-icon">&#9733;</span>Myka Nigeria</div>
+        <div class="logo-card"><span class="lc-icon">&#9632;</span>Nasarawa Gov't</div>
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <div class="logo-card"><span class="lc-icon">&#9674;</span>DevDesign HQ</div>
+        <div class="logo-card"><span class="lc-icon">&#9651;</span>Springcakes UK</div>
+        <div class="logo-card"><span class="lc-icon">&#9678;</span>Mara Events</div>
+        <div class="logo-card"><span class="lc-icon">&#10025;</span>Veronica Anthony</div>
+        <div class="logo-card"><span class="lc-icon">&#9733;</span>Myka Nigeria</div>
+        <div class="logo-card"><span class="lc-icon">&#9632;</span>Nasarawa Gov't</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / GET IN TOUCH -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <div class="contact-label">GET IN TOUCH</div>
+        <h2 class="contact-headline">LET'S BUILD<br/>SOMETHING<br/>PEOPLE<br/><span class="contact-headline-faded">REMEMBER</span></h2>
+        <p class="contact-desc">Tell me about your business and what's not working — I'll tell you if and how I can help.</p>
+        <p class="contact-desc">I reply within 24 hours. If your project is urgent, use the <strong>Book a Call</strong> button to find a time directly.</p>
+        <a href="https://cal.com" target="_blank" rel="noopener" class="contact-cal-link">
+          BOOK A CALL
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+      <div class="contact-right">
+        <form class="contact-form" id="contact-form" novalidate>
+          <h3 class="form-title">FILL THIS FORM BELOW</h3>
+          <div class="form-field">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="enter your full name" required autocomplete="name" />
+          </div>
+          <div class="form-field">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+          </div>
+          <div class="form-field">
+            <label for="service">Choose service</label>
+            <div class="select-wrapper">
+              <select id="service" name="service"><option value="" disabled selected>Select...</option><option value="landing-page">Landing Page</option><option value="website">Website Design</option><option value="cro">CRO / UX Audit</option><option value="branding">Branding</option></select>
+              <svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="message">More about your project</label>
+            <textarea id="message" name="message" placeholder="tell us more about your project details..." rows="4"></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="form-submit">SUBMIT <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="footer-container">
+      <!-- TOP ACTIONS BAR -->
+      <div class="footer-top-bar">
+        <div class="footer-brand">
+          <svg class="footer-brand-logo" width="22" height="22" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M30 34v10L10 64H0V54l20-20zm34 20v10H54L34 44V34h10zM30 20v10H20L0 10V0h10zm34-10L44 30H34V20L54 0h10z"/>
+          </svg>
+          <div class="footer-brand-name">
+            <span>EMMANUEL</span>
+            <span>BRENDAN</span>
+          </div>
+        </div>
+        <div class="footer-actions">
+          <a href="mailto:hello@emmanuelbrendan.com" class="footer-btn-email">
+            <span>Email</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </svg>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-btn-circle" aria-label="LinkedIn">
+            <span>in</span>
+          </a>
+          <a href="https://behance.net" target="_blank" rel="noopener" class="footer-btn-circle" aria-label="Behance">
+            <span>Bē</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CENTERPIECE (CHROME FLOWER & GIANT DISPLAY TYPOGRAPHY) -->
+      <div class="footer-centerpiece">
+        <div class="footer-flower-wrap">
+          <img class="footer-flower-img" src="../assets/images/chrome-flower.png" alt="Metallic Chrome Daisy Artwork" width="1320" height="1260" loading="lazy" />
+        </div>
+        <div class="footer-big-name" aria-hidden="true">
+          <span class="footer-name-part">EMMANUEL</span>
+          <span class="footer-name-mark">
+            <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill="currentColor" d="M30 34v10L10 64H0V54l20-20zm34 20v10H54L34 44V34h10zM30 20v10H20L0 10V0h10zm34-10L44 30H34V20L54 0h10z"/>
+            </svg>
+          </span>
+          <span class="footer-name-part">BRENDAN</span>
+        </div>
+      </div>
+
+      <!-- BOTTOM SUB-FOOTER BAR -->
+      <div class="footer-bottom-bar">
+        <div class="footer-copyright">
+          Emmanuel Brendan &copy; Copyright 2026. All Rights Reserved.
+        </div>
+        <div class="footer-status">
+          <span class="status-pulse-dot" aria-hidden="true"></span>
+          <span>Available for new projects & role</span>
+        </div>
       </div>
     </div>
   </footer>

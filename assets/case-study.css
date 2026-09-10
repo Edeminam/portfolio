@@ -1,0 +1,322 @@
+/* ============================================================
+   CASE STUDY / SELECTED WORKS DIRECTORY STYLES
+   Extracted from embedded/internal HTML styling
+   ============================================================ */
+
+/* ── HERO SECTION ─────────────────────────────────────────── */
+.cs-index-hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: calc(var(--nav-h) + 48px) var(--section-px) 48px;
+  background: var(--black);
+}
+
+.cs-index-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(60,60,75,0.55) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 80% 100%, rgba(192,57,43,0.05) 0%, transparent 60%),
+    linear-gradient(180deg, #111 0%, #090909 100%);
+  pointer-events: none;
+}
+
+.cs-index-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.cs-index-tag {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.cs-index-title {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 9.5vw, 120px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: rgba(230,230,230,0.92);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.cs-index-sub {
+  font-family: var(--font-body);
+  font-size: clamp(15px, 1.6vw, 19px);
+  line-height: 1.65;
+  color: rgba(232,232,232,0.68);
+  letter-spacing: 0.01em;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ── WORK FILTER TABS ─────────────────────────────────────── */
+.work-filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px var(--section-px) 44px;
+  background: var(--black);
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--grey-border);
+  position: relative;
+  z-index: 2;
+}
+
+.work-filter-tab {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid var(--grey-border);
+  border-radius: 9999px;
+  padding: 10px 22px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.work-filter-tab:hover {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.work-filter-tab.active {
+  color: var(--black);
+  background: var(--white);
+  border-color: var(--white);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.18);
+}
+
+.work-tab-count {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: inherit;
+}
+
+.work-filter-tab.active .work-tab-count {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* ── PROJECTS LIST ────────────────────────────────────────── */
+.cs-index-list {
+  padding: 56px var(--section-px) clamp(80px, 10vw, 140px);
+  background: var(--black);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── CASE STUDY CARD ──────────────────────────────────────── */
+.cs-card {
+  border-radius: 20px;
+  background: #0d0d10;
+  border: 1px solid var(--grey-border);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.35s ease;
+}
+
+.cs-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.cs-card.filtered-out {
+  display: none !important;
+}
+
+.cs-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.cs-card-inner {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: stretch;
+}
+
+.cs-card-image {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  overflow: hidden;
+  position: relative;
+  background: #141418;
+}
+
+.cs-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cs-card:hover .cs-card-image img {
+  transform: scale(1.04);
+}
+
+.cs-card-info {
+  padding: clamp(32px, 3.8vw, 56px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+}
+
+.cs-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.cs-card-meta-left {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.cs-index-num {
+  font-family: 'Boldonse', var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+}
+
+.cs-name {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.4vw, 34px);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+
+/* Badges wrapper (detached from inline style) */
+.cs-badges-wrap {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.cs-desc {
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.05vw, 15.5px);
+  color: rgba(220, 220, 220, 0.68);
+  line-height: 1.7;
+}
+
+.cs-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.cs-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-top: 8px;
+  transition: gap 0.25s ease, color 0.25s ease;
+}
+
+.cs-card:hover .cs-link {
+  gap: 14px;
+  color: #ffffff;
+}
+
+.cs-link svg {
+  transition: transform 0.25s ease;
+}
+
+.cs-card:hover .cs-link svg {
+  transform: translate(2px, -2px);
+}
+
+/* ── RESPONSIVE ADAPTATIONS ──────────────────────────────── */
+@media (max-width: 992px) {
+  .cs-card-inner {
+    grid-template-columns: 1fr;
+  }
+  .cs-card-image {
+    min-height: 280px;
+    max-height: 380px;
+  }
+  .cs-card-info {
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cs-index-hero {
+    min-height: auto;
+    padding-top: calc(var(--nav-h) + 24px);
+    padding-bottom: 32px;
+  }
+  .cs-index-list {
+    padding: 32px var(--section-px) 80px;
+    gap: 28px;
+  }
+  .cs-card-info {
+    padding: 24px 18px;
+    gap: 16px;
+  }
+  .cs-card-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .work-filter-bar {
+    padding: 18px var(--section-px) 32px;
+    gap: 8px;
+  }
+  .work-filter-tab {
+    padding: 8px 16px;
+    font-size: 10px;
+  }
+}

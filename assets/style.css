@@ -1669,58 +1669,261 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   }
 }
 
-/* ── FOOTER ──────────────────────────────────────────────── */
+/* ── FOOTER (Xavien-exact clean luxury footer) ───────────── */
 .footer {
-  padding: 40px var(--section-px);
-  background: var(--grey-dark);
+  padding: 50px var(--section-px) 28px;
+  background: var(--black);
   border-top: 1px solid var(--grey-border);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
-.footer-inner {
+
+.footer-container {
+  width: 100%;
+  max-width: 1320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Top Actions Bar */
+.footer-top-bar {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: clamp(20px, 4vw, 50px);
 }
-.footer-logo {
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+}
+
+.footer-brand-logo {
+  flex-shrink: 0;
+}
+
+.footer-brand-name {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.15;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-actions {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.footer-logo-text {
-  font-family: var(--font-display);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  line-height: 1.3;
-  color: rgba(232,232,232,0.5);
-}
-.footer-links { display: flex; align-items: center; gap: 16px; }
-.footer-link-email {
-  display: flex;
+
+.footer-btn-email {
+  display: inline-flex;
   align-items: center;
-  gap: 5px;
-  font-family: var(--font-display);
+  gap: 8px;
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  padding: 8px 18px;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.footer-btn-email:hover {
+  background: #1c1c1c;
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.footer-btn-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  color: rgba(232,232,232,0.6);
-  transition: color 0.2s;
+  text-decoration: none;
+  transition: all 0.25s ease;
 }
-.footer-link-email:hover { color: var(--white); }
-.footer-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 1px solid var(--grey-border);
+
+.footer-btn-circle:hover {
+  background: #1c1c1c;
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Centerpiece (Chrome Flower Artwork & Big Display Name) */
+.footer-centerpiece {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 0 0 0;
+}
+
+.footer-flower-wrap {
+  width: clamp(300px, 36vw, 480px);
+  position: relative;
+  z-index: 2;
+  margin-bottom: -65px;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-flower-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.9));
+}
+
+.footer-big-name {
+  width: 100%;
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: clamp(12px, 2vw, 28px);
   font-family: var(--font-display);
-  font-size: 12px;
-  font-weight: 700;
-  color: rgba(232,232,232,0.5);
-  transition: color 0.2s, border-color 0.2s;
+  font-size: clamp(32px, 6.2vw, 102px);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+  color: #929292;
+  text-transform: uppercase;
+  user-select: none;
+  -webkit-user-select: none;
+  white-space: nowrap;
 }
-.footer-icon:hover { color: var(--white); border-color: rgba(255,255,255,0.4); }
+
+.footer-name-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #929292;
+  flex-shrink: 0;
+  animation: rotateMark 16s linear infinite;
+}
+
+.footer-name-mark svg {
+  width: clamp(24px, 3.5vw, 48px);
+  height: clamp(24px, 3.5vw, 48px);
+}
+
+@keyframes rotateMark {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Bottom Sub-Footer Bar */
+.footer-bottom-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: clamp(20px, 3vw, 36px);
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.5);
+  position: relative;
+  z-index: 3;
+}
+
+.footer-copyright {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+}
+
+.status-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.65);
+  display: inline-block;
+  animation: statusPulse 2s infinite ease-in-out;
+}
+
+@keyframes statusPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.65;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 20px 24px;
+  }
+  .footer-top-bar {
+    margin-bottom: 16px;
+  }
+  .footer-flower-wrap {
+    width: 260px;
+    margin-bottom: -24px;
+  }
+  .footer-big-name {
+    font-size: clamp(32px, 8.5vw, 48px);
+    gap: 12px;
+  }
+  .footer-name-mark svg {
+    width: 24px;
+    height: 24px;
+  }
+  .footer-bottom-bar {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
 
 /* ── SCROLL ANIMATIONS ───────────────────────────────────── */
 .reveal {

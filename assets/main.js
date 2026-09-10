@@ -97,6 +97,26 @@
       });
     }
 
+    // Case study page filter tabs
+    const csFilterTabs = document.querySelectorAll('.work-filter-tab');
+    const csCards      = document.querySelectorAll('.cs-card');
+
+    if (csFilterTabs.length) {
+      csFilterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const filter = tab.dataset.filter;
+          csFilterTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          csCards.forEach(card => {
+            const cat = card.dataset.category || '';
+            const show = filter === 'all' || cat.includes(filter);
+            card.classList.toggle('filtered-out', !show);
+          });
+        });
+      });
+    }
+
     // Floating image preview on desktop
     const preview    = document.getElementById('work-preview');
     const previewImg = document.getElementById('work-preview-img');
@@ -147,7 +167,7 @@
     const autoReveal = document.querySelectorAll(
       '.about-statement, .about-body, .stack-eyebrow, .stack-col, .works-header, .services-label, .services-content, ' +
       '.testimonials-label, .testimonials-inner, .trusted-label, .logos-grid, ' +
-      '.contact-left, .contact-right, .life-header, .life-marquee-container, .footer-inner'
+      '.contact-left, .contact-right, .life-header, .life-marquee-container, .footer-container'
     );
     autoReveal.forEach(el => el.classList.add('reveal'));
 
