@@ -320,3 +320,35 @@
     font-size: 10px;
   }
 }
+
+@media (max-width: 480px) {
+  .cs-index-title {
+    font-size: clamp(30px, 10vw, 54px);
+  }
+  .cs-index-sub {
+    font-size: 14px;
+  }
+  .cs-name {
+    font-size: clamp(20px, 6.5vw, 28px);
+  }
+  .cs-card-image {
+    min-height: 220px;
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 360px) {
+  .cs-index-title {
+    font-size: clamp(26px, 9.5vw, 36px);
+  }
+  .work-filter-bar {
+    gap: 6px;
+  }
+  .work-filter-tab {
+    padding: 6px 12px;
+    font-size: 9.5px;
+  }
+  .cs-card-info {
+    padding: 18px 14px;
+  }
+}
