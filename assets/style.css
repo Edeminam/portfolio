@@ -319,9 +319,12 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   filter: grayscale(100%) contrast(1.18) brightness(0.85);
   -webkit-mask-image: radial-gradient(ellipse 65% 75% at 50% 38%, black 45%, rgba(0,0,0,0.85) 65%, transparent 95%);
   mask-image: radial-gradient(ellipse 65% 75% at 50% 38%, black 45%, rgba(0,0,0,0.85) 65%, transparent 95%);
-  transition: transform 6s ease-out;
+  transition: transform 6s ease-out, filter 0.4s ease;
 }
-.hero:hover .hero-portrait { transform: translateX(-50%) scale(1.015); }
+.hero-portrait:hover {
+  transform: translateX(-50%) scale(1.015);
+  filter: grayscale(0%) contrast(1) brightness(1);
+}
 .hero-gradient-overlay {
   position: absolute;
   inset: 0;
@@ -346,6 +349,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   max-width: 1400px;
   padding: 0 24px;
   text-align: center;
+  pointer-events: none;
 }
 .hero-name {
   font-family: 'Boldonse', 'Impact', sans-serif;
@@ -443,7 +447,9 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   filter: grayscale(100%) brightness(0.85);
   transition: filter 0.4s ease;
 }
-.about-photo:hover { filter: grayscale(80%) brightness(0.9); }
+.about-photo:hover {
+  filter: grayscale(0%) brightness(1);
+}
 .about-text-col {
   display: flex;
   flex-direction: column;
