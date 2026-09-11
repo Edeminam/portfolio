@@ -123,6 +123,9 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   background: rgba(255, 255, 255, 0.18);
   transform: scale(1.05);
 }
+.nav-icon-link svg {
+  display: block;
+}
 
 /* ── STICKY DOCK ─────────────────────────────────────────── */
 .sticky-dock {
@@ -462,6 +465,37 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   color: var(--text-readable);
   line-height: 1.82;
   letter-spacing: 0.01em;
+}
+.about-data-points {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 24px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 6px 0;
+}
+.about-data-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.about-data-num {
+  font-family: var(--font-heading), 'Outfit', sans-serif;
+  font-size: clamp(30px, 2.6vw, 40px);
+  font-weight: 800;
+  line-height: 1;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+.about-data-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
 }
 .about-signature {
   font-family: var(--font-signature), 'Alex Brush', cursive;
@@ -909,6 +943,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
   display: block;
 }
 
@@ -1910,6 +1945,9 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   color: #ffffff;
   transform: translateY(-1px);
 }
+.footer-btn-circle svg {
+  display: block;
+}
 
 /* Centerpiece (Chrome Flower Artwork & Big Display Name) */
 .footer-centerpiece {
@@ -2091,6 +2129,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   .about-body { grid-template-columns: 1fr; gap: 48px; }
   .about-photo-col { padding-right: 0; text-align: center; }
   .about-photo { max-width: 400px; margin: 0 auto; }
+  .about-data-points { grid-template-columns: repeat(2, 1fr); gap: 24px 20px; }
   .cs-card-inner { grid-template-columns: 1fr; }
   .services-content { grid-template-columns: 1fr; gap: 36px; }
   .testimonials-inner { grid-template-columns: 1fr; gap: 40px; }
