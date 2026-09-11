@@ -479,43 +479,93 @@
     </div>
   </section>
 
-  <!-- CONTACT / GET IN TOUCH -->
+    <!-- CONTACT / GET IN TOUCH -->
   <section class="contact" id="contact">
-    <div class="contact-inner">
-      <div class="contact-left">
-        <div class="contact-label">GET IN TOUCH</div>
-        <h2 class="contact-headline">LET'S BUILD<br/>SOMETHING<br/>PEOPLE<br/><span class="contact-headline-faded">REMEMBER</span></h2>
-        <p class="contact-desc">Tell me about your business and what's not working — I'll tell you if and how I can help.</p>
-        <p class="contact-desc">I reply within 24 hours. If your project is urgent, use the <strong>Book a Call</strong> button to find a time directly.</p>
-        <a href="https://cal.com" target="_blank" rel="noopener" class="contact-cal-link">
-          BOOK A CALL
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-        </a>
-      </div>
-      <div class="contact-right">
-        <form class="contact-form" id="contact-form" novalidate>
-          <h3 class="form-title">FILL THIS FORM BELOW</h3>
-          <div class="form-field">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="enter your full name" required autocomplete="name" />
+    <div class="contact-bg-lighting" aria-hidden="true"></div>
+    <div class="contact-red-blob" aria-hidden="true">
+      <svg viewBox="0 0 400 400" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="redBlobGrad" cx="45%" cy="45%" r="55%">
+            <stop offset="0%" stop-color="#ea2806" />
+            <stop offset="70%" stop-color="#de1f01" />
+            <stop offset="100%" stop-color="#c41800" />
+          </radialGradient>
+          <filter id="blobGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="16" stdDeviation="28" flood-color="#e12404" flood-opacity="0.4" />
+          </filter>
+        </defs>
+        <path filter="url(#blobGlow)" fill="url(#redBlobGrad)" d="M200,32 C285,28 358,82 368,166 C378,250 326,334 246,362 C166,390 84,354 44,284 C4,214 18,128 78,74 C116,40 158,34 200,32 Z" />
+      </svg>
+    </div>
+
+    <div class="contact-container">
+      <div class="contact-inner">
+        <!-- LEFT COLUMN -->
+        <div class="contact-left">
+          <div class="contact-eyebrow">
+            <span class="eyebrow-line" aria-hidden="true"></span>
+            <span class="eyebrow-text">&#9702; GET IN TOUCH &#9702;</span>
+            <span class="eyebrow-line" aria-hidden="true"></span>
           </div>
-          <div class="form-field">
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+
+          <h2 class="contact-headline">LET'S BUILD<br/>SOMETHING<br/>PEOPLE<br/>REMEM<span class="contact-headline-faded">BER</span></h2>
+
+          <p class="contact-desc">Tell me about your business and what's not working I'll tell you if and how I can help.</p>
+          <p class="contact-desc">I reply within 24 hours. If your project is urgent, use the <strong>Book a Call button to find a time directly.</strong></p>
+
+          <div class="contact-cal-row">
+            <span class="contact-cal-label">Schedule a call on cal.com</span>
+            <a href="https://cal.com" target="_blank" rel="noopener" class="contact-cal-link">
+              <span>BOOK A CALL</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
           </div>
-          <div class="form-field">
-            <label for="service">Choose service</label>
-            <div class="select-wrapper">
-              <select id="service" name="service"><option value="" disabled selected>Select...</option><option value="landing-page">Landing Page</option><option value="website">Website Design</option><option value="cro">CRO / UX Audit</option><option value="branding">Branding</option></select>
-              <svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: FORM CARD -->
+        <div class="contact-right">
+          <div class="contact-form-card">
+            <form class="contact-form" id="contact-form" novalidate>
+              <h3 class="form-title">FILL THIS FORM BELOW</h3>
+              
+              <div class="form-field">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="enter your full name" required autocomplete="name" />
+              </div>
+
+              <div class="form-field">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+              </div>
+
+              <div class="form-field">
+                <label for="service">Choose service</label>
+                <div class="select-wrapper">
+                  <select id="service" name="service" required>
+                    <option value="" disabled selected>Select...</option>
+                    <option value="landing-page">Landing Page</option>
+                    <option value="website">Website Design</option>
+                    <option value="cro">CRO / UX Audit</option>
+                    <option value="branding">Branding</option>
+                  </select>
+                  <svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="message">More about your project</label>
+                <textarea id="message" name="message" placeholder="tell us more about your project, etc, details" rows="2"></textarea>
+              </div>
+
+              <div class="form-submit-wrap">
+                <button type="submit" class="form-submit" id="form-submit">
+                  <span>SUBMIT</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </button>
+              </div>
+            </form>
           </div>
-          <div class="form-field">
-            <label for="message">More about your project</label>
-            <textarea id="message" name="message" placeholder="tell us more about your project details..." rows="4"></textarea>
-          </div>
-          <button type="submit" class="form-submit" id="form-submit">SUBMIT <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></button>
-        </form>
+        </div>
       </div>
     </div>
   </section>

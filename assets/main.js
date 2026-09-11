@@ -285,12 +285,28 @@
       toast.textContent = "Thanks! I'll reply within 24 hours.";
 
       setTimeout(() => {
-        btn.innerHTML = 'SUBMIT <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>';
+        btn.innerHTML = '<span>SUBMIT</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>';
         btn.style.background = '';
         btn.disabled = false;
         if (toast) toast.remove();
         form.reset();
       }, 4000);
+    });
+  }
+
+  /* ── CONTACT RED BLOB MOUSE PARALLAX ──────────────────── */
+  const contactSec = document.getElementById('contact');
+  const contactBlob = document.querySelector('.contact-red-blob');
+  if (contactSec && contactBlob && window.innerWidth > 768) {
+    contactSec.addEventListener('mousemove', (e) => {
+      const rect = contactSec.getBoundingClientRect();
+      const relX = (e.clientX - rect.left) / rect.width - 0.5;
+      const relY = (e.clientY - rect.top) / rect.height - 0.5;
+      contactBlob.style.transform = `translate(${relX * 36}px, ${relY * 36}px)`;
+    }, { passive: true });
+
+    contactSec.addEventListener('mouseleave', () => {
+      contactBlob.style.transform = 'translate(0px, 0px)';
     });
   }
 
