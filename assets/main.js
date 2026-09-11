@@ -332,7 +332,7 @@
         <a href="${basePath}index.html#services" class="dock-menu-item"><span>Services</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
         <a href="${basePath}index.html#testimonials" class="dock-menu-item"><span>Testimonials</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
         <a href="${basePath}index.html#contact" class="dock-menu-item"><span>Contact</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
-        <a href="https://cal.com" target="_blank" rel="noopener" class="dock-menu-item" style="color: var(--red);"><span>Book A Call ↗</span></a>
+        <a href="https://calendar.app.google/o8xFfmjKJcM9aER78" target="_blank" rel="noopener" class="dock-menu-item" style="color: var(--red);"><span>Book A Call ↗</span></a>
       `;
       document.body.appendChild(popover);
     }
