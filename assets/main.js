@@ -54,7 +54,7 @@
     }
   }, { passive: true });
 
-  /* ── HERO ANIMATIONS ──────────────────────────────────── */
+  /* ── HERO ANIMATIONS ──────────────────────────────────────── */
   function initAnimations() {
     // Hero elements
     const nameParts = document.querySelectorAll('.hero-name-part');
@@ -71,8 +71,10 @@
 
     // Scroll-triggered reveal
     initScrollReveal();
-    // New works filter + preview
+    // Works section: filters + floating preview
     initWorksSection();
+    // Services section: hover image cards
+    initServicesSection();
   }
 
   /* ── WORKS SECTION ─────────────────────────────────────── */
@@ -117,11 +119,12 @@
       });
     }
 
-    // Floating image preview on desktop
+    // Floating image preview — desktop only, not touch devices
     const preview    = document.getElementById('work-preview');
     const previewImg = document.getElementById('work-preview-img');
+    const isTouch    = window.matchMedia('(hover: none)').matches;
 
-    if (!preview || !previewImg || window.innerWidth <= 900) return;
+    if (!preview || !previewImg || window.innerWidth <= 900 || isTouch) return;
 
     preview.style.display = 'block';
 
@@ -143,6 +146,11 @@
       preview.style.top  = (currentY - preview.offsetHeight / 2) + 'px';
       rafId = requestAnimationFrame(animatePreview);
     }
+
+    // Cleanup RAF on page unload to prevent leaks
+    window.addEventListener('pagehide', () => {
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+    });
 
     workRows.forEach(row => {
       const imgSrc = row.querySelector('.wr-img-wrap img')?.src;
@@ -224,7 +232,6 @@
       });
     });
   }
-  initServicesSection();
 
   /* ── TESTIMONIALS TABS ────────────────────────────────── */
   const tabBtns = document.querySelectorAll('.tab-person');
