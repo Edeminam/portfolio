@@ -46,9 +46,9 @@
 
 .cs-index-title {
   font-family: var(--font-display);
-  font-size: clamp(42px, 9.5vw, 120px);
+  font-size: clamp(32px, 7vw, 84px);
   font-weight: 900;
-  line-height: 1.02;
+  line-height: 1.18;
   letter-spacing: -0.02em;
   color: rgba(230,230,230,0.92);
   text-transform: uppercase;
@@ -222,12 +222,12 @@
 
 .cs-name {
   font-family: var(--font-display);
-  font-size: clamp(22px, 2.4vw, 34px);
+  font-size: clamp(20px, 2.2vw, 30px);
   font-weight: 900;
   letter-spacing: -0.01em;
   color: var(--white);
   text-transform: uppercase;
-  line-height: 1.15;
+  line-height: 1.28;
 }
 
 /* Badges wrapper (detached from inline style) */
@@ -323,13 +323,16 @@
 
 @media (max-width: 480px) {
   .cs-index-title {
-    font-size: clamp(30px, 10vw, 54px);
+    font-size: clamp(24px, 7.5vw, 38px);
+    line-height: 1.22;
   }
   .cs-index-sub {
     font-size: 14px;
+    line-height: 1.65;
   }
   .cs-name {
-    font-size: clamp(20px, 6.5vw, 28px);
+    font-size: clamp(18px, 5.8vw, 24px);
+    line-height: 1.26;
   }
   .cs-card-image {
     min-height: 220px;
@@ -339,7 +342,8 @@
 
 @media (max-width: 360px) {
   .cs-index-title {
-    font-size: clamp(26px, 9.5vw, 36px);
+    font-size: clamp(20px, 7vw, 28px);
+    line-height: 1.24;
   }
   .work-filter-bar {
     gap: 6px;
