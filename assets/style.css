@@ -1039,6 +1039,23 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   text-decoration: none;
   transition: all 0.2s ease;
 }
+.cs-org-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #a78bfa;
+  background: rgba(167, 139, 250, 0.1);
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
 .cs-tag {
   font-family: var(--font-body);
   font-size: 12px;
