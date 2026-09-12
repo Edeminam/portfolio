@@ -54,9 +54,84 @@
     </div>
   </section>
 
-  <!-- MOCKUP FULL -->
-  <section class="proj-mockup">
-    <img src="../assets/images/project-vreg.jpg" alt="VREG National Vehicle Registry full mockup" class="proj-mockup-img" />
+  <!-- TOP DASHBOARDS SHOWCASE (AGENT OPERATIONS & DIGITAL CERTIFICATION) -->
+  <section class="proj-mockup vreg-mockup-section">
+    <div class="vreg-mockup-container">
+      <!-- Tabs switcher -->
+      <div class="vreg-tabs-bar" role="tablist" aria-label="VREG Interface Screens">
+        <button class="vreg-tab active" data-vreg-tab="0" role="tab" aria-selected="true" aria-controls="vreg-panel-0">
+          <span class="vreg-tab-badge">01</span>
+          <span class="vreg-tab-title">Operations Dashboard</span>
+        </button>
+        <button class="vreg-tab" data-vreg-tab="1" role="tab" aria-selected="false" aria-controls="vreg-panel-1">
+          <span class="vreg-tab-badge">02</span>
+          <span class="vreg-tab-title">Certificates Directory</span>
+        </button>
+        <button class="vreg-tab" data-vreg-tab="2" role="tab" aria-selected="false" aria-controls="vreg-panel-2">
+          <span class="vreg-tab-badge">03</span>
+          <span class="vreg-tab-title">Vehicle Document &amp; QR</span>
+        </button>
+      </div>
+
+      <!-- Main Display Viewport -->
+      <div class="vreg-viewport">
+        <div class="vreg-panel active" id="vreg-panel-0" role="tabpanel">
+          <img src="../assets/images/vreg-agent-dashboard.jpg" alt="VREG Agent Operations Dashboard" class="vreg-main-img" />
+          <div class="vreg-screen-caption">
+            <span class="vreg-caption-tag">Primary Console</span>
+            <span><strong>Agent Operations Cockpit</strong> — Real-time tracking of 1,000 registrations, 189 verified VINs, NGN 25.7M revenue generated, and live transaction ledger.</span>
+          </div>
+        </div>
+        <div class="vreg-panel" id="vreg-panel-1" role="tabpanel">
+          <img src="../assets/images/vreg-certificates-list.jpg" alt="VREG Vehicle Registration Certificates Directory" class="vreg-main-img" />
+          <div class="vreg-screen-caption">
+            <span class="vreg-caption-tag">Registry Database</span>
+            <span><strong>Certificates Directory</strong> — Filterable ledger of 200+ authenticated vehicle registration titles, VIN lookups, invoice verification, and owner histories.</span>
+          </div>
+        </div>
+        <div class="vreg-panel" id="vreg-panel-2" role="tabpanel">
+          <img src="../assets/images/vreg-certificate-modal.jpg" alt="VREG Cryptographic Digital Vehicle Certificate" class="vreg-main-img" />
+          <div class="vreg-screen-caption">
+            <span class="vreg-caption-tag">Cryptographic Clearance</span>
+            <span><strong>Digital Vehicle Document</strong> — Official digital title certificate featuring secure QR authentication, registered agent credentials, and tamper-proof title status.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3-Dashboard Grid Strip -->
+      <div class="vreg-thumbs-grid">
+        <div class="vreg-thumb-card active" data-vreg-target="0">
+          <div class="vreg-thumb-img-wrap">
+            <img src="../assets/images/vreg-agent-dashboard.jpg" alt="Operations Dashboard Thumbnail" loading="lazy" />
+          </div>
+          <div class="vreg-thumb-info">
+            <span class="vreg-thumb-tag">01 · Overview</span>
+            <h4 class="vreg-thumb-title">Operations Dashboard</h4>
+            <p class="vreg-thumb-desc">Registrations, VIN verification KPIs &amp; billing</p>
+          </div>
+        </div>
+        <div class="vreg-thumb-card" data-vreg-target="1">
+          <div class="vreg-thumb-img-wrap">
+            <img src="../assets/images/vreg-certificates-list.jpg" alt="Certificates Directory Thumbnail" loading="lazy" />
+          </div>
+          <div class="vreg-thumb-info">
+            <span class="vreg-thumb-tag">02 · Registry</span>
+            <h4 class="vreg-thumb-title">Certificates Directory</h4>
+            <p class="vreg-thumb-desc">200+ authenticated records &amp; VIN search</p>
+          </div>
+        </div>
+        <div class="vreg-thumb-card" data-vreg-target="2">
+          <div class="vreg-thumb-img-wrap">
+            <img src="../assets/images/vreg-certificate-modal.jpg" alt="Digital Certificate Thumbnail" loading="lazy" />
+          </div>
+          <div class="vreg-thumb-info">
+            <span class="vreg-thumb-tag">03 · Clearance</span>
+            <h4 class="vreg-thumb-title">Digital Vehicle Document</h4>
+            <p class="vreg-thumb-desc">Cryptographic QR title &amp; clearance modal</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- OVERVIEW -->
@@ -82,6 +157,425 @@
     </div>
   </section>
 
+  <!-- CASE STUDY SECTION 01: PROBLEM STATEMENT -->
+  <section class="proj-case-section">
+    <div class="proj-case-inner">
+      <div class="proj-section-label">01 — Problem Statement</div>
+      <h2 class="proj-h2">Halting Tariff Evasion, Stolen Car Laundering &amp; Fiscal Leakage</h2>
+      <p class="proj-case-lead">Nigeria's automotive import corridor was plagued by multi-billion Naira revenue leakage, forged customs paperwork, and cross-border auto theft syndicates exploiting the absence of an interconnected national vehicle registry.</p>
+
+      <div class="proj-problem-grid">
+        <div class="proj-problem-card">
+          <div class="proj-problem-badge">Revenue Leakage</div>
+          <h3 class="proj-problem-title">Pervasive Port Tariff Evasion</h3>
+          <p class="proj-problem-desc">Importers and illicit syndicates routinely forged physical customs duty receipts and under-declared vehicle valuations at maritime ports, depriving the federal government of billions in statutory revenue annually.</p>
+        </div>
+
+        <div class="proj-problem-card">
+          <div class="proj-problem-badge">Security Risk</div>
+          <h3 class="proj-problem-title">Laundering Stolen Vehicles Across Borders</h3>
+          <p class="proj-problem-desc">Vehicles stolen from North America and Europe were shipped through regional ports and registered in Nigerian states using cloned paperwork due to the absence of real-time INTERPOL and VIN stolen databases.</p>
+        </div>
+
+        <div class="proj-problem-card">
+          <div class="proj-problem-badge">Inter-Agency Blindspot</div>
+          <h3 class="proj-problem-title">Disconnected State Licensing Authorities</h3>
+          <p class="proj-problem-desc">State Internal Revenue Services (VIOs and MVAA) lacked digital visibility to verify whether an imported car had actually settled federal customs duties before issuing state license plates and roadworthiness titles.</p>
+        </div>
+
+        <div class="proj-problem-card">
+          <div class="proj-problem-badge">Port Congestion</div>
+          <h3 class="proj-problem-title">Crippling Demurrage &amp; Paper Bureaucracy</h3>
+          <p class="proj-problem-desc">Legitimate maritime clearing agents spent weeks traversing physical port terminals, customs inspection commands, and commercial bank halls, accumulating millions of Naira in severe demurrage penalties.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY SECTION 02: USER PERSONAS -->
+  <section class="proj-case-section">
+    <div class="proj-case-inner">
+      <div class="proj-section-label">02 — User Personas</div>
+      <h2 class="proj-h2">Bridging the Maritime Clearing Agent and the Fiscal Auditor</h2>
+      <p class="proj-case-lead">To design an authoritative yet high-velocity platform, we synthesized field observations across port terminal docks and federal ministry offices into two core user personas.</p>
+
+      <div class="proj-personas-grid">
+        <!-- Persona 1: Clearing Agent -->
+        <div class="proj-persona-card">
+          <div class="proj-persona-header">
+            <div class="proj-persona-avatar" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.4); color: #34d399;">OT</div>
+            <div class="proj-persona-meta">
+              <h3 class="proj-persona-name">Ogbeni Tesiwaju</h3>
+              <p class="proj-persona-role">Licensed Maritime Clearing Agent &bull; 12 Yrs Port Experience</p>
+            </div>
+          </div>
+          <span class="proj-persona-badge">Primary Operational Persona</span>
+          <p class="proj-persona-quote">&ldquo;Time is money at the docks. If a roll-on roll-off vessel sits at Tin Can terminal for an extra 48 hours waiting for duty paperwork, my client loses hundreds of thousands in demurrage.&rdquo;</p>
+          
+          <div class="proj-persona-section">
+            <div class="proj-persona-section-title">Core Goals</div>
+            <ul class="proj-persona-list">
+              <li>Execute rapid batch 17-character VIN lookups without terminal connectivity errors.</li>
+              <li>Generate automated customs valuation assessments and settle payments via integrated e-wallets.</li>
+              <li>Instantly obtain digital VREG clearance certificates with verifiable QR codes to release vehicles.</li>
+            </ul>
+          </div>
+
+          <div class="proj-persona-section">
+            <div class="proj-persona-section-title">Frustrations &amp; Pain Points</div>
+            <ul class="proj-persona-list">
+              <li>Manual bank deposit slip validation taking days to reflect on the customs portal.</li>
+              <li>Repeated port gate extortion by touts claiming vehicle papers are unverified.</li>
+              <li>Web portals with poor mobile responsiveness that fail when checking titles in port yards.</li>
+            </ul>
+          </div>
+
+          <div class="proj-fluency-box">
+            <div class="proj-fluency-header">
+              <span class="proj-fluency-title">Maritime Workflow Literacy</span>
+              <span class="proj-fluency-val">High Speed / Medium Tech</span>
+            </div>
+            <div class="proj-fluency-bar"><div class="proj-fluency-fill" style="width: 82%; background: linear-gradient(90deg, #059669, #34d399);"></div></div>
+          </div>
+        </div>
+
+        <!-- Persona 2: Fiscal Compliance Auditor -->
+        <div class="proj-persona-card">
+          <div class="proj-persona-header">
+            <div class="proj-persona-avatar" style="background: rgba(2, 132, 199, 0.15); border-color: rgba(2, 132, 199, 0.4); color: #38bdf8;">NC</div>
+            <div class="proj-persona-meta">
+              <h3 class="proj-persona-name">Ngozi Chinedu</h3>
+              <p class="proj-persona-role">Senior Revenue Compliance Auditor &bull; Federal Ministry of Finance / VIO</p>
+            </div>
+          </div>
+          <span class="proj-persona-badge">Enforcement &amp; Fiscal Persona</span>
+          <p class="proj-persona-quote">&ldquo;Without a synchronized national digital source of truth between Customs and State Licensing Boards, unverified vehicles slip onto our roads every single day.&rdquo;</p>
+          
+          <div class="proj-persona-section">
+            <div class="proj-persona-section-title">Core Goals</div>
+            <ul class="proj-persona-list">
+              <li>Audit real-time verified versus unverified duty collections across all 36 states and the FCT.</li>
+              <li>Trigger automated red flags on suspicious VIN entries with mismatched engine displacement or vintage.</li>
+              <li>Monitor national fleet demographics, fuel consumption distributions, and seaport ingress volumes.</li>
+            </ul>
+          </div>
+
+          <div class="proj-persona-section">
+            <div class="proj-persona-section-title">Frustrations &amp; Pain Points</div>
+            <ul class="proj-persona-list">
+              <li>Photocopied and manipulated customs clearance certificates with fake government stamps.</li>
+              <li>Lack of inter-agency data reconciliation between maritime ports and state internal revenue services.</li>
+              <li>Inability for field highway patrol officers to verify certificate validity on roadside smartphones.</li>
+            </ul>
+          </div>
+
+          <div class="proj-fluency-box">
+            <div class="proj-fluency-header">
+              <span class="proj-fluency-title">Auditing &amp; Fiscal Literacy</span>
+              <span class="proj-fluency-val">Expert Fiscal &amp; Analytics</span>
+            </div>
+            <div class="proj-fluency-bar"><div class="proj-fluency-fill" style="width: 94%; background: linear-gradient(90deg, #0284c7, #38bdf8);"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY SECTION 03: USER JOURNEY & STORIES -->
+  <section class="proj-case-section">
+    <div class="proj-case-inner">
+      <div class="proj-section-label">03 — User Journey &amp; Agile Stories</div>
+      <h2 class="proj-h2">The National Vehicle Verification Lifecycle</h2>
+      <p class="proj-case-lead">We re-engineered the customs verification workflow from an opaque paper labyrinth into a unified 5-phase cryptographic journey linking maritime berths to highway licensing.</p>
+
+      <!-- 5-PHASE TIMELINE -->
+      <div class="proj-journey-timeline">
+        <div class="proj-journey-step">
+          <div class="proj-journey-num">01</div>
+          <div class="proj-journey-phase">Manifest Influx</div>
+          <h4 class="proj-journey-title">Vessel Discharge &amp; Ingestion</h4>
+          <p class="proj-journey-desc">Port shipping manifests are ingested into VREG; vehicles offloaded at maritime berths are registered in the National Customs &amp; Imports Cockpit.</p>
+          <div class="proj-journey-pill">Automated Ingestion API</div>
+        </div>
+
+        <div class="proj-journey-step">
+          <div class="proj-journey-num">02</div>
+          <div class="proj-journey-phase">VIN Validation</div>
+          <h4 class="proj-journey-title">17-Char Checksum &amp; Stolen Check</h4>
+          <p class="proj-journey-desc">Clearing agent inputs VIN; the engine queries global manufacturer databases and law enforcement stolen registries to verify authenticity.</p>
+          <div class="proj-journey-pill">INTERPOL Database Sync</div>
+        </div>
+
+        <div class="proj-journey-step">
+          <div class="proj-journey-num">03</div>
+          <div class="proj-journey-phase">Tariff Valuation</div>
+          <h4 class="proj-journey-title">Customs Duty Computation</h4>
+          <p class="proj-journey-desc">Official tariff is computed based on model, year, and engine size; clearing agent completes immediate settlement via integrated digital gateway.</p>
+          <div class="proj-journey-pill">Real-Time Tariff Ledger</div>
+        </div>
+
+        <div class="proj-journey-step">
+          <div class="proj-journey-num">04</div>
+          <div class="proj-journey-phase">Certificate Issuance</div>
+          <h4 class="proj-journey-title">Cryptographic Digital Title</h4>
+          <p class="proj-journey-desc">System issues a tamper-proof digital vehicle registration certificate featuring unique cryptographic signatures and a high-density QR verification code.</p>
+          <div class="proj-journey-pill">Signed Digital Seal</div>
+        </div>
+
+        <div class="proj-journey-step">
+          <div class="proj-journey-num">05</div>
+          <div class="proj-journey-phase">State Enforcement</div>
+          <h4 class="proj-journey-title">State Licensing &amp; QR Audit</h4>
+          <p class="proj-journey-desc">State licensing boards and road safety officers scan the QR code via mobile devices, confirming authentic duty clearance before issuing vehicle license plates.</p>
+          <div class="proj-journey-pill">Offline Verifiable QR</div>
+        </div>
+      </div>
+
+      <!-- USER STORIES -->
+      <div class="proj-section-label" style="margin-top: 56px;">Agile User Stories &amp; Acceptance Criteria</div>
+      <div class="proj-stories-grid">
+        <div class="proj-story-card">
+          <div class="proj-story-id">US-VREG-01 &bull; Agent Operations Module</div>
+          <h4 class="proj-story-title">Agent Operations Cockpit &amp; Financial Ledger</h4>
+          <p class="proj-story-statement"><strong>As a</strong> licensed maritime clearing agent,<br><strong>I want</strong> a high-visibility operations dashboard tracking my registrations, verified VINs, and fee settlements,<br><strong>So that</strong> I can manage high-volume import batches without revenue reconciliation errors.</p>
+          <div class="proj-ac-box">
+            <div class="proj-ac-title">Acceptance Criteria</div>
+            <ul class="proj-ac-list">
+              <li>Top KPI metrics display Total Registrations (1,000), Verified VINs (189), and Generated Inflow (NGN 25.7M).</li>
+              <li>Transaction ledger with real-time status badges (Verified, Pending, Processing) and sub-second filtering.</li>
+              <li>One-click batch invoice export for customs release and terminal operator verification.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="proj-story-card">
+          <div class="proj-story-id">US-VREG-02 &bull; Verification Engine</div>
+          <h4 class="proj-story-title">High-Precision 17-Character VIN Decoder</h4>
+          <p class="proj-story-statement"><strong>As an</strong> automotive clearing agent or buyer,<br><strong>I want</strong> instant decoding of 17-character VINs with manufacturer metadata retrieval,<br><strong>So that</strong> vehicle specifications are auto-populated without manual typos or falsified declarations.</p>
+          <div class="proj-ac-box">
+            <div class="proj-ac-title">Acceptance Criteria</div>
+            <ul class="proj-ac-list">
+              <li>Sub-second checksum validation conforming to international ISO 3779 standard VIN algorithms.</li>
+              <li>Instant retrieval of manufacturer, model, build year, body classification, and engine cubic capacity.</li>
+              <li>Automated flag warnings if VIN matches international stolen vehicle databases or forged chassis sequences.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="proj-story-card">
+          <div class="proj-story-id">US-VREG-03 &bull; Digital Credentials</div>
+          <h4 class="proj-story-title">Cryptographic Digital Vehicle Title Modal</h4>
+          <p class="proj-story-statement"><strong>As a</strong> vehicle owner or licensing officer,<br><strong>I want</strong> an authoritative digital title certificate with a scannable QR verification seal,<br><strong>So that</strong> I can verify authentic customs clearance and ownership on mobile devices in seconds.</p>
+          <div class="proj-ac-box">
+            <div class="proj-ac-title">Acceptance Criteria</div>
+            <ul class="proj-ac-list">
+              <li>Modal presents vehicle specifications, engine number, registered agent credentials, and customs stamp.</li>
+              <li>Dynamic high-density QR code embedding cryptographically signed payload verifiable offline.</li>
+              <li>Anti-tamper watermark and verification timestamp to prevent fraudulent screenshot replication.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="proj-story-card">
+          <div class="proj-story-id">US-VREG-04 &bull; Fiscal Oversight</div>
+          <h4 class="proj-story-title">State-Level Verified vs Unverified Duty Audit</h4>
+          <p class="proj-story-statement"><strong>As a</strong> federal revenue inspector,<br><strong>I want</strong> a comparative analytics audit modal tracking verified vs unverified duties by state,<br><strong>So that</strong> our enforcement taskforce can identify regional revenue leakage and tariff evasion hotspots.</p>
+          <div class="proj-ac-box">
+            <div class="proj-ac-title">Acceptance Criteria</div>
+            <ul class="proj-ac-list">
+              <li>Side-by-side compliance bars across federal states (Lagos, FCT, Rivers, Kano, Anambra, etc.).</li>
+              <li>Real-time aggregation of tariff recovery percentages and total unverified vehicle volumes.</li>
+              <li>Drill-down capability to inspect flagged vehicle records and trigger automated inter-agency audits.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY SECTION 04: INFORMATION ARCHITECTURE -->
+  <section class="proj-case-section">
+    <div class="proj-case-inner">
+      <div class="proj-section-label">04 — Information Architecture</div>
+      <h2 class="proj-h2">Interconnected National Fiscal &amp; Maritime Taxonomy</h2>
+      <p class="proj-case-lead">We organized the VREG platform into five interconnected operational hubs, harmonizing seaport maritime logistics, commercial agent workflows, state licensing registries, and federal ministerial compliance.</p>
+
+      <div class="proj-ia-grid">
+        <div class="proj-ia-card">
+          <div class="proj-ia-header">
+            <span class="proj-ia-num">01</span>
+            <h3 class="proj-ia-title">Executive Maritime Cockpit</h3>
+          </div>
+          <p class="proj-ia-desc">High-level federal oversight console monitoring maritime ports of entry and international trade corridors.</p>
+          <ul class="proj-ia-list">
+            <li>Daily Ingestion Meters (866 Registered, 334 Customs-Cleared)</li>
+            <li>Global Continental Origin Tracking (Europe, Americas, Asia)</li>
+            <li>Interactive Seaport &amp; Land Border Port of Entry Geo-Map</li>
+            <li>Customs Tariff Inflow Projections &amp; Real-time Yields</li>
+            <li>Inter-Agency Alert Feeds (Customs, Police, Interpol)</li>
+          </ul>
+        </div>
+
+        <div class="proj-ia-card">
+          <div class="proj-ia-header">
+            <span class="proj-ia-num">02</span>
+            <h3 class="proj-ia-title">Agent Operations Cockpit</h3>
+          </div>
+          <p class="proj-ia-desc">High-throughput operational workspace for licensed maritime clearing agents and freight forwarders.</p>
+          <ul class="proj-ia-list">
+            <li>Operations KPIs (1,000 Registrations, NGN 25.7M Inflow)</li>
+            <li>Batch VIN Lookup &amp; Automated Valuation Wizard</li>
+            <li>Live Transaction Ledger with Status Badges</li>
+            <li>Integrated e-Wallet &amp; Commercial Bank Payment Bridge</li>
+            <li>Quick-Action Title Clearance &amp; Port Gate Pass Generation</li>
+          </ul>
+        </div>
+
+        <div class="proj-ia-card">
+          <div class="proj-ia-header">
+            <span class="proj-ia-num">03</span>
+            <h3 class="proj-ia-title">Certificates Registry &amp; Digital Title</h3>
+          </div>
+          <p class="proj-ia-desc">Authoritative national repository of all authenticated vehicle registration certificates and titles.</p>
+          <ul class="proj-ia-list">
+            <li>Searchable Ledger of 200+ Authenticated Vehicle Records</li>
+            <li>Multi-Parameter Filters (VIN, Chassis, Invoice, Owner Entity)</li>
+            <li>Cryptographic Digital Certificate Modal with QR Verification</li>
+            <li>Tamper-Proof PDF Export &amp; Official Customs Clearance Seal</li>
+            <li>Historical Ownership Transfer &amp; Re-registration Log</li>
+          </ul>
+        </div>
+
+        <div class="proj-ia-card">
+          <div class="proj-ia-header">
+            <span class="proj-ia-num">04</span>
+            <h3 class="proj-ia-title">In-Country Registry &amp; Geo Census</h3>
+          </div>
+          <p class="proj-ia-desc">Comprehensive nationwide vehicle census analyzing the 200,000+ active vehicular fleet across Nigeria.</p>
+          <ul class="proj-ia-list">
+            <li>36 State &amp; FCT Vehicular Density Heatmaps</li>
+            <li>Manufacturer Market Penetration (Toyota, Honda, Mercedes, etc.)</li>
+            <li>Fleet Vintage Trajectory Analysis (2011 &ndash; 2022 Manufacturing Years)</li>
+            <li>State Licensing Board (VIO / MVAA) Synchronization Status</li>
+            <li>Urban vs Rural Vehicular Concentration Indices</li>
+          </ul>
+        </div>
+
+        <div class="proj-ia-card">
+          <div class="proj-ia-header">
+            <span class="proj-ia-num">05</span>
+            <h3 class="proj-ia-title">Fleet Segmentation &amp; Compliance Audit</h3>
+          </div>
+          <p class="proj-ia-desc">Deep-dive fiscal auditing suite tracking duty compliance, engine displacement, and energy metrics.</p>
+          <ul class="proj-ia-list">
+            <li>Vehicle Body Type Funnel (Sedan, SUV, Coupe, Crossover)</li>
+            <li>Engine Cubic Capacity Classifications (Under 2.0L to V8+)</li>
+            <li>Concentric Fuel-Type Adoption Arcs (Petrol, Diesel, Hybrid, EV)</li>
+            <li>State-Level Verified vs Unverified Duty Audit Modal</li>
+            <li>Automated Revenue Leakage Recovery &amp; Penalty Assessment</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY SECTION 05: IDEATION & DESIGN PRINCIPLES -->
+  <section class="proj-case-section">
+    <div class="proj-case-inner">
+      <div class="proj-section-label">05 — Ideation &amp; Design Principles</div>
+      <h2 class="proj-h2">The Strategic Principles Behind VREG</h2>
+      <p class="proj-case-lead">We established three core architectural pillars to balance high-volume maritime dock operations with the authoritative dignity of a sovereign financial portal.</p>
+
+      <div class="proj-principles-grid">
+        <div class="proj-principle-card">
+          <div class="proj-principle-num">01</div>
+          <h3 class="proj-principle-title">Maritime Emerald Authority</h3>
+          <p class="proj-principle-desc">To establish immediate trust and statutory legitimacy across border stations and banking halls, VREG's interface is anchored in authoritative deep emerald (<code>#059669</code> &amp; <code>#047857</code>) and crisp dark obsidian surfaces, conveying institutional integrity and fiscal sovereignty.</p>
+        </div>
+
+        <div class="proj-principle-card">
+          <div class="proj-principle-num">02</div>
+          <h3 class="proj-principle-title">High-Contrast Dock Scannability</h3>
+          <p class="proj-principle-desc">Field clearing agents and customs inspectors operate on mobile tablets and ruggedized laptops outdoors under intense seaport sunlight. We implemented high-contrast typographic hierarchies, prominent card boundaries, and bold tabular numbers to eliminate outdoor glare fatigue.</p>
+        </div>
+
+        <div class="proj-principle-card">
+          <div class="proj-principle-num">03</div>
+          <h3 class="proj-principle-title">Cryptographic Fail-Safe Portability</h3>
+          <p class="proj-principle-desc">Network connectivity at remote land borders and highway checkpoints is often degraded. VREG certificates encode cryptographically signed payloads inside high-density 2D QR vectors, allowing state inspection officers to verify vehicle authenticity completely offline.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN SCREENS SHOWCASE -->
+  <section class="proj-gallery">
+    <div class="proj-gallery-inner">
+      <div class="proj-section-label">Core Interfaces &amp; Analytics Screens</div>
+      <div class="proj-screens-grid">
+        <!-- Screen 1: Imports & Customs Clearance Master Dashboard (Full Width) -->
+        <div class="proj-screen-card proj-screen-card--full">
+          <div class="proj-screen-media">
+            <img src="../assets/images/vreg-imports-dashboard.jpg" alt="VREG National Customs &amp; Imports Master Dashboard" loading="lazy" />
+          </div>
+          <div class="proj-screen-info">
+            <span class="proj-screen-tag">Executive Overview</span>
+            <h3 class="proj-screen-title">National Customs &amp; Maritime Imports Cockpit</h3>
+            <p class="proj-screen-desc">High-level operational cockpit for federal oversight displaying real-time vehicle daily ingestion meters (866 registered, 334 customs-cleared, 100K revenue units), global exporting continents tracking, and nationwide seaport/border ports of entry geographic mapping.</p>
+          </div>
+        </div>
+
+        <!-- Screen 2: Nationwide In-Country Vehicle Registry -->
+        <div class="proj-screen-card">
+          <div class="proj-screen-media">
+            <img src="../assets/images/vreg-incountry-dashboard.jpg" alt="VREG In-Country Vehicle Registry &amp; Geo Distribution" loading="lazy" />
+          </div>
+          <div class="proj-screen-info">
+            <span class="proj-screen-tag">In-Country Fleet</span>
+            <h3 class="proj-screen-title">Nationwide In-Country Vehicle Registry &amp; Geo-Analytics</h3>
+            <p class="proj-screen-desc">Comprehensive census console tracking 200,000+ active in-country vehicles across Nigeria's 36 states and the FCT, with regional density mapping, manufacturer market penetration bars, and vintage manufacturing trajectory from 2011 to 2022.</p>
+          </div>
+        </div>
+
+        <!-- Screen 3: Fleet Classification & Fuel Analytics -->
+        <div class="proj-screen-card">
+          <div class="proj-screen-media">
+            <img src="../assets/images/vreg-vehicles-analytics.jpg" alt="VREG Vehicles Classification, Engine and Fuel Analytics" loading="lazy" />
+          </div>
+          <div class="proj-screen-info">
+            <span class="proj-screen-tag">Fleet Segmentation</span>
+            <h3 class="proj-screen-title">Vehicle Classification, Engine &amp; Fuel Analytics</h3>
+            <p class="proj-screen-desc">Deep-dive fleet intelligence analyzing vehicle brand market shares (Toyota, Honda, Mercedes, Lexus, BMW), body type distribution funnels (Sedan, SUV, Coupe, Hatchback, Crossover), engine size classifications, concentric fuel-type adoption arcs, and state-by-state density.</p>
+          </div>
+        </div>
+
+        <!-- Screen 4: State-Level Duty Verification Audit Modal -->
+        <div class="proj-screen-card">
+          <div class="proj-screen-media">
+            <img src="../assets/images/vreg-duty-modal.jpg" alt="VREG State-Level Verified vs Unverified Duty Audit Modal" loading="lazy" />
+          </div>
+          <div class="proj-screen-info">
+            <span class="proj-screen-tag">Revenue &amp; Compliance</span>
+            <h3 class="proj-screen-title">State-Level Verified vs Unverified Duty Audit Modal</h3>
+            <p class="proj-screen-desc">Targeted compliance modal allowing revenue inspectors and licensing officers to audit total verified versus unverified customs duty collections across federal states (FCT, Lagos, Rivers, Kano, Anambra, etc.) to halt tariff evasion at licensing points.</p>
+          </div>
+        </div>
+
+        <!-- Screen 5: Agent Registration & Digital Certificate Directory -->
+        <div class="proj-screen-card">
+          <div class="proj-screen-media proj-screen-media--scroll">
+            <img src="../assets/images/vreg-certificates.jpg" alt="VREG Agent Registration &amp; Digital Certificate Management Console" loading="lazy" />
+          </div>
+          <div class="proj-screen-info">
+            <span class="proj-screen-tag">Operations &amp; Issuance</span>
+            <h3 class="proj-screen-title">Agent Registration &amp; Digital Certificate Directory</h3>
+            <p class="proj-screen-desc">Enterprise workflow console for authorized maritime agents and freight forwarders, managing 200+ authenticated vehicle registration certificates with instant VIN lookup, invoice linkage, verified entity ownership, and certificate inspection actions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- RESULTS -->
   <section class="proj-results">
     <div class="proj-overview-inner">
@@ -90,18 +584,6 @@
         <div class="proj-stat"><div class="proj-stat-num">2.4M+</div><div class="proj-stat-label">Vehicles Registered &amp; Verified Nationwide</div></div>
         <div class="proj-stat"><div class="proj-stat-num">100%</div><div class="proj-stat-label">Automated Integration Across Seaports &amp; Borders</div></div>
         <div class="proj-stat"><div class="proj-stat-num">+35%</div><div class="proj-stat-label">Tariff Revenue Recovery in First Operational Year</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section class="proj-gallery">
-    <div class="proj-gallery-inner">
-      <div class="proj-section-label">Design Screens</div>
-      <div class="proj-gallery-grid">
-        <div class="proj-gallery-item proj-gallery-item--wide"><img src="../assets/images/project-vreg.jpg" alt="VREG VIN Lookup Portal Screen" /></div>
-        <div class="proj-gallery-item"><img src="../assets/images/project-idec.jpg" alt="IDEC Customs Duty Integration" /></div>
-        <div class="proj-gallery-item"><img src="../assets/images/project-possap.jpg" alt="POSSAP Public Safety Interface" /></div>
       </div>
     </div>
   </section>
@@ -344,5 +826,33 @@
     </div>
   </footer>
   <script src="../assets/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.vreg-tab');
+      const panels = document.querySelectorAll('.vreg-panel');
+      const thumbs = document.querySelectorAll('.vreg-thumb-card');
+
+      function switchVregDashboard(idx) {
+        tabs.forEach((t, i) => {
+          const isActive = i === idx;
+          t.classList.toggle('active', isActive);
+          t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+        panels.forEach((p, i) => {
+          p.classList.toggle('active', i === idx);
+        });
+        thumbs.forEach((th, i) => {
+          th.classList.toggle('active', i === idx);
+        });
+      }
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => switchVregDashboard(index));
+      });
+      thumbs.forEach((thumb, index) => {
+        thumb.addEventListener('click', () => switchVregDashboard(index));
+      });
+    });
+  </script>
 </body>
 </html>

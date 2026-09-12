@@ -54,9 +54,204 @@
     </div>
   </section>
 
-  <!-- MOCKUP FULL -->
-  <section class="proj-mockup">
-    <img src="../assets/images/project-possap.jpg" alt="POSSAP Public Safety Platform full mockup" class="proj-mockup-img" />
+  <!-- TOP DASHBOARDS SHOWCASE: POSSAP POLICE AUTOMATION & BIOMETRICS PLATFORM -->
+  <section class="proj-mockup possap-mockup-section">
+    <div class="possap-mockup-container">
+      <!-- Tabs switcher -->
+      <div class="possap-tabs-bar" role="tablist" aria-label="POSSAP Interface Screens">
+        <button class="possap-tab active" data-possap-tab="0" role="tab" aria-selected="true" aria-controls="possap-panel-0">
+          <span class="possap-tab-badge">01</span>
+          <span class="possap-tab-title">Citizen Portal (Live)</span>
+        </button>
+        <button class="possap-tab" data-possap-tab="1" role="tab" aria-selected="false" aria-controls="possap-panel-1">
+          <span class="possap-tab-badge">02</span>
+          <span class="possap-tab-title">Operations Console</span>
+        </button>
+        <button class="possap-tab" data-possap-tab="2" role="tab" aria-selected="false" aria-controls="possap-panel-2">
+          <span class="possap-tab-badge">03</span>
+          <span class="possap-tab-title">National Analytics</span>
+        </button>
+        <button class="possap-tab" data-possap-tab="3" role="tab" aria-selected="false" aria-controls="possap-panel-3">
+          <span class="possap-tab-badge">04</span>
+          <span class="possap-tab-title">Convict Directory</span>
+        </button>
+        <button class="possap-tab" data-possap-tab="4" role="tab" aria-selected="false" aria-controls="possap-panel-4">
+          <span class="possap-tab-badge">05</span>
+          <span class="possap-tab-title">Biometric Mugshot</span>
+        </button>
+        <button class="possap-tab" data-possap-tab="5" role="tab" aria-selected="false" aria-controls="possap-panel-5">
+          <span class="possap-tab-badge">06</span>
+          <span class="possap-tab-title">10-Print Fingerprint</span>
+        </button>
+        <button class="possap-tab" data-possap-tab="6" role="tab" aria-selected="false" aria-controls="possap-panel-6">
+          <span class="possap-tab-badge">07</span>
+          <span class="possap-tab-title">Facial Status Check</span>
+        </button>
+        <button class="possap-tab" data-possap-tab="7" role="tab" aria-selected="false" aria-controls="possap-panel-7">
+          <span class="possap-tab-badge">08</span>
+          <span class="possap-tab-title">AFIS Fingerprint Check</span>
+        </button>
+      </div>
+
+      <!-- Main Display Viewport -->
+      <div class="possap-viewport">
+        <!-- Panel 0: Live Citizen Portal (possap.gov.ng) -->
+        <div class="possap-panel active" id="possap-panel-0" role="tabpanel">
+          <img src="../assets/images/possap-website-hero.png" alt="POSSAP Public Citizen Portal and Service Automation Website (possap.gov.ng)" class="possap-main-img" />
+          <div class="possap-screen-caption">
+            <span class="possap-caption-tag">Live Portal &bull; possap.gov.ng</span>
+            <span><strong>Public Specialized Services Automation Platform</strong> — High-availability public web portal for Nigerian citizens, diplomatic missions, and corporate organizations to initiate and track police character clearances, firearms licensing, tinted glass permits, and specialized protection details with integrated digital payment gateways.</span>
+          </div>
+        </div>
+
+        <!-- Panel 1: Operations Console -->
+        <div class="possap-panel" id="possap-panel-1" role="tabpanel">
+          <img src="../assets/images/possap-operations-dashboard.jpg" alt="POSSAP Field Operations and Convict Intake Dashboard" class="possap-main-img" />
+          <div class="possap-screen-caption">
+            <span class="possap-caption-tag">Operations Console</span>
+            <span><strong>Intake &amp; Peripheral Device Management</strong> — Real-time tracking of 215 convict entries, pending vs verified submission statuses, weekly intake curves, and live peripheral device connectivity for fingerprint scanners, optical webcams, and document scanners.</span>
+          </div>
+        </div>
+
+        <!-- Panel 2: National Analytics -->
+        <div class="possap-panel" id="possap-panel-2" role="tabpanel">
+          <img src="../assets/images/possap-national-analytics.jpg" alt="POSSAP National Crime Intelligence and Crime Trends Dashboard" class="possap-main-img" />
+          <div class="possap-screen-caption">
+            <span class="possap-caption-tag">National Intelligence</span>
+            <span><strong>Command Analytics &amp; Crime Trends</strong> — Executive oversight for high-ranking police command (CP Idris Okoro), analyzing 1,050,100 nationwide convicts, agency jurisdiction shares, state-by-state conviction density rankings, and multi-year crime trend curves.</span>
+          </div>
+        </div>
+
+        <!-- Panel 3: Convict Directory -->
+        <div class="possap-panel" id="possap-panel-3" role="tabpanel">
+          <img src="../assets/images/possap-convict-list.jpg" alt="POSSAP Convict Records Directory and Audit Ledger" class="possap-main-img" />
+          <div class="possap-screen-caption">
+            <span class="possap-caption-tag">Records Ledger</span>
+            <span><strong>National Convict Directory</strong> — Centralized, filterable judicial audit ledger cataloging criminal records with permanent Convict IDs, high-resolution mugshots, demographic profiling, offenses (Burglary, Armed Robbery), and presiding courts of conviction.</span>
+          </div>
+        </div>
+
+        <!-- Panel 4: Biometric Mugshot -->
+        <div class="possap-panel" id="possap-panel-4" role="tabpanel">
+          <img src="../assets/images/possap-passport-capture.jpg" alt="POSSAP Convict Biometric 3-Angle Mugshot Capture" class="possap-main-img" />
+          <div class="possap-screen-caption">
+            <span class="possap-caption-tag">Facial Biometrics</span>
+            <span><strong>Three-Angle Forensic Mugshot Capture</strong> — Standardized photo enrollment interface capturing frontal face, left profile, and right profile angles with embedded cryptographic security watermarks.</span>
+          </div>
+        </div>
+
+        <!-- Panel 5: 10-Print Fingerprint -->
+        <div class="possap-panel" id="possap-panel-5" role="tabpanel">
+          <img src="../assets/images/possap-biometrics-capture.jpg" alt="POSSAP 10-Print Fingerprint and Dual-Hand Slap Biometric Engine" class="possap-main-img" />
+          <div class="possap-screen-caption">
+            <span class="possap-caption-tag">AFIS Enrollment</span>
+            <span><strong>10-Print Fingerprint &amp; Slap Capture System</strong> — Comprehensive biometric ingestion workflow with live sensor feedback for all 10 individual digits plus flat dual-hand 4-finger slap scans for nationwide AFIS criminal matching.</span>
+          </div>
+        </div>
+
+        <!-- Panel 6: Facial Status Check -->
+        <div class="possap-panel" id="possap-panel-6" role="tabpanel">
+          <img src="../assets/images/possap-status-check-photo.jpg" alt="POSSAP Criminal Status Check Using Facial Webcam Biometrics" class="possap-main-img" />
+          <div class="possap-screen-caption">
+            <span class="possap-caption-tag">Status Verification</span>
+            <span><strong>Criminal Status Check (Facial Verification)</strong> — Real-time biometric interrogation interface enabling officers to verify suspect identity via connected webcam capture (Front, Right, Left view) with instant full-database criminal record matching.</span>
+          </div>
+        </div>
+
+        <!-- Panel 7: AFIS Fingerprint Check -->
+        <div class="possap-panel" id="possap-panel-7" role="tabpanel">
+          <img src="../assets/images/possap-status-check-fingerprint.jpg" alt="POSSAP Criminal Status Check Using AFIS Fingerprint Matcher" class="possap-main-img" />
+          <div class="possap-screen-caption">
+            <span class="possap-caption-tag">AFIS Verification</span>
+            <span><strong>Criminal Status Check (Fingerprint AFIS Match)</strong> — High-throughput biometric matching console executing simultaneous 4-finger flat slap and thumb verification queries directly against the national criminal database.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thumbnail Grid Strip -->
+      <div class="possap-thumbs-grid">
+        <div class="possap-thumb-card active" data-possap-target="0">
+          <div class="possap-thumb-img-wrap">
+            <img src="../assets/images/possap-website-hero.png" alt="Citizen Portal Thumbnail" loading="lazy" />
+          </div>
+          <div class="possap-thumb-info">
+            <span class="possap-thumb-tag">01 · Live Portal</span>
+            <h4 class="possap-thumb-title">Citizen Portal</h4>
+            <p class="possap-thumb-desc">possap.gov.ng live website</p>
+          </div>
+        </div>
+        <div class="possap-thumb-card" data-possap-target="1">
+          <div class="possap-thumb-img-wrap">
+            <img src="../assets/images/possap-operations-dashboard.jpg" alt="Operations Console Thumbnail" loading="lazy" />
+          </div>
+          <div class="possap-thumb-info">
+            <span class="possap-thumb-tag">02 · Operations</span>
+            <h4 class="possap-thumb-title">Intake Console</h4>
+            <p class="possap-thumb-desc">Field entries &amp; device hardware</p>
+          </div>
+        </div>
+        <div class="possap-thumb-card" data-possap-target="2">
+          <div class="possap-thumb-img-wrap">
+            <img src="../assets/images/possap-national-analytics.jpg" alt="National Analytics Thumbnail" loading="lazy" />
+          </div>
+          <div class="possap-thumb-info">
+            <span class="possap-thumb-tag">03 · Intelligence</span>
+            <h4 class="possap-thumb-title">National Analytics</h4>
+            <p class="possap-thumb-desc">1M+ convicts &amp; state rankings</p>
+          </div>
+        </div>
+        <div class="possap-thumb-card" data-possap-target="3">
+          <div class="possap-thumb-img-wrap">
+            <img src="../assets/images/possap-convict-list.jpg" alt="Convict Directory Thumbnail" loading="lazy" />
+          </div>
+          <div class="possap-thumb-info">
+            <span class="possap-thumb-tag">04 · Directory</span>
+            <h4 class="possap-thumb-title">Convict Directory</h4>
+            <p class="possap-thumb-desc">Filterable records &amp; court data</p>
+          </div>
+        </div>
+        <div class="possap-thumb-card" data-possap-target="4">
+          <div class="possap-thumb-img-wrap">
+            <img src="../assets/images/possap-passport-capture.jpg" alt="Biometric Mugshot Thumbnail" loading="lazy" />
+          </div>
+          <div class="possap-thumb-info">
+            <span class="possap-thumb-tag">05 · Biometrics</span>
+            <h4 class="possap-thumb-title">Mugshot Capture</h4>
+            <p class="possap-thumb-desc">3-angle biometric facial system</p>
+          </div>
+        </div>
+        <div class="possap-thumb-card" data-possap-target="5">
+          <div class="possap-thumb-img-wrap">
+            <img src="../assets/images/possap-biometrics-capture.jpg" alt="10-Print Fingerprint Thumbnail" loading="lazy" />
+          </div>
+          <div class="possap-thumb-info">
+            <span class="possap-thumb-tag">06 · AFIS</span>
+            <h4 class="possap-thumb-title">10-Print Capture</h4>
+            <p class="possap-thumb-desc">10-digit &amp; dual slap enrollment</p>
+          </div>
+        </div>
+        <div class="possap-thumb-card" data-possap-target="6">
+          <div class="possap-thumb-img-wrap">
+            <img src="../assets/images/possap-status-check-photo.jpg" alt="Facial Status Check Thumbnail" loading="lazy" />
+          </div>
+          <div class="possap-thumb-info">
+            <span class="possap-thumb-tag">07 · Verification</span>
+            <h4 class="possap-thumb-title">Facial Status Check</h4>
+            <p class="possap-thumb-desc">Webcam match &amp; query</p>
+          </div>
+        </div>
+        <div class="possap-thumb-card" data-possap-target="7">
+          <div class="possap-thumb-img-wrap">
+            <img src="../assets/images/possap-status-check-fingerprint.jpg" alt="AFIS Fingerprint Check Thumbnail" loading="lazy" />
+          </div>
+          <div class="possap-thumb-info">
+            <span class="possap-thumb-tag">08 · AFIS Query</span>
+            <h4 class="possap-thumb-title">Fingerprint Check</h4>
+            <p class="possap-thumb-desc">4-finger slap verification</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- OVERVIEW -->
@@ -66,42 +261,477 @@
       <div class="proj-overview-grid">
         <div class="proj-overview-main">
           <h2 class="proj-h2">The Brief &amp; National Mission</h2>
-          <p>The Nigeria Police Force (NPF) provides critical statutory specialized services to individuals, embassies, and corporate organizations: character clearance certificates, firearms licensing, vehicle tint permits, and specialized protection details.</p>
-          <p>Prior to POSSAP, citizens spent days visiting zonal police headquarters in person, queueing for physical fingerprint cards and waiting weeks for manual paper verification. Unaccredited middle-men proliferated, undermining institutional trust and public safety record integrity.</p>
-          <p>Emmanuel was appointed to lead the user experience overhaul of the citizen portal and the internal law enforcement approval backoffice. The resulting platform enables citizens to apply online, select biometric appointment slots at local commands, track progress via SMS, and download cryptographically signed, verifiable digital certificates.</p>
+          <p>The Nigeria Police Force (NPF) provides critical statutory specialized services to individuals, embassies, and corporate organizations: character clearance certificates, firearms licensing, vehicle tint permits, specialized protection details, and centralized judicial convict record management.</p>
+          <p>Prior to POSSAP, criminal records and clearance processes were siloed across zonal police commands with physical fingerprint cards and manual paper registers. Unaccredited middle-men proliferated, and background verifications took weeks with no unified national database.</p>
+          <p>Emmanuel led the user experience and interface architecture for both the national intelligence console and the biometric enrollment station workflow. The resulting system unifies real-time field intake, peripheral biometric scanner hardware, 3-angle facial portraiture, 10-print fingerprint AFIS capture, and executive crime analytics across 1,000,000+ national records.</p>
         </div>
         <div class="proj-overview-meta">
           <div class="proj-meta-item"><div class="proj-meta-label">Client</div><div class="proj-meta-val">Nigeria Police Force &amp; Ministry of Police Affairs</div></div>
           <div class="proj-meta-item"><div class="proj-meta-label">Live Platform</div><div class="proj-meta-val"><a href="https://possap.gov.ng" target="_blank" rel="noopener">possap.gov.ng ↗</a></div></div>
           <div class="proj-meta-item"><div class="proj-meta-label">Role</div><div class="proj-meta-val">Principal UI/UX Designer</div></div>
           <div class="proj-meta-item"><div class="proj-meta-label">Year</div><div class="proj-meta-val">2023 – 2024</div></div>
-          <div class="proj-meta-item"><div class="proj-meta-label">Services</div><div class="proj-meta-val">Citizen Portal UX<br/>Biometric Scheduling System<br/>Police Command Console</div></div>
+          <div class="proj-meta-item"><div class="proj-meta-label">Services</div><div class="proj-meta-val">Convict Records &amp; Intelligence<br/>Biometric AFIS Enrollment<br/>Police Command Console</div></div>
           <div class="proj-meta-item"><div class="proj-meta-label">Duration</div><div class="proj-meta-val">16 Weeks</div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- RESULTS -->
-  <section class="proj-results">
-    <div class="proj-overview-inner">
-      <div class="proj-section-label">Impact &amp; Results</div>
-      <div class="proj-stats-row">
-        <div class="proj-stat"><div class="proj-stat-num">1.2M+</div><div class="proj-stat-label">Digital Police Clearances &amp; Permits Issued</div></div>
-        <div class="proj-stat"><div class="proj-stat-num">70%</div><div class="proj-stat-label">Reduction in Citizen Verification Waiting Time</div></div>
-        <div class="proj-stat"><div class="proj-stat-num">100%</div><div class="proj-stat-label">Cryptographic Digital Audit Trail Eliminating Intermediaries</div></div>
+  <!-- PROBLEM STATEMENT & OBJECTIVES -->
+  <section class="proj-case-section" id="problem">
+    <div class="proj-case-inner">
+      <div class="proj-case-header">
+        <span class="proj-case-tag">01 · Problem Statement</span>
+        <h2 class="proj-case-h2">Institutional Fragmentation &amp; Identity Loopholes</h2>
+        <p class="proj-case-desc">Before POSSAP, specialized police clearances, background checks, and judicial convict tracking operated via fragmented paper registers across 36 states and 17 zonal commands, creating critical security liabilities.</p>
+      </div>
+
+      <div class="proj-problem-grid">
+        <div class="proj-problem-card proj-problem-card--legacy">
+          <span class="proj-card-badge proj-card-badge--legacy">Legacy Frictions</span>
+          <h3 class="proj-problem-title">Paper Silos &amp; Security Vulnerabilities</h3>
+          <ul class="proj-problem-list">
+            <li><strong>Siloed State Commands:</strong> Convicts registered in one state easily secured clean character certificates in another due to the absence of a synchronized national criminal database.</li>
+            <li><strong>Unaccredited Middle-Men:</strong> Touting syndicates exploited manual delays, forging police clearance seals and pocketing statutory public safety revenues.</li>
+            <li><strong>Peripheral Hardware Disconnect:</strong> Stations possessed biometric hardware (scanners, webcams) that sat idle due to disjointed software drivers and complex calibration procedures.</li>
+            <li><strong>Zero Real-Time Checkpoint Query:</strong> Highway patrol and border checkpoint officers had no method to perform on-the-spot biometric verification against active warrants.</li>
+          </ul>
+        </div>
+
+        <div class="proj-problem-card proj-problem-card--target">
+          <span class="proj-card-badge proj-card-badge--target">Design Objectives</span>
+          <h3 class="proj-problem-title">Unified Biometric Architecture</h3>
+          <ul class="proj-problem-list">
+            <li><strong>Unified 10-Print AFIS Integration:</strong> Standardize digital fingerprint enrollment to interface directly with national criminal repository matching algorithms.</li>
+            <li><strong>Fail-Safe Hardware Telemetry:</strong> Surface live peripheral status indicators on screen so officers never initiate intake with disconnected cameras or fingerprint slabs.</li>
+            <li><strong>3-Angle Evidentiary Facial Standards:</strong> Enforce standardized multi-angle photographic captures (Front, Left 90°, Right 90°) with tamper-proof cryptographic watermarking.</li>
+            <li><strong>Sub-Second Field Checkpoint Query:</strong> Equip officers with rapid 4-finger slap and webcam facial search tools for instant criminal status verification.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- GALLERY -->
-  <section class="proj-gallery">
-    <div class="proj-gallery-inner">
-      <div class="proj-section-label">Design Screens</div>
-      <div class="proj-gallery-grid">
-        <div class="proj-gallery-item proj-gallery-item--wide"><img src="../assets/images/project-possap.jpg" alt="POSSAP Portal Overview" /></div>
-        <div class="proj-gallery-item"><img src="../assets/images/project-vreg.jpg" alt="VREG National Registry" /></div>
-        <div class="proj-gallery-item"><img src="../assets/images/project-idec.jpg" alt="IDEC Customs Automation" /></div>
+  <!-- USER PERSONAS -->
+  <section class="proj-case-section proj-case-section--alt" id="personas">
+    <div class="proj-case-inner">
+      <div class="proj-case-header">
+        <span class="proj-case-tag">02 · User Personas</span>
+        <h2 class="proj-case-h2">Designed for the Realities of Law Enforcement</h2>
+        <p class="proj-case-desc">Balancing the high-pressure ergonomic needs of field intake desk officers with the strategic, data-dense oversight requirements of executive police command.</p>
+      </div>
+
+      <div class="proj-personas-grid">
+        <!-- Persona 1 -->
+        <div class="proj-persona-card">
+          <div class="proj-persona-top">
+            <div class="proj-persona-avatar">DI</div>
+            <div class="proj-persona-meta">
+              <h3 class="proj-persona-name">Inspector Danladi Ibrahim</h3>
+              <span class="proj-persona-role">Desk Intake Officer &amp; Biometric Capture Specialist</span>
+              <span class="proj-persona-type">Primary Operational Persona</span>
+            </div>
+          </div>
+          <div class="proj-persona-quote">"During prisoner intake, I have multiple suspects in custody. I need hardware to connect instantly and software that guides me through biometric capture without errors."</div>
+          <div class="proj-persona-block">
+            <span class="proj-persona-heading">Core Goals</span>
+            <ul class="proj-persona-body-list">
+              <li>Process convict intake and complete 10-print biometric enrollment in under 6 minutes.</li>
+              <li>Ensure captured mugshots meet strict evidentiary court standards without manual cropping.</li>
+              <li>Maintain zero file loss when station power fluctuates or internet connectivity dips.</li>
+            </ul>
+          </div>
+          <div class="proj-persona-block">
+            <span class="proj-persona-heading">Key Frustrations</span>
+            <ul class="proj-persona-body-list">
+              <li>Peripheral devices disconnecting mid-capture without clear error feedback.</li>
+              <li>Mugshot profiles rejected by state prosecutors due to incorrect angles or glare.</li>
+            </ul>
+          </div>
+          <div class="proj-persona-footer">
+            <span class="proj-fluency-label">System Fluency: Moderate</span>
+            <div class="proj-fluency-meter">
+              <span class="proj-fluency-dot filled"></span>
+              <span class="proj-fluency-dot filled"></span>
+              <span class="proj-fluency-dot filled"></span>
+              <span class="proj-fluency-dot"></span>
+              <span class="proj-fluency-dot"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Persona 2 -->
+        <div class="proj-persona-card">
+          <div class="proj-persona-top">
+            <div class="proj-persona-avatar">IO</div>
+            <div class="proj-persona-meta">
+              <h3 class="proj-persona-name">CP Idris Okoro</h3>
+              <span class="proj-persona-role">Commissioner of Police &amp; Criminal Intelligence Directorate</span>
+              <span class="proj-persona-type">Executive Strategic Persona</span>
+            </div>
+          </div>
+          <div class="proj-persona-quote">"I need an unvarnished national view of crime trends, inter-agency distribution, and state conviction rankings to allocate patrol divisions proactively."</div>
+          <div class="proj-persona-block">
+            <span class="proj-persona-heading">Core Goals</span>
+            <ul class="proj-persona-body-list">
+              <li>Monitor national convict registries (1M+ records) across multiple security agencies.</li>
+              <li>Analyze state-by-state conviction densities (Lagos, Edo, Rivers) to deploy resources.</li>
+              <li>Track departmental intake throughput and prevent fraudulent record expungement.</li>
+            </ul>
+          </div>
+          <div class="proj-persona-block">
+            <span class="proj-persona-heading">Key Frustrations</span>
+            <ul class="proj-persona-body-list">
+              <li>Inconsistent monthly manual spreadsheets delivered weeks after crime spikes.</li>
+              <li>Inability to trace who authorized character certificate clearances.</li>
+            </ul>
+          </div>
+          <div class="proj-persona-footer">
+            <span class="proj-fluency-label">System Fluency: Executive</span>
+            <div class="proj-fluency-meter">
+              <span class="proj-fluency-dot filled"></span>
+              <span class="proj-fluency-dot filled"></span>
+              <span class="proj-fluency-dot filled"></span>
+              <span class="proj-fluency-dot filled"></span>
+              <span class="proj-fluency-dot filled"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USER JOURNEY & USER STORIES -->
+  <section class="proj-case-section" id="journey">
+    <div class="proj-case-inner">
+      <div class="proj-case-header">
+        <span class="proj-case-tag">03 · User Journey &amp; User Stories</span>
+        <h2 class="proj-case-h2">Forensic Intake &amp; Checkpoint Verification Lifecycle</h2>
+        <p class="proj-case-desc">Mapping the end-to-end operational journey from custodial intake to national database synchronization, coupled with structured agile user stories.</p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="proj-journey-timeline">
+        <div class="proj-journey-step">
+          <span class="proj-journey-num">Phase 01</span>
+          <h4 class="proj-journey-title">Device Telemetry Check</h4>
+          <p class="proj-journey-action">Officer logs into the intake terminal; system automatically runs diagnostic checks on connected webcam, scanner, and fingerprint slabs.</p>
+          <div class="proj-journey-insight">Design Fix: Real-time green/red peripheral status pills eliminate blind capture failures.</div>
+        </div>
+        <div class="proj-journey-step">
+          <span class="proj-journey-num">Phase 02</span>
+          <h4 class="proj-journey-title">Bio-Data &amp; Court Logging</h4>
+          <p class="proj-journey-action">Officer enters judicial conviction particulars, assigned permanent Convict ID (PCD1903-FR), offense class, and sentencing court.</p>
+          <div class="proj-journey-insight">Design Fix: Form validation ensures court jurisdiction and penal codes match federal statutes.</div>
+        </div>
+        <div class="proj-journey-step">
+          <span class="proj-journey-num">Phase 03</span>
+          <h4 class="proj-journey-title">3-Angle Mugshot Capture</h4>
+          <p class="proj-journey-action">Suspect is positioned before optical webcam; system guides sequential capture of Front, Left 90°, and Right 90° portrait angles.</p>
+          <div class="proj-journey-insight">Design Fix: Auto-applied cryptographic watermark overlay ('CONVICT') prevents evidence tampering.</div>
+        </div>
+        <div class="proj-journey-step">
+          <span class="proj-journey-num">Phase 04</span>
+          <h4 class="proj-journey-title">10-Print AFIS Enrollment</h4>
+          <p class="proj-journey-action">Guided sensor workflow captures individual digits (thumbs through pinkies) followed by flat 4-finger simultaneous slap scans.</p>
+          <div class="proj-journey-insight">Design Fix: Visual checkmarks and ridge quality thresholds validate each digit before progression.</div>
+        </div>
+        <div class="proj-journey-step">
+          <span class="proj-journey-num">Phase 05</span>
+          <h4 class="proj-journey-title">National Checkpoint Sync</h4>
+          <p class="proj-journey-action">Record is encrypted and committed to national repository; immediately queryable across all patrol and border terminals.</p>
+          <div class="proj-journey-insight">Design Fix: Sub-second 4-finger slap search enables highway patrol officers to identify convicts on scene.</div>
+        </div>
+      </div>
+
+      <!-- User Stories -->
+      <div class="proj-stories-grid">
+        <div class="proj-story-card">
+          <div class="proj-story-header">
+            <span class="proj-story-id">US-POS-01</span>
+            <span class="proj-story-badge">Hardware Telemetry</span>
+          </div>
+          <p class="proj-story-narrative"><strong>As a police intake officer</strong>, I want clear visual connection indicators for all connected biometric hardware so that I never begin an enrollment session with an uncalibrated or disconnected device.</p>
+          <ul class="proj-story-criteria">
+            <li>Status pills display real-time green (Connected) / red (Disconnected) states.</li>
+            <li>System blocks progression to capture modal if primary sensor is offline.</li>
+          </ul>
+        </div>
+        <div class="proj-story-card">
+          <div class="proj-story-header">
+            <span class="proj-story-id">US-POS-02</span>
+            <span class="proj-story-badge">Forensic Integrity</span>
+          </div>
+          <p class="proj-story-narrative"><strong>As a judicial prosecutor</strong>, I want suspect mugshots captured across 3 standardized angles with cryptographic watermarks so that identity cannot be contested in court.</p>
+          <ul class="proj-story-criteria">
+            <li>Requires Frontal, Left Profile, and Right Profile before form submission.</li>
+            <li>Embedded anti-tamper watermark renders automatically upon image capture.</li>
+          </ul>
+        </div>
+        <div class="proj-story-card">
+          <div class="proj-story-header">
+            <span class="proj-story-id">US-POS-03</span>
+            <span class="proj-story-badge">Field Interrogation</span>
+          </div>
+          <p class="proj-story-narrative"><strong>As a highway patrol officer</strong>, I want to scan a suspect's 4-finger slap on a mobile scanner to query the national database so that I can verify warrants in seconds.</p>
+          <ul class="proj-story-criteria">
+            <li>Simultaneous 4-finger slap search yields sub-second hit/no-hit response.</li>
+            <li>Displays immediate mugshot, active offenses, and conviction record if matched.</li>
+          </ul>
+        </div>
+        <div class="proj-story-card">
+          <div class="proj-story-header">
+            <span class="proj-story-id">US-POS-04</span>
+            <span class="proj-story-badge">Command Intelligence</span>
+          </div>
+          <p class="proj-story-narrative"><strong>As a Commissioner of Police</strong>, I want a real-time crime intelligence dashboard showing geographic conviction rankings and offense curves so that I can deploy tactical units effectively.</p>
+          <ul class="proj-story-criteria">
+            <li>Interactive state rankings breakdown (Lagos, Edo, Rivers, Abuja).</li>
+            <li>12-month longitudinal offense curves with seasonal trend projections.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFORMATION ARCHITECTURE -->
+  <section class="proj-case-section proj-case-section--alt" id="ia">
+    <div class="proj-case-inner">
+      <div class="proj-case-header">
+        <span class="proj-case-tag">04 · Information Architecture</span>
+        <h2 class="proj-case-h2">System Hierarchy &amp; Modular Taxonomies</h2>
+        <p class="proj-case-desc">Designed with clear boundaries between rapid field operations, high-security enrollment modals, and executive intelligence dashboards.</p>
+      </div>
+
+      <div class="proj-ia-grid">
+        <div class="proj-ia-card">
+          <div class="proj-ia-header">
+            <span class="proj-ia-icon">⚡</span>
+            <h4 class="proj-ia-title">Operations Console</h4>
+          </div>
+          <ul class="proj-ia-list">
+            <li>Intake Counters (Total, Male, Female)</li>
+            <li>Submission Pipeline (Pending, Incomplete, Queried, Successful)</li>
+            <li>Daily Influx Volumes &amp; Weekly Trends</li>
+            <li>Peripheral Hardware Status Monitor</li>
+          </ul>
+        </div>
+        <div class="proj-ia-card">
+          <div class="proj-ia-header">
+            <span class="proj-ia-icon">🔍</span>
+            <h4 class="proj-ia-title">Criminal Status Check</h4>
+          </div>
+          <ul class="proj-ia-list">
+            <li>Bio-Data Query (Name, ID, State)</li>
+            <li>Biometric Facial Webcam Match</li>
+            <li>Simultaneous 4-Finger Slap Search</li>
+            <li>Instant Hit / No-Hit Evidentiary Card</li>
+          </ul>
+        </div>
+        <div class="proj-ia-card">
+          <div class="proj-ia-header">
+            <span class="proj-ia-icon">📁</span>
+            <h4 class="proj-ia-title">Convict Directory</h4>
+          </div>
+          <ul class="proj-ia-list">
+            <li>Filterable Judicial Audit Ledger</li>
+            <li>Unique Convict ID Index (PCD1903-FR)</li>
+            <li>Offense Categorization &amp; Court Data</li>
+            <li>Bulk Cryptographic CSV/PDF Export</li>
+          </ul>
+        </div>
+        <div class="proj-ia-card">
+          <div class="proj-ia-header">
+            <span class="proj-ia-icon">👤</span>
+            <h4 class="proj-ia-title">Biometric Enrollment</h4>
+          </div>
+          <ul class="proj-ia-list">
+            <li>Personal &amp; Judicial Sentencing Step</li>
+            <li>3-Angle Mugshot Capture (Front, L90, R90)</li>
+            <li>10-Print Individual Digit Acquisition</li>
+            <li>Dual Flat 4-Finger Slap Verification</li>
+          </ul>
+        </div>
+        <div class="proj-ia-card">
+          <div class="proj-ia-header">
+            <span class="proj-ia-icon">📊</span>
+            <h4 class="proj-ia-title">Command Intelligence</h4>
+          </div>
+          <ul class="proj-ia-list">
+            <li>1.05M+ Nationwide Convict Telemetry</li>
+            <li>Inter-Agency Jurisdiction Shares (Pie)</li>
+            <li>State-by-State Conviction Rankings</li>
+            <li>Longitudinal Crime Curves &amp; Hotspots</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IDEATION & DESIGN PRINCIPLES -->
+  <section class="proj-case-section" id="ideation">
+    <div class="proj-case-inner">
+      <div class="proj-case-header">
+        <span class="proj-case-tag">05 · Ideation &amp; Strategy</span>
+        <h2 class="proj-case-h2">Design Principles for Mission-Critical Public Safety</h2>
+        <p class="proj-case-desc">Translating statutory law enforcement standards into an intuitive, high-contrast, zero-ambiguity digital experience.</p>
+      </div>
+
+      <div class="proj-principles-grid">
+        <div class="proj-principle-card">
+          <span class="proj-principle-num">Principle 01</span>
+          <h4 class="proj-principle-title">Law Enforcement Authority &amp; Contrast</h4>
+          <p class="proj-principle-desc">Anchored in Nigeria Police Cobalt Blue (#1059af / #2563eb) with high-contrast neutral cards and unmistakable status tokens (#22c55e Success, #ef4444 Alert), ensuring seamless legibility in low-light charge rooms and bright outdoor checkpoints.</p>
+        </div>
+        <div class="proj-principle-card">
+          <span class="proj-principle-num">Principle 02</span>
+          <h4 class="proj-principle-title">Fail-Safe Hardware Telemetry</h4>
+          <p class="proj-principle-desc">Direct hardware driver status is brought forward into the primary UI view, preventing officers from attempting biometric capture when optical lenses or fingerprint sensors are unplugged or uncalibrated.</p>
+        </div>
+        <div class="proj-principle-card">
+          <span class="proj-principle-num">Principle 03</span>
+          <h4 class="proj-principle-title">Guarded Progressive Disclosure</h4>
+          <p class="proj-principle-desc">Multi-tier forensic capture flows are compartmentalized into structured sequential steps with explicit validation checks, eliminating skipped digits or missed profile angles during chaotic intake procedures.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN SCREENS SHOWCASE -->
+  <section class="proj-screens" id="screens">
+    <div class="proj-overview-inner">
+      <div class="proj-section-label">Design Screens &amp; Architecture</div>
+      <div class="proj-screens-grid">
+        <!-- Screen 1: Public Citizen Security Services Portal (possap.gov.ng) -->
+        <div class="proj-screen-card proj-screen-card--full">
+          <div class="proj-screen-media">
+            <img src="../assets/images/possap-website-hero.png" alt="POSSAP Public Citizen Security Services Portal (possap.gov.ng)" loading="lazy" />
+          </div>
+          <div class="proj-screen-info">
+            <span class="proj-screen-tag">Citizen Web Interface &bull; Live at possap.gov.ng</span>
+            <h3 class="proj-screen-title">Public Specialized Services Automation Portal &amp; Gateway</h3>
+            <p class="proj-screen-desc">The official digital gateway for the Nigeria Police Force, enabling millions of citizens to securely request specialized services without physical police station queues. Features an intuitive design with multi-slide guidance, clear service categorization, direct Remita/card payment channels, automated reference tracking, and cryptographic document verification.</p>
+          </div>
+        </div>
+
+        <!-- Screen 2: Citizen Service Fulfilment & Workflow Engine -->
+        <div class="proj-screen-card">
+          <div class="proj-screen-media">
+            <img src="../assets/images/possap-website-features.png" alt="POSSAP Citizen Request Fulfilment Lifecycle" loading="lazy" />
+          </div>
+          <div class="proj-screen-info">
+            <span class="proj-screen-tag">Citizen Workflow</span>
+            <h3 class="proj-screen-title">Three-Step Service Lifecycle: Request, Approval &amp; Fulfilment</h3>
+            <p class="proj-screen-desc">Transparent 3-stage service progression model that demystifies statutory police approvals for citizens. Each request generates a verifiable tracking token with real-time SMS/email status notifications at every stage of institutional review.</p>
+          </div>
+        </div>
+
+        <!-- Screen 3: Citizen Identity Registration & Access Gateway -->
+        <div class="proj-screen-card">
+          <div class="proj-screen-media">
+            <img src="../assets/images/possap-website-services-portal.png" alt="POSSAP Citizen Identity Registration and Verification Gateway" loading="lazy" />
+          </div>
+          <div class="proj-screen-info">
+            <span class="proj-screen-tag">Identity Gateway</span>
+            <h3 class="proj-screen-title">Citizen &amp; Corporate Identity Registration &amp; Verification</h3>
+            <p class="proj-screen-desc">Secure account creation gateway supporting individual applicants and corporate entities. Enforces mandatory statutory identification capture (NIN, CAC, Tax ID) before granting clearance access, establishing non-repudiation across all requested services.</p>
+          </div>
+        </div>
+
+        <!-- Screen 4: Intake & Field Operations Console -->
+        <div class="proj-screen-card proj-screen-card--full">
+          <div class="proj-screen-media">
+            <img src="../assets/images/possap-operations-dashboard.jpg" alt="POSSAP Field Operations and Intake Dashboard" loading="lazy" />
+          </div>
+          <div class="proj-screen-info">
+            <span class="proj-screen-tag">Operations Console</span>
+            <h3 class="proj-screen-title">Field Operations &amp; Peripheral Device Management Console</h3>
+            <p class="proj-screen-desc">Command console for police desk officers and intake personnel managing confidential criminal record entries. Features real-time counters (215 convicts, 112 male, 103 female), submission pipelines (pending, incomplete, queried, successful data entries), daily intake volume charts, and hardware connection status monitors for biometric fingerprint readers, optical webcams, and automated document scanners.</p>
+          </div>
+        </div>
+
+        <!-- Screen 5: National Crime Intelligence & Trends Dashboard -->
+        <div class="proj-screen-card proj-screen-card--full">
+          <div class="proj-screen-media">
+            <img src="../assets/images/possap-national-analytics.jpg" alt="POSSAP National Crime Intelligence and Crime Trends Dashboard" loading="lazy" />
+          </div>
+          <div class="proj-screen-info">
+            <span class="proj-screen-tag">Executive Intelligence</span>
+            <h3 class="proj-screen-title">National Crime Intelligence &amp; Longitudinal Trends Dashboard</h3>
+            <p class="proj-screen-desc">High-level strategic intelligence console tailored for executive leadership (CP Idris Okoro). Synthesizes over 1,050,100 national convict profiles, inter-agency distribution shares, state-by-state conviction location rankings (Lagos, Edo, Rivers, Abuja, Delta, Kwara, Gombe, Kano, Ibadan), top recorded offense frequencies, and multi-year crime trend timelines for predictive resource allocation.</p>
+          </div>
+        </div>
+
+        <!-- Screen 6: National Convict Directory & Audit Ledger -->
+        <div class="proj-screen-card proj-screen-card--full">
+          <div class="proj-screen-media">
+            <img src="../assets/images/possap-convict-list.jpg" alt="POSSAP Convict Records Directory and Judicial Audit Ledger" loading="lazy" />
+          </div>
+          <div class="proj-screen-info">
+            <span class="proj-screen-tag">Registry &amp; Audit</span>
+            <h3 class="proj-screen-title">National Convict Records Directory &amp; Judicial Audit Ledger</h3>
+            <p class="proj-screen-desc">High-throughput registry interface providing instantaneous search by Convict ID, full name, or judicial status. Displays authenticated convict mugshots, permanent unique convict IDs (PCD1903-FR), demographic information, state origin, specific offense categorization (Burglary Theft, Armed Robbery), presiding court jurisdictions (Federal High Court, Magistrate Court), and bulk cryptographic export tools.</p>
+          </div>
+        </div>
+
+        <!-- Screen 7: 3-Angle Facial Mugshot Capture -->
+        <div class="proj-screen-card">
+          <div class="proj-screen-media">
+            <img src="../assets/images/possap-passport-capture.jpg" alt="POSSAP 3-Angle Biometric Mugshot Capture Modal" loading="lazy" />
+          </div>
+          <div class="proj-screen-info">
+            <span class="proj-screen-tag">Facial Biometrics</span>
+            <h3 class="proj-screen-title">Three-Angle Biometric Mugshot Enrollment Modal</h3>
+            <p class="proj-screen-desc">Forensic photo capture module enforcing standardized multi-angle photographic documentation: Frontal portrait, Left 90° profile, and Right 90° profile. Includes real-time camera alignment guides and anti-tamper security watermarks to guarantee evidentiary integrity.</p>
+          </div>
+        </div>
+
+        <!-- Screen 8: 10-Print Fingerprint & Slap Capture -->
+        <div class="proj-screen-card">
+          <div class="proj-screen-media">
+            <img src="../assets/images/possap-biometrics-capture.jpg" alt="POSSAP 10-Print Fingerprint and Biometrics Capture Modal" loading="lazy" />
+          </div>
+          <div class="proj-screen-info">
+            <span class="proj-screen-tag">AFIS Biometrics</span>
+            <h3 class="proj-screen-title">10-Print Fingerprint &amp; Dual-Hand Slap Capture Workflow</h3>
+            <p class="proj-screen-desc">Standardized biometric enrollment interface guiding officers through sequential right-hand and left-hand digit captures (thumb, index, middle, ring, little) with real-time quality assurance checks, followed by complete 4-finger flat slap validation for direct AFIS database integration.</p>
+          </div>
+        </div>
+
+        <!-- Screen 9: Criminal Status Check — Optical Facial Match System -->
+        <div class="proj-screen-card">
+          <div class="proj-screen-media">
+            <img src="../assets/images/possap-status-check-photo.jpg" alt="POSSAP Criminal Status Check Using Facial Webcam Biometrics" loading="lazy" />
+          </div>
+          <div class="proj-screen-info">
+            <span class="proj-screen-tag">Live Interrogation</span>
+            <h3 class="proj-screen-title">Real-Time Webcam Facial Status Verification</h3>
+            <p class="proj-screen-desc">Field interrogation and border checkpoint module enabling officers to run instant criminal status checks via connected optical webcams. Features full database search toggles, automated webcam activation, 3-perspective capture slots (front view, right view, left view), and instantaneous cross-referencing against convicted offender bio-data.</p>
+          </div>
+        </div>
+
+        <!-- Screen 10: Criminal Status Check — Live AFIS Fingerprint Matcher -->
+        <div class="proj-screen-card">
+          <div class="proj-screen-media">
+            <img src="../assets/images/possap-status-check-fingerprint.jpg" alt="POSSAP Criminal Status Check Using AFIS Fingerprint Matcher" loading="lazy" />
+          </div>
+          <div class="proj-screen-info">
+            <span class="proj-screen-tag">Biometric Investigation</span>
+            <h3 class="proj-screen-title">Simultaneous 4-Finger Slap &amp; Thumb AFIS Matcher</h3>
+            <p class="proj-screen-desc">Forensic-grade status verification module allowing law enforcement personnel to capture impressions of four fingers simultaneously alongside thumb impressions. Integrates with the national biometric repository to deliver sub-second hit/no-hit confirmation for criminal records and active warrants.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- RESULTS & MEASURABLE OUTCOMES -->
+  <section class="proj-results" id="results">
+    <div class="proj-overview-inner">
+      <div class="proj-section-label">Impact &amp; Measurable Outcomes</div>
+      <div class="proj-stats-row">
+        <div class="proj-stat"><div class="proj-stat-num">1.2M+</div><div class="proj-stat-label">Digital Police Clearances &amp; Permits Issued Nationwide</div></div>
+        <div class="proj-stat"><div class="proj-stat-num">70%</div><div class="proj-stat-label">Reduction in Citizen Verification Waiting Time (3 Wks ➔ 48h)</div></div>
+        <div class="proj-stat"><div class="proj-stat-num">100%</div><div class="proj-stat-label">Cryptographic Digital Audit Trail Eliminating Intermediaries</div></div>
       </div>
     </div>
   </section>
@@ -344,5 +974,33 @@
     </div>
   </footer>
   <script src="../assets/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.possap-tab');
+      const panels = document.querySelectorAll('.possap-panel');
+      const thumbs = document.querySelectorAll('.possap-thumb-card');
+
+      function switchPossapDashboard(idx) {
+        tabs.forEach((t, i) => {
+          const isActive = i === idx;
+          t.classList.toggle('active', isActive);
+          t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+        panels.forEach((p, i) => {
+          p.classList.toggle('active', i === idx);
+        });
+        thumbs.forEach((th, i) => {
+          th.classList.toggle('active', i === idx);
+        });
+      }
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => switchPossapDashboard(index));
+      });
+      thumbs.forEach((thumb, index) => {
+        thumb.addEventListener('click', () => switchPossapDashboard(index));
+      });
+    });
+  </script>
 </body>
 </html>
