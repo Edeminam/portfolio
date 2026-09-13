@@ -601,7 +601,7 @@
 
 /* Project-specific accent color themes (detached from inline style) */
 .proj-hero--vreg        { --accent: #2563eb; }
-.proj-hero--myka        { --accent: #8b5cf6; }
+.proj-hero--myka        { --accent: #e86326; }
 .proj-hero--worknation  { --accent: #f59e0b; }
 .proj-hero--idec        { --accent: #059669; }
 .proj-hero--cbtas       { --accent: #10b981; }
