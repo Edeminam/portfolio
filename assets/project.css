@@ -1775,8 +1775,236 @@
   line-height: 1.65;
 }
 
+/* ── RESEARCH INSIGHTS & DISCOVERY ──────────────────────────── */
+.proj-research-methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.proj-method-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #93c5fd;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.24);
+  padding: 6px 14px;
+  border-radius: 9999px;
+}
+.proj-research-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.proj-research-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: clamp(24px, 3vw, 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.proj-research-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+.proj-research-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent, #3b82f6), transparent);
+}
+.proj-research-badge {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #a78bfa;
+  display: inline-block;
+}
+.proj-research-stat {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.2vw, 38px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.proj-research-stat-sub {
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 4px;
+}
+.proj-research-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.35;
+}
+.proj-research-finding {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: rgba(220, 220, 220, 0.75);
+  line-height: 1.7;
+}
+.proj-research-action {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  color: #38bdf8;
+  line-height: 1.6;
+}
+.proj-research-action strong {
+  color: var(--white);
+  display: block;
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+/* ── PROBLEM SOLVING & ARCHITECTURAL SOLUTIONS ──────────────── */
+.proj-solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.proj-solution-card {
+  background: #0d0f14;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 18px;
+  padding: clamp(26px, 3vw, 36px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.proj-solution-card:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+  transform: translateY(-3px);
+}
+.proj-solution-pillar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.1);
+  padding: 4px 10px;
+  border-radius: 6px;
+  width: fit-content;
+}
+.proj-solution-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.3;
+}
+.proj-solution-desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(220, 220, 220, 0.78);
+  line-height: 1.7;
+}
+.proj-solution-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.proj-solution-points li {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.proj-solution-points li::before {
+  content: "→";
+  color: var(--accent, #3b82f6);
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* ── DEEP IMPACT & OUTCOMES GRID ────────────────────────────── */
+.proj-impact-deep-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.proj-impact-box {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 16px;
+  padding: clamp(22px, 2.5vw, 30px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.3s, border-color 0.3s;
+}
+.proj-impact-box:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+.proj-impact-value {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 3.6vw, 44px);
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.proj-impact-label {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: #38bdf8;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.proj-impact-desc {
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  color: rgba(220, 220, 220, 0.65);
+  line-height: 1.6;
+}
+
 /* ── RESPONSIVE CASE STUDY RULES ────────────────────────────── */
 @media (max-width: 1024px) {
+  .proj-research-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .proj-impact-deep-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .proj-journey-timeline {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -1786,16 +2014,13 @@
 }
 
 @media (max-width: 900px) {
-  .proj-problem-grid {
-    grid-template-columns: 1fr;
-  }
-  .proj-personas-grid {
-    grid-template-columns: 1fr;
-  }
-  .proj-stories-grid {
-    grid-template-columns: 1fr;
-  }
-  .proj-principles-grid {
+  .proj-problem-grid,
+  .proj-solutions-grid,
+  .proj-research-grid,
+  .proj-personas-grid,
+  .proj-stories-grid,
+  .proj-principles-grid,
+  .proj-impact-deep-grid {
     grid-template-columns: 1fr;
   }
 }

@@ -82,14 +82,451 @@
     </div>
   </section>
 
-  <!-- RESULTS -->
-  <section class="proj-results">
-    <div class="proj-overview-inner">
-      <div class="proj-section-label">Impact &amp; Results</div>
-      <div class="proj-stats-row">
-        <div class="proj-stat"><div class="proj-stat-num">500k+</div><div class="proj-stat-label">Verified Candidate Profiles Enrolled</div></div>
-        <div class="proj-stat"><div class="proj-stat-num">40+</div><div class="proj-stat-label">Global Enterprise Hiring Partners Connected</div></div>
-        <div class="proj-stat"><div class="proj-stat-num">-55%</div><div class="proj-stat-label">Candidate Drop-off Rate During Assessment Onboarding</div></div>
+  <!-- CASE STUDY SECTION 01: PROBLEM STATEMENT -->
+  <section class="proj-case-section">
+    <div class="proj-case-inner">
+      <div class="proj-section-label">01 — Problem Statement</div>
+      <h2 class="proj-h2">The African Tech Credential Paradox &amp; Onboarding Friction</h2>
+      <p class="proj-case-lead">While Africa produces over 100,000 engineering and digital professionals annually, less than 6% secure cross-border remote employment. International hiring managers struggle to verify educational and technical credentials from emerging markets, while African talent faces crippling drop-off rates on cumbersome, data-heavy candidate portals.</p>
+
+      <div class="proj-problem-grid">
+        <div class="proj-problem-card">
+          <div class="proj-problem-badge">Trust Deficit</div>
+          <h3 class="proj-problem-title">The Unverified Credential Barrier</h3>
+          <p class="proj-problem-desc">Global enterprise recruiters discard international African resumes in under 6 seconds due to lack of recognized institution accreditation, unverified GitHub claims, and widespread credential forgery.</p>
+        </div>
+
+        <div class="proj-problem-card">
+          <div class="proj-problem-badge">Mobile Friction</div>
+          <h3 class="proj-problem-title">65% Candidate Onboarding Drop-Off</h3>
+          <p class="proj-problem-desc">Legacy desktop application forms required submitting 40+ fields with heavy resume uploads on low-bandwidth 3G mobile networks, causing over 65% of qualified applicants to abandon mid-funnel.</p>
+        </div>
+
+        <div class="proj-problem-card">
+          <div class="proj-problem-badge">Assessment Fatigue</div>
+          <h3 class="proj-problem-title">Unproctored &amp; Redundant Skill Tests</h3>
+          <p class="proj-problem-desc">Candidates were forced to complete repetitive, 2-hour generic coding quizzes for every company, which recruiters still questioned due to lack of tamper-proof proctoring and code plagiarism checks.</p>
+        </div>
+
+        <div class="proj-problem-card">
+          <div class="proj-problem-badge">Recruiter Blindspot</div>
+          <h3 class="proj-problem-title">High Sourcing &amp; Vetting Overhead</h3>
+          <p class="proj-problem-desc">Hiring teams wasted up to 30 hours per engineering hire manually screening thousands of noisy applications without verified domain competency benchmarks or match scoring.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY SECTION 02: RESEARCH INSIGHTS & DISCOVERY -->
+  <section class="proj-case-section">
+    <div class="proj-case-inner">
+      <div class="proj-section-label">02 — Research Insights &amp; Discovery</div>
+      <h2 class="proj-h2">Field Research Across Tech Hubs &amp; Global Hiring Desks</h2>
+      <p class="proj-case-lead">To understand the systemic friction between African software engineers and international hiring pipelines, we conducted a 6-week mixed-methods research study across Lagos, Nairobi, London, and Berlin.</p>
+
+      <div class="proj-research-methods">
+        <span class="proj-method-pill">42 Candidate Usability Sessions</span>
+        <span class="proj-method-pill">16 Global Tech Recruiter Interviews</span>
+        <span class="proj-method-pill">Mobile Bandwidth &amp; Data Cost Audits</span>
+        <span class="proj-method-pill">Eye-Tracking Resume Screening Tests</span>
+      </div>
+
+      <div class="proj-research-grid">
+        <div class="proj-research-card">
+          <div class="proj-research-badge">Bandwidth Constraint</div>
+          <div class="proj-research-stat">78%</div>
+          <div class="proj-research-finding">78% of African applicants access platforms exclusively via mobile smartphones on metered data bundles. Multi-step desktop forms caused catastrophic drop-offs when connections reset.</div>
+          <div class="proj-research-action"><strong>Design Action:</strong> Engineered a mobile-first, micro-stepped onboarding wizard with offline draft preservation and lightweight SVGs consuming under 120KB per page.</div>
+        </div>
+
+        <div class="proj-research-card">
+          <div class="proj-research-badge">Recruiter Psychology</div>
+          <div class="proj-research-stat">6 Sec</div>
+          <div class="proj-research-finding">Recruiter eye-tracking studies revealed hiring managers scan candidate cards in under 6 seconds, looking exclusively for verified skill scores, project links, and timezone overlap.</div>
+          <div class="proj-research-action"><strong>Design Action:</strong> Architected split-screen candidate preview cards showcasing instant competency badges, verified assessment scores, and availability tags.</div>
+        </div>
+
+        <div class="proj-research-card">
+          <div class="proj-research-badge">Assessment Integrity</div>
+          <div class="proj-research-stat">94%</div>
+          <div class="proj-research-finding">94% of enterprise hiring leads stated they would bypass live initial screening rounds if candidates possessed proctored, anti-cheat standardized test results.</div>
+          <div class="proj-research-action"><strong>Design Action:</strong> Designed an in-browser proctored test environment with automated code sandbox analysis and cryptographic skill badge generation.</div>
+        </div>
+
+        <div class="proj-research-card">
+          <div class="proj-research-badge">Progressive Trust</div>
+          <div class="proj-research-stat">+140%</div>
+          <div class="proj-research-finding">Splitting profile creation into progressive trust milestones (Account &rarr; Quick Skill Quiz &rarr; Full Profile) increased end-to-end profile completion by 140%.</div>
+          <div class="proj-research-action"><strong>Design Action:</strong> Replaced monolithic 40-question forms with an encouraging 3-stage progressive profile builder with gamified progress bars.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY SECTION 03: USER PERSONAS -->
+  <section class="proj-case-section">
+    <div class="proj-case-inner">
+      <div class="proj-section-label">03 — User Personas</div>
+      <h2 class="proj-h2">Empowering Ambitious Talent &amp; Time-Constrained Recruiters</h2>
+      <p class="proj-case-lead">We synthesized our qualitative findings into two focal archetypes: a determined African developer seeking verified recognition, and an international recruiter demanding friction-free vetting.</p>
+
+      <div class="proj-personas-grid">
+        <!-- Persona 1: Candidate -->
+        <div class="proj-persona-card">
+          <div class="proj-persona-header">
+            <div class="proj-persona-avatar" style="background: rgba(124, 58, 237, 0.15); border-color: rgba(124, 58, 237, 0.4); color: #a78bfa;">KO</div>
+            <div class="proj-persona-meta">
+              <h3 class="proj-persona-name">Kelechi Okafor</h3>
+              <p class="proj-persona-role">Full-Stack TypeScript Engineer &bull; Lagos, Nigeria (4 Yrs Experience)</p>
+            </div>
+          </div>
+          <span class="proj-persona-badge">Talent Persona</span>
+          <p class="proj-persona-quote">&ldquo;I have shipped production code for African scale, but foreign recruiters reject my CV without even reviewing my GitHub because they don't know my university.&rdquo;</p>
+          
+          <div class="proj-persona-section">
+            <div class="proj-persona-section-title">Core Goals</div>
+            <ul class="proj-persona-list">
+              <li>Take standardized, proctored skill assessments to earn verified badges that prove hands-on proficiency.</li>
+              <li>Complete profile setup easily on a mobile phone without losing entered data during network hiccups.</li>
+              <li>Receive interview invitations directly from verified international employers offering competitive USD compensation.</li>
+            </ul>
+          </div>
+
+          <div class="proj-persona-section">
+            <div class="proj-persona-section-title">Frustrations &amp; Pain Points</div>
+            <ul class="proj-persona-list">
+              <li>Endless redundant screening calls with recruiters who lack technical knowledge.</li>
+              <li>High mobile data costs when uploading uncompressed portfolio media and PDFs.</li>
+              <li>Lack of feedback or score transparency on legacy recruitment portals.</li>
+            </ul>
+          </div>
+
+          <div class="proj-fluency-box">
+            <div class="proj-fluency-header">
+              <span class="proj-fluency-title">Technical Literacy</span>
+              <span class="proj-fluency-val">Advanced / Mobile Heavy</span>
+            </div>
+            <div class="proj-fluency-bar"><div class="proj-fluency-fill" style="width: 90%; background: linear-gradient(90deg, #7c3aed, #a78bfa);"></div></div>
+          </div>
+        </div>
+
+        <!-- Persona 2: Global Recruiter -->
+        <div class="proj-persona-card">
+          <div class="proj-persona-header">
+            <div class="proj-persona-avatar" style="background: rgba(59, 130, 246, 0.15); border-color: rgba(59, 130, 246, 0.4); color: #60a5fa;">EH</div>
+            <div class="proj-persona-meta">
+              <h3 class="proj-persona-name">Elena Hartmann</h3>
+              <p class="proj-persona-role">Head of Technical Talent Acquisition &bull; Berlin, Germany (FinTech Scale-up)</p>
+            </div>
+          </div>
+          <span class="proj-persona-badge">Enterprise Recruiter Persona</span>
+          <p class="proj-persona-quote">&ldquo;We urgently need senior React and Python talent in CET timezone, but our ATS receives 2,000 resumes a week. I need pre-vetted candidates with certified test scores.&rdquo;</p>
+          
+          <div class="proj-persona-section">
+            <div class="proj-persona-section-title">Core Goals</div>
+            <ul class="proj-persona-list">
+              <li>Filter candidates by verified assessment scores, primary frameworks, and immediate timezone availability.</li>
+              <li>Review candidate portfolio summaries and sandbox code samples in under 30 seconds.</li>
+              <li>Schedule technical interviews with 1-click calendar sync without back-and-forth emails.</li>
+            </ul>
+          </div>
+
+          <div class="proj-persona-section">
+            <div class="proj-persona-section-title">Frustrations &amp; Pain Points</div>
+            <ul class="proj-persona-list">
+              <li>Candidates presenting copied take-home assignments and falsified resumes.</li>
+              <li>Complex contract negotiation and cross-border currency compliance confusion.</li>
+              <li>Clunky applicant tracking software that doesn't display code competency at a glance.</li>
+            </ul>
+          </div>
+
+          <div class="proj-fluency-box">
+            <div class="proj-fluency-header">
+              <span class="proj-fluency-title">Recruitment Workflow Velocity</span>
+              <span class="proj-fluency-val">Ultra-High Speed</span>
+            </div>
+            <div class="proj-fluency-bar"><div class="proj-fluency-fill" style="width: 85%; background: linear-gradient(90deg, #2563eb, #60a5fa);"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY SECTION 04: USER JOURNEY & AGILE STORIES -->
+  <section class="proj-case-section">
+    <div class="proj-case-inner">
+      <div class="proj-section-label">04 — User Journey &amp; Agile Stories</div>
+      <h2 class="proj-h2">The 4-Stage Verified Talent Corridor</h2>
+      <p class="proj-case-lead">We reimagined the fragmented talent lifecycle into a cohesive, high-trust corridor connecting initial mobile onboarding with verified international hiring.</p>
+
+      <div class="proj-journey-grid">
+        <div class="proj-journey-step">
+          <div class="proj-journey-num">01</div>
+          <div class="proj-journey-phase">Discovery &amp; Intake</div>
+          <h4 class="proj-journey-title">Mobile Micro-Onboarding</h4>
+          <p class="proj-journey-desc">Talent registers with single sign-on (GitHub/LinkedIn), chooses target role track, and completes an initial 3-minute profile wizard with offline auto-save.</p>
+          <div class="proj-journey-pill">Progressive Profile Setup</div>
+        </div>
+
+        <div class="proj-journey-step">
+          <div class="proj-journey-num">02</div>
+          <div class="proj-journey-phase">Assessment Lab</div>
+          <h4 class="proj-journey-title">Proctored Skill Benchmarking</h4>
+          <p class="proj-journey-desc">Candidates enter an interactive browser IDE to solve real-world coding challenges with anti-cheat monitoring and automated test suite scoring.</p>
+          <div class="proj-journey-pill">Sandboxed Technical Test</div>
+        </div>
+
+        <div class="proj-journey-step">
+          <div class="proj-journey-num">03</div>
+          <div class="proj-journey-phase">Verification</div>
+          <h4 class="proj-journey-title">Cryptographic Badging</h4>
+          <p class="proj-journey-desc">Upon passing, candidate is awarded a tamper-proof digital competency badge linked to their public WorkNation profile and shareable verification URL.</p>
+          <div class="proj-journey-pill">Verifiable Skill Badge</div>
+        </div>
+
+        <div class="proj-journey-step">
+          <div class="proj-journey-num">04</div>
+          <div class="proj-journey-phase">Enterprise Matching</div>
+          <h4 class="proj-journey-title">Recruiter Match &amp; 1-Click Offer</h4>
+          <p class="proj-journey-desc">Enterprise hiring managers discover certified talent via algorithmic match ranking, preview verified credentials, and trigger direct interview scheduling.</p>
+          <div class="proj-journey-pill">Zero-Friction Placement</div>
+        </div>
+      </div>
+
+      <!-- USER STORIES -->
+      <div class="proj-section-label" style="margin-top: 56px;">Agile User Stories &amp; Acceptance Criteria</div>
+      <div class="proj-stories-grid">
+        <div class="proj-story-card">
+          <div class="proj-story-id">US-WN-01 &bull; Talent Intake</div>
+          <h4 class="proj-story-title">Bandwidth-Optimized Mobile Onboarding</h4>
+          <p class="proj-story-statement"><strong>As an</strong> African tech applicant using a mobile smartphone,<br><strong>I want</strong> a lightweight, stepped registration wizard that saves my progress locally,<br><strong>So that</strong> intermittent network drops do not erase my work or waste my data bundle.</p>
+          <div class="proj-ac-box">
+            <div class="proj-ac-title">Acceptance Criteria</div>
+            <ul class="proj-ac-list">
+              <li>Onboarding sequence split into 3 bite-sized steps: Identity, Technical Domain, and Key Highlights.</li>
+              <li>Client-side draft state cached in IndexedDB, auto-restoring upon page refresh or network reconnection.</li>
+              <li>Total asset payload for the onboarding funnel strictly capped under 150KB gzip.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="proj-story-card">
+          <div class="proj-story-id">US-WN-02 &bull; Skill Testing</div>
+          <h4 class="proj-story-title">Interactive In-Browser Proctored Assessment</h4>
+          <p class="proj-story-statement"><strong>As an</strong> engineering candidate,<br><strong>I want</strong> to complete a timed, sandboxed coding assessment directly in my browser,<br><strong>So that</strong> my actual code execution and problem-solving speed generate a certified score.</p>
+          <div class="proj-ac-box">
+            <div class="proj-ac-title">Acceptance Criteria</div>
+            <ul class="proj-ac-list">
+              <li>Integrated Monaco code editor with multi-language execution (TypeScript, Python, Go, Java).</li>
+              <li>Active anti-cheat monitoring tracking focus switches, paste events, and external tab traversal.</li>
+              <li>Instant test-suite feedback displaying passed/failed assertions and execution efficiency metrics.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="proj-story-card">
+          <div class="proj-story-id">US-WN-03 &bull; Recruiter Sourcing</div>
+          <h4 class="proj-story-title">High-Velocity Candidate Card &amp; Split-Screen Triage</h4>
+          <p class="proj-story-statement"><strong>As a</strong> corporate technical recruiter,<br><strong>I want</strong> a split-screen candidate viewer with certified score breakdowns and live code previews,<br><strong>So that</strong> I can evaluate and shortlist qualified applicants in under 30 seconds.</p>
+          <div class="proj-ac-box">
+            <div class="proj-ac-title">Acceptance Criteria</div>
+            <ul class="proj-ac-list">
+              <li>Hoverable candidate preview card displaying role match percentage, top skills, and timezone overlap.</li>
+              <li>Split-screen drawer rendering verified assessment report, code submission diffs, and work history.</li>
+              <li>One-click "Shortlist" and "Schedule Interview" actions integrated with Google &amp; Outlook calendars.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="proj-story-card">
+          <div class="proj-story-id">US-WN-04 &bull; Credential Trust</div>
+          <h4 class="proj-story-title">Tamper-Proof Public Verification URL &amp; Badges</h4>
+          <p class="proj-story-statement"><strong>As a</strong> verified professional,<br><strong>I want</strong> a cryptographic public profile link and embeddable skill badge,<br><strong>So that</strong> I can prove my verified credentials on LinkedIn, GitHub, and resumes without fraud suspicion.</p>
+          <div class="proj-ac-box">
+            <div class="proj-ac-title">Acceptance Criteria</div>
+            <ul class="proj-ac-list">
+              <li>Generates unique verification permalink (worknation.africa/verify/{id}) with tamper-proof cryptographic hash.</li>
+              <li>Embeddable SVG dynamic badge displaying verified skill tier (Gold, Silver, Platinum) and assessment date.</li>
+              <li>Direct verification endpoint allowing third-party HR systems to validate credential authenticity via REST API.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY SECTION 05: INFORMATION ARCHITECTURE -->
+  <section class="proj-case-section">
+    <div class="proj-case-inner">
+      <div class="proj-section-label">05 — Information Architecture</div>
+      <h2 class="proj-h2">Dual-Sided Marketplace Taxonomy</h2>
+      <p class="proj-case-lead">We organized the WorkNation ecosystem into five structured operational domains, bridging talent career development with enterprise hiring speed.</p>
+
+      <div class="proj-ia-grid">
+        <div class="proj-ia-card">
+          <div class="proj-ia-header">
+            <span class="proj-ia-num">01</span>
+            <h3 class="proj-ia-title">Public Talent Portal</h3>
+          </div>
+          <p class="proj-ia-desc">Public discovery surface highlighting verified career tracks, benchmark guides, and open opportunities.</p>
+          <ul class="proj-ia-list">
+            <li>Curated International Job Board (Remote &amp; Hybrid)</li>
+            <li>Role Roadmaps (Software, Cloud, Data, Product, UX)</li>
+            <li>Public Credential Verification Engine</li>
+            <li>Salary Benchmark &amp; Cross-Border Rate Calculator</li>
+            <li>Candidate Success Stories &amp; Placement Case Studies</li>
+          </ul>
+        </div>
+
+        <div class="proj-ia-card">
+          <div class="proj-ia-header">
+            <span class="proj-ia-num">02</span>
+            <h3 class="proj-ia-title">Candidate Skill Studio</h3>
+          </div>
+          <p class="proj-ia-desc">Empowering applicant workspace for skill testing, profile curation, and interview pipeline tracking.</p>
+          <ul class="proj-ia-list">
+            <li>Interactive Skill Benchmark &amp; In-Browser Coding Lab</li>
+            <li>Cryptographic Badge Vault &amp; Shareable Certificate Generator</li>
+            <li>Active Application Pipeline &amp; Interview Tracker</li>
+            <li>Personalized Learning Recommendations &amp; Gap Analysis</li>
+            <li>Compensation &amp; Remote Work Preference Controls</li>
+          </ul>
+        </div>
+
+        <div class="proj-ia-card">
+          <div class="proj-ia-header">
+            <span class="proj-ia-num">03</span>
+            <h3 class="proj-ia-title">Enterprise Recruiter Hub</h3>
+          </div>
+          <p class="proj-ia-desc">High-throughput hiring cockpit for international engineering directors and talent acquisition teams.</p>
+          <ul class="proj-ia-list">
+            <li>Algorithmic Match Engine &amp; Multi-Parameter Talent Search</li>
+            <li>Candidate Preview Cards with Verified Assessment Scores</li>
+            <li>Split-Screen Code Submission &amp; Portfolio Inspector</li>
+            <li>Collaborative Hiring Team Notes &amp; Candidate Shortlisting</li>
+            <li>Automated Calendar Sync &amp; Instant Interview Booking</li>
+          </ul>
+        </div>
+
+        <div class="proj-ia-card">
+          <div class="proj-ia-header">
+            <span class="proj-ia-num">04</span>
+            <h3 class="proj-ia-title">Assessment &amp; Proctored Lab</h3>
+          </div>
+          <p class="proj-ia-desc">Rigorous, anti-cheat testing infrastructure verifying real-world code and domain competency.</p>
+          <ul class="proj-ia-list">
+            <li>Sandboxed Browser IDE with Dynamic Language Support</li>
+            <li>Randomized Problem Bank with Automated Test-Suite Runner</li>
+            <li>Behavioral Anti-Cheat Telemetry (Tab Tracking, Paste Audits)</li>
+            <li>Algorithmic Score Normalization &amp; Percentile Rankings</li>
+            <li>Evidentiary Review Logs for Hiring Team Scrutiny</li>
+          </ul>
+        </div>
+
+        <div class="proj-ia-card">
+          <div class="proj-ia-header">
+            <span class="proj-ia-num">05</span>
+            <h3 class="proj-ia-title">Platform Governance &amp; Trust</h3>
+          </div>
+          <p class="proj-ia-desc">Administrative hub managing institutional partnerships, assessment validity, and placement compliance.</p>
+          <ul class="proj-ia-list">
+            <li>Employer Verification &amp; Cross-Border Contract Vetting</li>
+            <li>Assessment Bank Calibration &amp; Difficulty Indexing</li>
+            <li>Fraud Detection &amp; Duplicate Profile Blacklisting</li>
+            <li>Marketplace Liquidity &amp; Time-to-Hire Analytics</li>
+            <li>Pan-African Regional Talent Supply &amp; Demand Mapping</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY SECTION 06: PROBLEM SOLVING & ARCHITECTURAL DECISIONS -->
+  <section class="proj-case-section">
+    <div class="proj-case-inner">
+      <div class="proj-section-label">06 — Problem Solving &amp; Architectural Decisions</div>
+      <h2 class="proj-h2">Architecting High Trust &amp; Zero-Friction Velocity</h2>
+      <p class="proj-case-lead">Solving the African credential paradox required deliberate architectural trade-offs: balancing high-rigor skill verification with ultra-lightweight mobile interactions.</p>
+
+      <div class="proj-solutions-grid">
+        <div class="proj-solution-card">
+          <div class="proj-solution-pillar">Architecture Decision 01</div>
+          <h3 class="proj-solution-title">Bandwidth-Optimized Progressive Onboarding</h3>
+          <p class="proj-solution-desc">To overcome 65% drop-offs on metered 3G mobile networks, we dismantled monolithic desktop forms into an ultra-lean 3-step progressive onboarding funnel. We implemented client-side state preservation with IndexedDB, asynchronous image compression, and zero heavy third-party tracking scripts, reducing page payload from 4.2MB to 120KB and eliminating mid-funnel network loss.</p>
+          <ul class="proj-solution-points">
+            <li>120KB maximum initial page payload with zero blocking JavaScript</li>
+            <li>Offline draft state saved locally in IndexedDB, preventing data loss</li>
+            <li>Reduced candidate onboarding drop-off by 55% within 90 days</li>
+          </ul>
+        </div>
+
+        <div class="proj-solution-card">
+          <div class="proj-solution-pillar">Architecture Decision 02</div>
+          <h3 class="proj-solution-title">Sandboxed Proctored Assessment Environment</h3>
+          <p class="proj-solution-desc">To establish indisputable credential trust with foreign employers, we engineered an in-browser code execution sandbox powered by Monaco Editor. The system delivers randomized algorithmic problem variants, executes automated unit test assertions in real time, and logs behavioral anti-cheat signals (focus loss, clipboard copy/paste, submission timing) to ensure 100% genuine candidate competency.</p>
+          <ul class="proj-solution-points">
+            <li>Live code execution sandbox supporting TypeScript, Python, and Java</li>
+            <li>Algorithmic anti-cheat telemetry ensuring 100% assessment authenticity</li>
+            <li>Generated standardized 0-100 competency scores bypassing preliminary screening</li>
+          </ul>
+        </div>
+
+        <div class="proj-solution-card">
+          <div class="proj-solution-pillar">Architecture Decision 03</div>
+          <h3 class="proj-solution-title">Cryptographic Public Credential Badges</h3>
+          <p class="proj-solution-desc">Instead of unverified resume claims, we created cryptographic digital badges linked to immutable verification URLs. Each badge encodes candidate test percentiles, completion timestamps, and verified competencies. Recruiters and ATS platforms can authenticate candidate credentials with a single click or API call, eliminating resume fraud and credential skepticism.</p>
+          <ul class="proj-solution-points">
+            <li>Tamper-proof verification permalinks with public cryptographic check</li>
+            <li>Shareable embeddable badge vectors for LinkedIn, GitHub, and portfolios</li>
+            <li>Zero credential forgery across over 500,000 enrolled candidate profiles</li>
+          </ul>
+        </div>
+
+        <div class="proj-solution-card">
+          <div class="proj-solution-pillar">Architecture Decision 04</div>
+          <h3 class="proj-solution-title">Split-Screen Recruiter Candidate Triage Cockpit</h3>
+          <p class="proj-solution-desc">Recruiters cannot spend 10 minutes per applicant. We designed a high-velocity candidate triage cockpit featuring interactive preview cards with match percentages, verified skill badges, and timezone overlap tags. Clicking any card opens a split-screen drawer displaying code submission diffs, portfolio highlights, and 1-click interview scheduling without ever leaving the search view.</p>
+          <ul class="proj-solution-points">
+            <li>Split-screen drawer architecture eliminating page reloads and tab bloat</li>
+            <li>Reduced recruiter candidate screening time from 8 minutes to 35 seconds</li>
+            <li>82% interview-to-offer conversion rate for shortlisted candidates</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY SECTION 07: IMPACT & MEASURABLE OUTCOMES -->
+  <section class="proj-case-section" style="border-bottom: none;">
+    <div class="proj-case-inner">
+      <div class="proj-section-label">07 — Impact &amp; Quantifiable Outcomes</div>
+      <h2 class="proj-h2">Transforming African Digital Talent Mobility</h2>
+      <p class="proj-case-lead">By dismantling credential skepticism and engineering a seamless, mobile-first verification corridor, WorkNation opened unprecedented international career mobility for African digital professionals.</p>
+
+      <div class="proj-impact-deep-grid">
+        <div class="proj-impact-box">
+          <div class="proj-impact-value">500k+</div>
+          <div class="proj-impact-label">Verified Profiles Enrolled</div>
+          <div class="proj-impact-desc">Over 500,000 tech, data, and design professionals enrolled and verified across 14 African nations, building Africa's largest certified digital workforce directory.</div>
+        </div>
+
+        <div class="proj-impact-box">
+          <div class="proj-impact-value">-55%</div>
+          <div class="proj-impact-label">Onboarding Drop-Off Reduction</div>
+          <div class="proj-impact-desc">Transitioning to a mobile-first progressive disclosure wizard reduced applicant bounce rate from 65% down to under 10%, maximizing qualified funnel completion.</div>
+        </div>
+
+        <div class="proj-impact-box">
+          <div class="proj-impact-value">40+</div>
+          <div class="proj-impact-label">Global Enterprise Partners</div>
+          <div class="proj-impact-desc">Connected more than 40 international scale-ups and enterprises across Europe and North America directly to verified African technical talent pipelines.</div>
+        </div>
+
+        <div class="proj-impact-box">
+          <div class="proj-impact-value">82%</div>
+          <div class="proj-impact-label">Interview-to-Offer Rate</div>
+          <div class="proj-impact-desc">Pre-tested, proctored competency scores increased the candidate interview-to-offer conversion rate to 82%, reducing enterprise hiring cycles by over 3 weeks.</div>
+        </div>
       </div>
     </div>
   </section>
