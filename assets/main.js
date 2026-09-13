@@ -60,6 +60,7 @@
     const nameParts = document.querySelectorAll('.hero-name-part');
     const heroIcon = document.querySelector('.hero-icon-x');
     const heroSub = document.querySelector('.hero-subtitle');
+    const heroStatus = document.querySelector('.hero-status-badge');
 
     setTimeout(() => {
       nameParts.forEach((el, i) => {
@@ -68,6 +69,7 @@
     }, 50);
     setTimeout(() => heroIcon && heroIcon.classList.add('visible'), 350);
     setTimeout(() => heroSub && heroSub.classList.add('visible'), 550);
+    setTimeout(() => heroStatus && heroStatus.classList.add('visible'), 750);
 
     // Scroll-triggered reveal
     initScrollReveal();
