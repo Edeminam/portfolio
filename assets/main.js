@@ -257,49 +257,208 @@
     setTab(tabIdx);
   }, 5000);
 
-  /* ── CONTACT FORM ─────────────────────────────────────── */
+  /* ── CONTACT FORM & EMAILJS INTEGRATION ───────────────── */
+  const EMAILJS_CONFIG = {
+    serviceId: 'service_qx5cj9q',
+    templateId: 'template_p0ewyov',
+    publicKey: 'M3NF-YNY1Sdm99XHv',
+    recipientEmail: 'elebrendan@gmail.com'
+  };
+
+  // Initialize EmailJS if the browser SDK is loaded
+  if (typeof emailjs !== 'undefined') {
+    try {
+      emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
+    } catch (initErr) {
+      console.warn('EmailJS SDK init warning:', initErr);
+    }
+  }
+
   const form = document.getElementById('contact-form');
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const nameInput = document.getElementById('name');
       const emailInput = document.getElementById('email');
+      const serviceInput = document.getElementById('service');
+      const messageInput = document.getElementById('message');
       const btn = document.getElementById('form-submit');
 
-      if (!nameInput.value.trim()) {
-        nameInput.focus();
-        nameInput.style.borderColor = 'var(--red)';
-        return;
-      }
-      if (!emailInput.value.trim() || !emailInput.value.includes('@')) {
-        emailInput.focus();
-        emailInput.style.borderColor = 'var(--red)';
+      // Clear previous error states
+      [nameInput, emailInput, serviceInput].forEach(input => {
+        if (input) input.style.borderColor = '';
+      });
+
+      const nameVal = nameInput ? nameInput.value.trim() : '';
+      const emailVal = emailInput ? emailInput.value.trim() : '';
+      const serviceVal = serviceInput ? serviceInput.value : '';
+      const messageVal = messageInput ? messageInput.value.trim() : '';
+
+      // Validation
+      if (!nameVal) {
+        if (nameInput) {
+          nameInput.focus();
+          nameInput.style.borderColor = '#ef4444';
+        }
         return;
       }
 
-      nameInput.style.borderColor = '';
-      emailInput.style.borderColor = '';
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailVal || !emailPattern.test(emailVal)) {
+        if (emailInput) {
+          emailInput.focus();
+          emailInput.style.borderColor = '#ef4444';
+        }
+        return;
+      }
 
-      btn.textContent = 'SENT ✓';
-      btn.style.background = '#27ae60';
+      if (!serviceVal) {
+        if (serviceInput) {
+          serviceInput.focus();
+          serviceInput.style.borderColor = '#ef4444';
+        }
+        return;
+      }
+
+      // Map service code to readable title
+      const serviceTitles = {
+        'landing-page': 'Landing Page Design',
+        'website': 'Website Design',
+        'cro': 'CRO / UX Audit',
+        'branding': 'Branding & Identity'
+      };
+      const readableService = serviceTitles[serviceVal] || serviceVal;
+
+      // Loading state
       btn.disabled = true;
+      btn.classList.add('is-sending');
+      btn.innerHTML = `
+        <svg class="btn-spinner" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
+          <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"></path>
+        </svg>
+        <span>SENDING...</span>
+      `;
 
-      let toast = document.getElementById('form-toast');
-      if (!toast) {
-        toast = document.createElement('div');
+      // Clear existing toast if any
+      const existingToast = document.getElementById('form-toast');
+      if (existingToast) existingToast.remove();
+
+      // Exhaustive template parameters to map any placeholder in template_p0ewyov
+      const templateParams = {
+        name: nameVal,
+        from_name: nameVal,
+        user_name: nameVal,
+        sender_name: nameVal,
+
+        email: emailVal,
+        from_email: emailVal,
+        user_email: emailVal,
+        reply_to: emailVal,
+
+        service: readableService,
+        service_type: readableService,
+        project_service: readableService,
+
+        message: messageVal || 'No additional project details provided.',
+        project_details: messageVal || 'No additional project details provided.',
+
+        to_email: EMAILJS_CONFIG.recipientEmail,
+        to_name: 'Emmanuel Brendan',
+        recipient: EMAILJS_CONFIG.recipientEmail,
+
+        subject: `New Project Inquiry from ${nameVal} [${readableService}]`,
+        submission_date: new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })
+      };
+
+      try {
+        let sentSuccessfully = false;
+
+        // Strategy 1: Official EmailJS SDK if available
+        if (typeof emailjs !== 'undefined' && typeof emailjs.send === 'function') {
+          try {
+            await emailjs.send(
+              EMAILJS_CONFIG.serviceId,
+              EMAILJS_CONFIG.templateId,
+              templateParams,
+              EMAILJS_CONFIG.publicKey
+            );
+            sentSuccessfully = true;
+          } catch (sdkErr) {
+            console.warn('EmailJS SDK send failed, falling back to direct API:', sdkErr);
+          }
+        }
+
+        // Strategy 2: Direct EmailJS API call
+        if (!sentSuccessfully) {
+          const apiResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              service_id: EMAILJS_CONFIG.serviceId,
+              template_id: EMAILJS_CONFIG.templateId,
+              user_id: EMAILJS_CONFIG.publicKey,
+              template_params: templateParams
+            })
+          });
+
+          if (!apiResponse.ok) {
+            const errorBody = await apiResponse.text();
+            throw new Error(`EmailJS API returned status ${apiResponse.status}: ${errorBody}`);
+          }
+          sentSuccessfully = true;
+        }
+
+        // SUCCESS UI
+        btn.classList.remove('is-sending');
+        btn.classList.add('is-success');
+        btn.innerHTML = `<span>MESSAGE SENT ✓</span>`;
+
+        const toast = document.createElement('div');
         toast.id = 'form-toast';
-        toast.style.cssText = 'margin-top: 14px; font-size: 13px; color: #27ae60; font-family: var(--font-body); text-align: center;';
+        toast.className = 'form-toast form-toast--success';
+        toast.textContent = "Thank you! Your project details have been sent to Emmanuel. I'll get back to you within 24 hours.";
         form.appendChild(toast);
-      }
-      toast.textContent = "Thanks! I'll reply within 24 hours.";
-
-      setTimeout(() => {
-        btn.innerHTML = '<span>SUBMIT</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>';
-        btn.style.background = '';
-        btn.disabled = false;
-        if (toast) toast.remove();
         form.reset();
-      }, 4000);
+
+        setTimeout(() => {
+          btn.classList.remove('is-success');
+          btn.disabled = false;
+          btn.innerHTML = `
+            <span>SUBMIT</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          `;
+          if (toast) {
+            toast.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateY(4px)';
+            setTimeout(() => toast.remove(), 400);
+          }
+        }, 5000);
+
+      } catch (err) {
+        console.error('Failed to send contact inquiry via EmailJS:', err);
+        btn.classList.remove('is-sending');
+        btn.classList.add('is-error');
+        btn.innerHTML = `<span>FAILED TO SEND ✕</span>`;
+
+        const toast = document.createElement('div');
+        toast.id = 'form-toast';
+        toast.className = 'form-toast form-toast--error';
+        toast.innerHTML = `Oops, something went wrong. You can reach Emmanuel directly at <a href="mailto:${EMAILJS_CONFIG.recipientEmail}" style="color: #fff; font-weight: 600; text-decoration: underline;">${EMAILJS_CONFIG.recipientEmail}</a>`;
+        form.appendChild(toast);
+
+        setTimeout(() => {
+          btn.classList.remove('is-error');
+          btn.disabled = false;
+          btn.innerHTML = `
+            <span>TRY AGAIN</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          `;
+        }, 4500);
+      }
     });
   }
 
