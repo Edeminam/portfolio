@@ -26,25 +26,10 @@
 
   /* ── NAVBAR SCROLL ────────────────────────────────────── */
   const navbar = document.getElementById('navbar');
-  const dock = document.getElementById('sticky-dock');
-  let lastScroll = 0;
   let scrollTicking = false;
 
   function onScroll() {
-    const scrollY = window.scrollY;
-    // Navbar
-    if (scrollY > 20) { navbar.classList.add('scrolled'); }
-    else { navbar.classList.remove('scrolled'); }
-    // Hero scroll indicator (hide once scrolled past 80px)
-    const hero = document.getElementById('hero');
-    if (hero) {
-      if (scrollY > 80) {
-        hero.style.setProperty('--scroll-indicator-opacity', '0');
-      } else {
-        hero.style.setProperty('--scroll-indicator-opacity', '1');
-      }
-    }
-    lastScroll = scrollY;
+    if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 20);
   }
 
   window.addEventListener('scroll', () => {
@@ -53,6 +38,7 @@
       scrollTicking = true;
     }
   }, { passive: true });
+  onScroll();
 
   /* ── HERO ANIMATIONS ──────────────────────────────────────── */
   function initAnimations() {
@@ -73,7 +59,7 @@
 
     // Scroll-triggered reveal
     initScrollReveal();
-    // Works section: filters + floating preview
+    // Works section: case-study filters + floating preview
     initWorksSection();
     // Services section: hover image cards
     initServicesSection();
@@ -81,25 +67,7 @@
 
   /* ── WORKS SECTION ─────────────────────────────────────── */
   function initWorksSection() {
-    // Filter pills
-    const filterBtns = document.querySelectorAll('.wf-btn');
-    const workRows   = document.querySelectorAll('.work-row');
-
-    if (filterBtns.length) {
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const filter = btn.dataset.filter;
-          filterBtns.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-
-          workRows.forEach(row => {
-            const cat = row.dataset.category || '';
-            const show = filter === 'all' || cat.includes(filter);
-            row.classList.toggle('filtered-out', !show);
-          });
-        });
-      });
-    }
+    const workRows = document.querySelectorAll('.work-row');
 
     // Case study page filter tabs
     const csFilterTabs = document.querySelectorAll('.work-filter-tab');
@@ -175,8 +143,8 @@
   /* ── SCROLL REVEAL (IntersectionObserver) ─────────────── */
   function initScrollReveal() {
     const autoReveal = document.querySelectorAll(
-      '.about-statement, .about-body, .stack-eyebrow, .stack-col, .works-header, .services-label, .services-content, ' +
-      '.testimonials-label, .testimonials-inner, .trusted-label, .logos-grid, ' +
+      '.about-statement, .about-body, .stack-eyebrow, .stack-col, .works-header, ' +
+      '.testimonials-label, .testimonials-inner, .trusted-label, ' +
       '.contact-left, .contact-right, .life-header, .life-marquee-container, .footer-container'
     );
     autoReveal.forEach(el => el.classList.add('reveal'));
@@ -239,23 +207,30 @@
   const tabBtns = document.querySelectorAll('.tab-person');
   const quotes = document.querySelectorAll('.testimonial-quote');
 
+  let tabIdx = 0;
+  let tabTimer = null;
+
   function setTab(idx) {
-    tabBtns.forEach(b => b.classList.remove('active'));
-    quotes.forEach(q => q.classList.remove('active'));
-    tabBtns[idx] && tabBtns[idx].classList.add('active');
-    quotes[idx] && quotes[idx].classList.add('active');
+    tabIdx = idx;
+    tabBtns.forEach((b, i) => b.classList.toggle('active', i === idx));
+    quotes.forEach((q, i) => q.classList.toggle('active', i === idx));
   }
 
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => setTab(Number(btn.dataset.tab)));
-  });
+  // Auto-rotate every 5s; a manual pick restarts the countdown
+  function startTabRotation() {
+    clearInterval(tabTimer);
+    tabTimer = setInterval(() => setTab((tabIdx + 1) % tabBtns.length), 5000);
+  }
 
-  // Auto-rotate testimonials every 5s
-  let tabIdx = 0;
-  setInterval(() => {
-    tabIdx = (tabIdx + 1) % tabBtns.length;
-    setTab(tabIdx);
-  }, 5000);
+  if (tabBtns.length) {
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        setTab(Number(btn.dataset.tab));
+        startTabRotation();
+      });
+    });
+    startTabRotation();
+  }
 
   /* ── CONTACT FORM & EMAILJS INTEGRATION ───────────────── */
   const EMAILJS_CONFIG = {
@@ -521,11 +496,11 @@
 
   /* ── PARALLAX HERO ────────────────────────────────────────── */
   const heroPortrait = document.querySelector('.hero-portrait');
-  if (heroPortrait && window.innerWidth > 768) {
+  const heroSection = document.querySelector('.hero');
+  if (heroPortrait && heroSection && window.innerWidth > 768) {
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
-      const heroH = document.querySelector('.hero').offsetHeight;
-      if (scrollY < heroH) {
+      if (scrollY < heroSection.offsetHeight) {
         // Must preserve translateX(-50%) centering + add parallax
         heroPortrait.style.transform = `translateX(-50%) translateY(${scrollY * 0.22}px)`;
       } else {

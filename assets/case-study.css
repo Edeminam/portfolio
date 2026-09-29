@@ -1,6 +1,5 @@
 /* ============================================================
    CASE STUDY / SELECTED WORKS DIRECTORY STYLES
-   Extracted from embedded/internal HTML styling
    ============================================================ */
 
 /* ── HERO SECTION ─────────────────────────────────────────── */
@@ -12,7 +11,7 @@
   justify-content: center;
   text-align: center;
   overflow: hidden;
-  padding: calc(var(--nav-h) + 48px) var(--section-px) 48px;
+  padding: calc(var(--nav-h) + 48px) var(--gutter) 48px;
   background: var(--black);
 }
 
@@ -70,7 +69,7 @@
   display: flex;
   justify-content: center;
   gap: 12px;
-  padding: 24px var(--section-px) 44px;
+  padding: 24px var(--gutter) 44px;
   background: var(--black);
   flex-wrap: wrap;
   border-bottom: 1px solid var(--grey-border);
@@ -127,14 +126,11 @@
 
 /* ── PROJECTS LIST ────────────────────────────────────────── */
 .cs-index-list {
-  padding: 56px var(--section-px) clamp(80px, 10vw, 140px);
+  padding: 56px var(--gutter) clamp(80px, 10vw, 140px);
   background: var(--black);
   display: flex;
   flex-direction: column;
   gap: 40px;
-  max-width: 1320px;
-  margin: 0 auto;
-  width: 100%;
 }
 
 /* ── CASE STUDY CARD ──────────────────────────────────────── */
@@ -200,10 +196,9 @@
 
 .cs-card-meta {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
 }
 
 .cs-card-meta-left {
@@ -213,7 +208,7 @@
 }
 
 .cs-index-num {
-  font-family: 'Boldonse', var(--font-display);
+  font-family: var(--font-display);
   font-size: 14px;
   font-weight: 700;
   color: var(--text-muted);
@@ -300,19 +295,20 @@
     padding-bottom: 32px;
   }
   .cs-index-list {
-    padding: 32px var(--section-px) 80px;
+    padding: 32px var(--gutter) 80px;
     gap: 28px;
   }
   .cs-card-info {
     padding: 24px 18px;
     gap: 16px;
   }
-  .cs-card-meta {
-    flex-direction: column;
-    align-items: flex-start;
+  /* Long badges wrap on narrow screens: soften the pill so two lines read cleanly */
+  .cs-badges-wrap > span {
+    border-radius: 12px;
+    line-height: 1.45;
   }
   .work-filter-bar {
-    padding: 18px var(--section-px) 32px;
+    padding: 18px var(--gutter) 32px;
     gap: 8px;
   }
   .work-filter-tab {
