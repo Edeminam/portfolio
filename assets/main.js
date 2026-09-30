@@ -96,7 +96,7 @@
 
   /* ── HERO PARALLAX (home) ─────────────────────────────────── */
   function initHeroParallax() {
-    const portrait = $('.hero-portrait');
+    const portrait = $('.hero-portrait-wrap');
     const hero = $('.hero');
     if (!portrait || !hero || reducedMotion || !finePointer) return;
 
@@ -106,6 +106,124 @@
       portrait.style.transform = `translateX(-50%) translateY(${offset}px)`;
     };
     window.addEventListener('scroll', rafThrottle(update), { passive: true });
+  }
+
+  /* ── HERO COLOUR REVEAL (home) ────────────────────────────── */
+  // The portrait renders in black & white; moving the cursor paints a soft
+  // brush trail that reveals the colour photo, fading out behind the cursor.
+  const REVEAL = {
+    brushRatio: 0.1,      // brush radius as a share of the portrait width
+    softness: 0.25,       // share of the radius used for the feathered edge
+    follow: 0.35,         // how quickly the brush eases towards the cursor (0–1)
+    fadePerFrame: 0.012,  // share of the trail erased every 60fps frame (~1s half-life)
+    idleMs: 5000,         // stop animating once the trail is effectively gone (<3% left)
+  };
+
+  function initHeroReveal() {
+    const hero = $('.hero');
+    const wrap = $('.hero-portrait-wrap');
+    const img = $('.hero-portrait');
+    const canvas = $('.hero-reveal');
+    if (!hero || !wrap || !img || !canvas || !finePointer || reducedMotion) return;
+
+    const ctx = canvas.getContext('2d');
+    const mask = document.createElement('canvas');
+    const maskCtx = mask.getContext('2d');
+    if (!ctx || !maskCtx) return;
+
+    let width = 0;
+    let height = 0;
+    let dpr = 1;
+    let target = null;   // latest cursor position, in canvas pixels
+    let brush = null;    // eased brush position
+    let lastMove = 0;
+    let lastFrame = 0;
+    let rafId = null;
+
+    const resize = () => {
+      const rect = wrap.getBoundingClientRect();
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = canvas.width = mask.width = Math.round(rect.width * dpr);
+      height = canvas.height = mask.height = Math.round(rect.height * dpr);
+    };
+
+    const stamp = (x, y, radius) => {
+      const gradient = maskCtx.createRadialGradient(x, y, 0, x, y, radius);
+      gradient.addColorStop(0, 'rgba(0,0,0,1)');
+      gradient.addColorStop(1 - REVEAL.softness, 'rgba(0,0,0,1)');
+      gradient.addColorStop(1, 'rgba(0,0,0,0)');
+      maskCtx.fillStyle = gradient;
+      maskCtx.fillRect(x - radius, y - radius, radius * 2, radius * 2);
+    };
+
+    const frame = (now) => {
+      const dt = lastFrame ? Math.min(now - lastFrame, 64) : 16.7;
+      lastFrame = now;
+
+      // Fade the existing trail (frame-rate independent)
+      maskCtx.globalCompositeOperation = 'destination-out';
+      maskCtx.fillStyle = `rgba(0,0,0,${1 - Math.pow(1 - REVEAL.fadePerFrame, dt / 16.7)})`;
+      maskCtx.fillRect(0, 0, width, height);
+      maskCtx.globalCompositeOperation = 'source-over';
+
+      // Ease the brush towards the cursor, stamping along the way for a continuous
+      // stroke. Once the cursor rests and the brush has caught up, the trail just fades.
+      const moving = now - lastMove < 100 || (brush && target && Math.hypot(target.x - brush.x, target.y - brush.y) > 0.5);
+      if (target && moving) {
+        const radius = width * REVEAL.brushRatio;
+        const from = brush || target;
+        const to = {
+          x: from.x + (target.x - from.x) * REVEAL.follow,
+          y: from.y + (target.y - from.y) * REVEAL.follow,
+        };
+        const steps = Math.max(1, Math.ceil(Math.hypot(to.x - from.x, to.y - from.y) / (radius * 0.2)));
+        for (let i = 1; i <= steps; i++) {
+          stamp(from.x + ((to.x - from.x) * i) / steps, from.y + ((to.y - from.y) * i) / steps, radius);
+        }
+        brush = to;
+      }
+
+      // Colour photo, clipped to the trail
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.clearRect(0, 0, width, height);
+      ctx.drawImage(img, 0, 0, width, height);
+      ctx.globalCompositeOperation = 'destination-in';
+      ctx.drawImage(mask, 0, 0);
+
+      if (now - lastMove < REVEAL.idleMs) {
+        rafId = requestAnimationFrame(frame);
+      } else {
+        maskCtx.clearRect(0, 0, width, height);
+        ctx.clearRect(0, 0, width, height);
+        rafId = null;
+        lastFrame = 0;
+      }
+    };
+
+    const start = () => {
+      if (!rafId) rafId = requestAnimationFrame(frame);
+    };
+
+    hero.addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      const rect = wrap.getBoundingClientRect();
+      const x = (e.clientX - rect.left) * dpr;
+      const y = (e.clientY - rect.top) * dpr;
+      const inside = x >= 0 && y >= 0 && x <= width && y <= height;
+      target = inside ? { x, y } : null;
+      if (!inside) brush = null;
+      lastMove = performance.now();
+      if (inside) start();
+    }, { passive: true });
+
+    hero.addEventListener('pointerleave', () => {
+      target = null;
+      brush = null;
+    });
+
+    new ResizeObserver(resize).observe(wrap);
+    if (img.complete) resize();
+    else img.addEventListener('load', resize, { once: true });
   }
 
   /* ── SCROLL REVEAL ────────────────────────────────────────── */
@@ -434,6 +552,7 @@
   initContactForm();
   initContactBlob();
   initHeroParallax();
+  initHeroReveal();
   initCursorGlow();
 
   // Entrance animations wait for the loader so they play in view
