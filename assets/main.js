@@ -61,8 +61,6 @@
     initScrollReveal();
     // Works section: case-study filters + floating preview
     initWorksSection();
-    // Services section: hover image cards
-    initServicesSection();
   }
 
   /* ── WORKS SECTION ─────────────────────────────────────── */
@@ -176,30 +174,6 @@
     workRows.forEach((row, i) => {
       row.style.transitionDelay = `${i * 0.05}s`;
       rowObserver.observe(row);
-    });
-  }
-
-  /* ── SERVICES SECTION ─────────────────────────────────── */
-  function initServicesSection() {
-    const svcNames = document.querySelectorAll('.svc-name');
-    const svcCards = document.querySelectorAll('.svc-img-card');
-
-    if (!svcNames.length) return;
-
-    svcNames.forEach(name => {
-      const svc = name.dataset.svc;
-
-      name.addEventListener('mouseenter', () => {
-        // Hide all cards first
-        svcCards.forEach(card => card.classList.remove('is-active'));
-        // Show only cards for this service
-        document.querySelectorAll(`[data-svc-card="${svc}"]`)
-          .forEach(card => card.classList.add('is-active'));
-      });
-
-      name.addEventListener('mouseleave', () => {
-        svcCards.forEach(card => card.classList.remove('is-active'));
-      });
     });
   }
 
@@ -465,7 +439,7 @@
         <a href="${basePath}index.html" class="dock-menu-item"><span>Home</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
         <a href="${basePath}index.html#about" class="dock-menu-item"><span>About</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
         <a href="${basePath}case-study.html" class="dock-menu-item"><span>Case Studies</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
-        <a href="${basePath}index.html#services" class="dock-menu-item"><span>Services</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
+        <a href="${basePath}index.html#services" class="dock-menu-item"><span>Skills</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
         <a href="${basePath}index.html#testimonials" class="dock-menu-item"><span>Testimonials</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
         <a href="${basePath}index.html#contact" class="dock-menu-item"><span>Contact</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
         <a href="https://calendar.app.google/o8xFfmjKJcM9aER78" target="_blank" rel="noopener" class="dock-menu-item" style="color: var(--red);"><span>Book A Call ↗</span></a>
