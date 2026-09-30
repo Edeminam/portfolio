@@ -2126,3 +2126,12 @@
   }
 }
 
+
+/* Image-only mockup gallery (full 16:9 slides, no cropping) */
+.proj-gallery--mockups { padding-top: 0; }
+.proj-gallery-grid--mockups { grid-template-columns: 1fr 1fr; grid-template-rows: none; }
+.proj-gallery-grid--mockups .proj-gallery-item img,
+.proj-gallery-grid--mockups .proj-gallery-item--wide img { aspect-ratio: 16/9; height: auto; }
+@media (max-width: 700px) {
+  .proj-gallery-grid--mockups { grid-template-columns: 1fr; }
+}
