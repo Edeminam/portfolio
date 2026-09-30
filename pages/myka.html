@@ -5,37 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Myka Case Study — Emmanuel Brendan</title>
   <meta name="description" content="Myka – On-demand Nigerian insurtech platform for motor, gadget, and health. How Emmanuel Brendan designed the instant policy checkout and claims flow." />
+  <!-- partial:head -->
   <link rel="icon" type="image/png" href="../assets/images/logos/favicon.png" />
   <link rel="apple-touch-icon" href="../assets/images/logos/apple-touch-icon.png" />
+  <link rel="preload" href="../assets/fonts/boldonse.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/style.css" />
+  <!-- /partial:head -->
   <link rel="stylesheet" href="../assets/project.css" />
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- partial:nav -->
   <nav class="navbar" id="navbar">
     <a href="../index.html" class="nav-logo" aria-label="Emmanuel Brendan Home">
       <img class="el-logo" src="../assets/images/logos/el-logo.png" alt="" width="128" height="192" />
       <span class="nav-logo-text">EMMANUEL<br/>BRENDAN</span>
     </a>
     <div class="nav-links">
-      <a href="mailto:hello@emmanuelbrendan.com" class="nav-link-email">Email <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      <a href="mailto:elebrendan@gmail.com" class="nav-link-email" id="nav-email">
+        Email
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      </a>
       <a href="https://www.linkedin.com/in/emmanuel-brendan/" target="_blank" rel="noopener" class="nav-icon-link" aria-label="LinkedIn">in</a>
       <a href="https://github.com/Edeminam" target="_blank" rel="noopener" class="nav-icon-link" aria-label="GitHub">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
       </a>
     </div>
   </nav>
+  <!-- /partial:nav -->
 
-  <!-- STICKY DOCK -->
-  <div class="sticky-dock visible" id="sticky-dock">
-    <button class="dock-asterisk" id="dock-menu-btn" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/></svg></button>
-    <a href="https://calendar.app.google/o8xFfmjKJcM9aER78" target="_blank" rel="noopener" class="dock-cta"><span class="dock-cta-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="2.5" fill="white" opacity="0.8"/><circle cx="16" cy="8" r="2.5" fill="white" opacity="0.8"/><circle cx="8" cy="16" r="2.5" fill="white" opacity="0.8"/><circle cx="16" cy="16" r="2.5" fill="white" opacity="0.8"/></svg></span><span class="dock-cta-text">BOOK A CALL</span></a>
+  <!-- partial:dock -->
+  <div class="sticky-dock" id="sticky-dock">
+    <button class="dock-asterisk" id="dock-menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="dock-menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/></svg>
+    </button>
+    <a href="https://calendar.app.google/o8xFfmjKJcM9aER78" target="_blank" rel="noopener" class="dock-cta">
+      <span class="dock-cta-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="2.2" fill="white" opacity="0.95"/>
+          <circle cx="16" cy="8" r="2.2" fill="white" opacity="0.95"/>
+          <circle cx="8" cy="16" r="2.2" fill="white" opacity="0.95"/>
+          <circle cx="16" cy="16" r="2.2" fill="white" opacity="0.95"/>
+        </svg>
+      </span>
+      <span class="dock-cta-text">BOOK A CALL</span>
+    </a>
     <a href="../case-study.html" class="dock-work">WORK</a>
   </div>
+  <nav class="dock-menu-popover" id="dock-menu" aria-label="Site menu">
+    <a href="../index.html" class="dock-menu-item"><span>Home</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="../index.html#about" class="dock-menu-item"><span>About</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="../case-study.html" class="dock-menu-item"><span>Case Studies</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="../index.html#services" class="dock-menu-item"><span>Skills</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="../index.html#testimonials" class="dock-menu-item"><span>Testimonials</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="../index.html#contact" class="dock-menu-item"><span>Contact</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="https://calendar.app.google/o8xFfmjKJcM9aER78" target="_blank" rel="noopener" class="dock-menu-item dock-menu-item--accent"><span>Book A Call ↗</span></a>
+  </nav>
+  <!-- /partial:dock -->
 
   <!-- HERO -->
   <section class="proj-hero proj-hero--myka">
@@ -58,7 +87,7 @@
 
   <!-- MOCKUP FULL -->
   <section class="proj-mockup">
-    <img src="../assets/images/myka-app-hero.jpg" alt="Myka partner mobile app — agent home dashboard with earnings, balance and insurance products" class="proj-mockup-img" />
+    <img src="../assets/images/myka-app-hero.webp" alt="Myka partner mobile app — agent home dashboard with earnings, balance and insurance products" class="proj-mockup-img" />
   </section>
 
   <!-- OVERVIEW -->
@@ -143,7 +172,7 @@
         <!-- Screen 1: Homepage & Value Prop (Full Width) -->
         <div class="proj-screen-card proj-screen-card--full">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-hero.png" alt="Myka Insurtech Web — Homepage Hero, Value Proposition, and Regulated Underwriters" loading="lazy" />
+            <img src="../assets/images/myka-hero.webp" alt="Myka Insurtech Web — Homepage Hero, Value Proposition, and Regulated Underwriters" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">Web Storefront &amp; Hero Experience</span>
@@ -155,7 +184,7 @@
         <!-- Screen 2: Product & Category Selector -->
         <div class="proj-screen-card">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-products.png" alt="Myka Insurtech Web — Multi-Vertical Insurance Product Selection Grid" loading="lazy" />
+            <img src="../assets/images/myka-products.webp" alt="Myka Insurtech Web — Multi-Vertical Insurance Product Selection Grid" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">Interactive Policy Selector</span>
@@ -167,7 +196,7 @@
         <!-- Screen 3: Corporate Solutions -->
         <div class="proj-screen-card">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-corporate.png" alt="Myka Insurtech Web — Corporate Insurance &amp; Employee Benefits Suite" loading="lazy" />
+            <img src="../assets/images/myka-corporate.webp" alt="Myka Insurtech Web — Corporate Insurance &amp; Employee Benefits Suite" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">B2B Enterprise Solutions</span>
@@ -179,7 +208,7 @@
         <!-- Screen 4: Brand Mission & About Us -->
         <div class="proj-screen-card proj-screen-card--full">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-about.png" alt="Myka Insurtech Web — About Page, Mission, and Human-Centered Brand Narrative" loading="lazy" />
+            <img src="../assets/images/myka-about.webp" alt="Myka Insurtech Web — About Page, Mission, and Human-Centered Brand Narrative" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">Brand Narrative &amp; Transparency</span>
@@ -202,7 +231,7 @@
       <div class="proj-screens-grid">
         <div class="proj-screen-card proj-screen-card--full">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-app-home.jpg" alt="Myka agent app — partner home dashboard with earnings, balance, Sell with confidence banner and full product catalogue" loading="lazy" />
+            <img src="../assets/images/myka-app-home.webp" alt="Myka agent app — partner home dashboard with earnings, balance, Sell with confidence banner and full product catalogue" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">Partner Home &amp; Catalogue</span>
@@ -212,7 +241,7 @@
         </div>
         <div class="proj-screen-card">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-app-clusters.jpg" alt="Myka agent app — daily field plan with customers to visit and cluster selection sheet" loading="lazy" />
+            <img src="../assets/images/myka-app-clusters.webp" alt="Myka agent app — daily field plan with customers to visit and cluster selection sheet" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">Field Work Planning</span>
@@ -222,7 +251,7 @@
         </div>
         <div class="proj-screen-card">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-app-help.jpg" alt="Myka agent app — help centre with search and article collections" loading="lazy" />
+            <img src="../assets/images/myka-app-help.webp" alt="Myka agent app — help centre with search and article collections" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">Help Centre</span>
@@ -244,7 +273,7 @@
       <div class="proj-screens-grid">
         <div class="proj-screen-card proj-screen-card--full">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-app-client-kyc.jpg" alt="Myka agent app — tell us about your client form and NIN identity verification screen" loading="lazy" />
+            <img src="../assets/images/myka-app-client-kyc.webp" alt="Myka agent app — tell us about your client form and NIN identity verification screen" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">Client Details &amp; NIN Check</span>
@@ -266,7 +295,7 @@
       <div class="proj-screens-grid">
         <div class="proj-screen-card proj-screen-card--full">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-app-property-quote.jpg" alt="Myka agent app — property risk check, underwriter plan selection and house content value screens" loading="lazy" />
+            <img src="../assets/images/myka-app-property-quote.webp" alt="Myka agent app — property risk check, underwriter plan selection and house content value screens" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">Quote Builder</span>
@@ -318,7 +347,7 @@
         </div>
         <div class="proj-screen-card">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-app-motor-plans.jpg" alt="Myka agent app — third party motor quote, payment frequency, underwriter selection and plan details" loading="lazy" />
+            <img src="../assets/images/myka-app-motor-plans.webp" alt="Myka agent app — third party motor quote, payment frequency, underwriter selection and plan details" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">Plans &amp; Underwriters</span>
@@ -328,7 +357,7 @@
         </div>
         <div class="proj-screen-card">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-app-motor-payment.jpg" alt="Myka agent app — complete payment summary, disclosures and payment successful screen" loading="lazy" />
+            <img src="../assets/images/myka-app-motor-payment.webp" alt="Myka agent app — complete payment summary, disclosures and payment successful screen" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">Checkout</span>
@@ -350,7 +379,7 @@
       <div class="proj-screens-grid">
         <div class="proj-screen-card">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-app-health-hmo.jpg" alt="Myka agent app — client identity, HMO selection, cover level and nearby hospitals" loading="lazy" />
+            <img src="../assets/images/myka-app-health-hmo.webp" alt="Myka agent app — client identity, HMO selection, cover level and nearby hospitals" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">Health Insurance</span>
@@ -370,7 +399,7 @@
         </div>
         <div class="proj-screen-card proj-screen-card--full">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-app-edu-plans.jpg" alt="Myka agent app — Myka Edu Flex and Edu Assured plan configuration" loading="lazy" />
+            <img src="../assets/images/myka-app-edu-plans.webp" alt="Myka agent app — Myka Edu Flex and Edu Assured plan configuration" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">Education Savings</span>
@@ -380,7 +409,7 @@
         </div>
         <div class="proj-screen-card">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-app-savers.jpg" alt="Myka agent app — Myka Savers plan selection, Sabi Savers details and coverage summary" loading="lazy" />
+            <img src="../assets/images/myka-app-savers.webp" alt="Myka agent app — Myka Savers plan selection, Sabi Savers details and coverage summary" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">Savings Plans</span>
@@ -390,7 +419,7 @@
         </div>
         <div class="proj-screen-card">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-app-edu-payment.jpg" alt="Myka agent app — payment summary for Myka Edu Flex and policy activation in progress" loading="lazy" />
+            <img src="../assets/images/myka-app-edu-payment.webp" alt="Myka agent app — payment summary for Myka Edu Flex and policy activation in progress" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">Payment Summary</span>
@@ -412,7 +441,7 @@
       <div class="proj-screens-grid">
         <div class="proj-screen-card proj-screen-card--full">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-app-academy.jpg" alt="Myka agent app — get certified to sell property insurance, course modules, intro video and completion screens" loading="lazy" />
+            <img src="../assets/images/myka-app-academy.webp" alt="Myka agent app — get certified to sell property insurance, course modules, intro video and completion screens" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">Learning Path</span>
@@ -422,7 +451,7 @@
         </div>
         <div class="proj-screen-card">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-app-academy-quiz.jpg" alt="Myka agent app — concept flashcard and quiz with correct and incorrect feedback states" loading="lazy" />
+            <img src="../assets/images/myka-app-academy-quiz.webp" alt="Myka agent app — concept flashcard and quiz with correct and incorrect feedback states" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">Concept Checks</span>
@@ -464,7 +493,7 @@
       <div class="proj-screens-grid">
         <div class="proj-screen-card proj-screen-card--full">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-app-customers.jpg" alt="Myka agent app — customer register, filters and send account number sheet" loading="lazy" />
+            <img src="../assets/images/myka-app-customers.webp" alt="Myka agent app — customer register, filters and send account number sheet" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">Customer Register</span>
@@ -474,7 +503,7 @@
         </div>
         <div class="proj-screen-card">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-app-collections.jpg" alt="Myka agent app — customer profile with collection attempts, guidance and daily collection report" loading="lazy" />
+            <img src="../assets/images/myka-app-collections.webp" alt="Myka agent app — customer profile with collection attempts, guidance and daily collection report" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">Customer Detail</span>
@@ -484,7 +513,7 @@
         </div>
         <div class="proj-screen-card">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-app-reports.jpg" alt="Myka agent app — download reports, at a glance compliance and weekly performance chart" loading="lazy" />
+            <img src="../assets/images/myka-app-reports.webp" alt="Myka agent app — download reports, at a glance compliance and weekly performance chart" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">Reports</span>
@@ -494,7 +523,7 @@
         </div>
         <div class="proj-screen-card">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-app-account-open.jpg" alt="Myka agent app — new customer account opened, account details and how the day went summary" loading="lazy" />
+            <img src="../assets/images/myka-app-account-open.webp" alt="Myka agent app — new customer account opened, account details and how the day went summary" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">Account Opening</span>
@@ -504,7 +533,7 @@
         </div>
         <div class="proj-screen-card">
           <div class="proj-screen-media">
-            <img src="../assets/images/myka-app-earnings.jpg" alt="Myka agent app — earnings wallet, withdraw to bank and customer details form" loading="lazy" />
+            <img src="../assets/images/myka-app-earnings.webp" alt="Myka agent app — earnings wallet, withdraw to bank and customer details form" loading="lazy" />
           </div>
           <div class="proj-screen-info">
             <span class="proj-screen-tag">Earnings</span>
@@ -560,13 +589,13 @@
           <img src="../assets/images/myka-mockup-245.jpg" alt="Myka partner app mockup" loading="lazy" />
         </div>
         <div class="proj-gallery-item">
-          <img src="../assets/images/myka-mockup-247.jpg" alt="Myka partner app mockup" loading="lazy" />
+          <img src="../assets/images/myka-mockup-247.webp" alt="Myka partner app mockup" loading="lazy" />
         </div>
         <div class="proj-gallery-item">
-          <img src="../assets/images/myka-mockup-248.jpg" alt="Myka partner app mockup" loading="lazy" />
+          <img src="../assets/images/myka-mockup-248.webp" alt="Myka partner app mockup" loading="lazy" />
         </div>
         <div class="proj-gallery-item">
-          <img src="../assets/images/myka-mockup-250.jpg" alt="Myka partner app mockup" loading="lazy" />
+          <img src="../assets/images/myka-mockup-250.webp" alt="Myka partner app mockup" loading="lazy" />
         </div>
         <div class="proj-gallery-item">
           <img src="../assets/images/myka-mockup-252.jpg" alt="Myka partner app mockup" loading="lazy" />
@@ -605,16 +634,16 @@
           <img src="../assets/images/myka-mockup-277.jpg" alt="Myka partner app mockup" loading="lazy" />
         </div>
         <div class="proj-gallery-item">
-          <img src="../assets/images/myka-mockup-279.jpg" alt="Myka partner app mockup" loading="lazy" />
+          <img src="../assets/images/myka-mockup-279.webp" alt="Myka partner app mockup" loading="lazy" />
         </div>
         <div class="proj-gallery-item">
-          <img src="../assets/images/myka-mockup-283.jpg" alt="Myka partner app mockup" loading="lazy" />
+          <img src="../assets/images/myka-mockup-283.webp" alt="Myka partner app mockup" loading="lazy" />
         </div>
         <div class="proj-gallery-item">
-          <img src="../assets/images/myka-mockup-286.jpg" alt="Myka partner app mockup" loading="lazy" />
+          <img src="../assets/images/myka-mockup-286.webp" alt="Myka partner app mockup" loading="lazy" />
         </div>
         <div class="proj-gallery-item">
-          <img src="../assets/images/myka-mockup-287.jpg" alt="Myka partner app mockup" loading="lazy" />
+          <img src="../assets/images/myka-mockup-287.webp" alt="Myka partner app mockup" loading="lazy" />
         </div>
         <div class="proj-gallery-item">
           <img src="../assets/images/myka-mockup-289.jpg" alt="Myka partner app mockup" loading="lazy" />
@@ -634,7 +663,7 @@
     </a>
   </section>
 
-    <!-- TESTIMONIALS SECTION -->
+  <!-- partial:testimonials -->
   <section class="testimonials" id="testimonials">
     <div class="testimonials-label">TESTIMONIALS</div>
     <div class="testimonials-inner">
@@ -668,8 +697,9 @@
       </div>
     </div>
   </section>
+  <!-- /partial:testimonials -->
 
-  <!-- TRUSTED BY SECTION -->
+  <!-- partial:trusted-by -->
   <section class="trusted-by" id="trusted">
     <div class="trusted-label">&#9702;TRUSTED BY&#9702;</div>
 
@@ -678,7 +708,7 @@
       <div class="marquee-track marquee-track--left">
         <!-- Set 1 -->
         <div class="logo-card"><span class="lc-logo"><img src="../assets/images/logos/clients/outsource-global.png" alt="" width="53" height="64" loading="lazy" /></span>Outsource Global</div>
-        <div class="logo-card"><span class="lc-logo"><img src="../assets/images/logos/clients/federal-ministry-finance.png" alt="" width="62" height="64" loading="lazy" /></span>Federal Ministry</div>
+        <div class="logo-card"><span class="lc-logo"><img src="../assets/images/logos/clients/federal-ministry-finance.png" alt="" width="62" height="64" loading="lazy" /></span>Federal Ministry of Finance</div>
         <div class="logo-card"><span class="lc-logo"><img src="../assets/images/logos/clients/idec.png" alt="" width="64" height="64" loading="lazy" /></span>Import Duty Exemption Certificate (IDEC)</div>
         <div class="logo-card"><span class="lc-logo"><img src="../assets/images/logos/clients/vreg.png" alt="" width="64" height="64" loading="lazy" /></span>VREG Nigeria</div>
         <div class="logo-card"><span class="lc-logo"><img src="../assets/images/logos/clients/withinehr.png" alt="" width="90" height="64" loading="lazy" /></span>WithinEHR</div>
@@ -686,7 +716,7 @@
         <div class="logo-card"><span class="lc-logo"><img src="../assets/images/logos/clients/worknation.png" alt="" width="64" height="64" loading="lazy" /></span>WorkNation</div>
         <!-- Set 2 (duplicate for seamless loop) -->
         <div class="logo-card"><span class="lc-logo"><img src="../assets/images/logos/clients/outsource-global.png" alt="" width="53" height="64" loading="lazy" /></span>Outsource Global</div>
-        <div class="logo-card"><span class="lc-logo"><img src="../assets/images/logos/clients/federal-ministry-finance.png" alt="" width="62" height="64" loading="lazy" /></span>Federal Ministry</div>
+        <div class="logo-card"><span class="lc-logo"><img src="../assets/images/logos/clients/federal-ministry-finance.png" alt="" width="62" height="64" loading="lazy" /></span>Federal Ministry of Finance</div>
         <div class="logo-card"><span class="lc-logo"><img src="../assets/images/logos/clients/idec.png" alt="" width="64" height="64" loading="lazy" /></span>Import Duty Exemption Certificate (IDEC)</div>
         <div class="logo-card"><span class="lc-logo"><img src="../assets/images/logos/clients/vreg.png" alt="" width="64" height="64" loading="lazy" /></span>VREG Nigeria</div>
         <div class="logo-card"><span class="lc-logo"><img src="../assets/images/logos/clients/withinehr.png" alt="" width="90" height="64" loading="lazy" /></span>WithinEHR</div>
@@ -715,8 +745,9 @@
       </div>
     </div>
   </section>
+  <!-- /partial:trusted-by -->
 
-    <!-- CONTACT / GET IN TOUCH -->
+  <!-- partial:contact -->
   <section class="contact" id="contact">
     <div class="contact-bg-lighting" aria-hidden="true"></div>
     <div class="contact-red-blob" aria-hidden="true">
@@ -749,7 +780,6 @@
 
           <p class="contact-desc">Tell me about your business and what's not working, and I'll tell you if and how I can help.</p>
           <p class="contact-desc">I reply within 24 hours. If your project is urgent, use the <strong>Book a Call</strong> button to find a time directly.</p>
-
           <div class="contact-cal-row">
             <span class="contact-cal-label">Schedule a call on Google Calendar</span>
             <a href="https://calendar.app.google/o8xFfmjKJcM9aER78" target="_blank" rel="noopener" class="contact-cal-link">
@@ -780,9 +810,11 @@
                 <div class="select-wrapper">
                   <select id="service" name="service" required>
                     <option value="" disabled selected>Select...</option>
-                    <option value="landing-page">Landing Page</option>
+                    <option value="product-engineering">Product Engineering</option>
+                    <option value="mobile-app">Mobile App Design</option>
+                    <option value="web-app">Web App Design</option>
                     <option value="website">Website Design</option>
-                    <option value="cro">CRO / UX Audit</option>
+                    <option value="ux-audit">UX Audit</option>
                     <option value="branding">Branding</option>
                   </select>
                   <svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
@@ -806,8 +838,9 @@
       </div>
     </div>
   </section>
+  <!-- /partial:contact -->
 
-  <!-- FOOTER -->
+  <!-- partial:footer -->
   <footer class="footer" id="footer">
     <div class="footer-container">
       <!-- TOP ACTIONS BAR -->
@@ -838,7 +871,7 @@
       <!-- CENTERPIECE (CHROME FLOWER & GIANT DISPLAY TYPOGRAPHY) -->
       <div class="footer-centerpiece">
         <div class="footer-flower-wrap">
-          <img class="footer-flower-img" src="../assets/images/chrome-flower.png" alt="Metallic Chrome Daisy Artwork" width="1320" height="1260" loading="lazy" />
+          <img class="footer-flower-img" src="../assets/images/chrome-flower.webp" alt="Metallic Chrome Daisy Artwork" width="1320" height="1260" loading="lazy" />
         </div>
         <div class="footer-big-name" aria-hidden="true">
           <span class="footer-name-part">EMMANUEL</span>
@@ -861,7 +894,9 @@
       </div>
     </div>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- /partial:footer -->
+  <!-- partial:scripts -->
   <script src="../assets/main.js"></script>
+  <!-- /partial:scripts -->
 </body>
 </html>

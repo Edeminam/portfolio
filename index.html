@@ -5,16 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Emmanuel Brendan — AI-Product Engineer &amp; Senior UI/UX Designer</title>
   <meta name="description" content="Emmanuel Brendan is an AI-Product Engineer and Senior UI/UX Designer building production web apps, ambient AI platforms, and high-converting digital products." />
+  <!-- partial:head -->
   <link rel="icon" type="image/png" href="assets/images/logos/favicon.png" />
   <link rel="apple-touch-icon" href="assets/images/logos/apple-touch-icon.png" />
+  <link rel="preload" href="assets/fonts/boldonse.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Boldonse&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/style.css" />
+  <!-- /partial:head -->
 </head>
 <body>
 
-  <!-- STICKY NAV BAR -->
+  <!-- partial:nav -->
   <nav class="navbar" id="navbar">
     <a href="index.html" class="nav-logo" aria-label="Emmanuel Brendan Home">
       <img class="el-logo" src="assets/images/logos/el-logo.png" alt="" width="128" height="192" />
@@ -31,15 +34,16 @@
       </a>
     </div>
   </nav>
+  <!-- /partial:nav -->
 
-  <!-- STICKY DOCK -->
+  <!-- partial:dock -->
   <div class="sticky-dock" id="sticky-dock">
-    <button class="dock-asterisk" aria-label="Menu" id="dock-menu-btn">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="12" y1="2" x2="12" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"></line></svg>
+    <button class="dock-asterisk" id="dock-menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="dock-menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/></svg>
     </button>
     <a href="https://calendar.app.google/o8xFfmjKJcM9aER78" target="_blank" rel="noopener" class="dock-cta">
       <span class="dock-cta-icon">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <circle cx="8" cy="8" r="2.2" fill="white" opacity="0.95"/>
           <circle cx="16" cy="8" r="2.2" fill="white" opacity="0.95"/>
           <circle cx="8" cy="16" r="2.2" fill="white" opacity="0.95"/>
@@ -50,6 +54,16 @@
     </a>
     <a href="case-study.html" class="dock-work">WORK</a>
   </div>
+  <nav class="dock-menu-popover" id="dock-menu" aria-label="Site menu">
+    <a href="index.html" class="dock-menu-item"><span>Home</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="index.html#about" class="dock-menu-item"><span>About</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="case-study.html" class="dock-menu-item"><span>Case Studies</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="index.html#services" class="dock-menu-item"><span>Skills</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="index.html#testimonials" class="dock-menu-item"><span>Testimonials</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="index.html#contact" class="dock-menu-item"><span>Contact</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="https://calendar.app.google/o8xFfmjKJcM9aER78" target="_blank" rel="noopener" class="dock-menu-item dock-menu-item--accent"><span>Book A Call ↗</span></a>
+  </nav>
+  <!-- /partial:dock -->
 
   <!-- HERO SECTION -->
   <section class="hero" id="hero">
@@ -302,7 +316,7 @@
           <div class="wr-meta"><span>United States</span><span>Within Labs</span><span>AI-Product Engineering</span><span>10x Note Speed</span></div>
         </div>
         <div class="wr-right">
-          <div class="wr-img-wrap"><img src="assets/images/withinehr-appointments.png" alt="WithinEHR Dashboard" loading="lazy" /></div>
+          <div class="wr-img-wrap"><img src="assets/images/withinehr-appointments.webp" alt="WithinEHR Dashboard" loading="lazy" /></div>
           <div class="wr-arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
         </div>
       </a>
@@ -316,7 +330,7 @@
           <div class="wr-meta"><span>GovTech</span><span>National Trade Automation</span><span>1,500+ Screens</span></div>
         </div>
         <div class="wr-right">
-          <div class="wr-img-wrap"><img src="assets/images/idec-dashboard.png" alt="IDEC" loading="lazy" /></div>
+          <div class="wr-img-wrap"><img src="assets/images/idec-dashboard.webp" alt="IDEC" loading="lazy" /></div>
           <div class="wr-arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
         </div>
       </a>
@@ -344,7 +358,7 @@
           <div class="wr-meta"><span>GovTech</span><span>Public Safety</span><span>1.2M+ Clearances</span></div>
         </div>
         <div class="wr-right">
-          <div class="wr-img-wrap"><img src="assets/images/possap-website-hero.png" alt="POSSAP Police Specialized Services Portal" loading="lazy" /></div>
+          <div class="wr-img-wrap"><img src="assets/images/possap-website-hero.webp" alt="POSSAP Police Specialized Services Portal" loading="lazy" /></div>
           <div class="wr-arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
         </div>
       </a>
@@ -358,7 +372,7 @@
           <div class="wr-meta"><span>eCommerce</span><span>Brand Identity</span><span>&#8722;38% Abandonment</span></div>
         </div>
         <div class="wr-right">
-          <div class="wr-img-wrap"><img src="assets/images/springcakes-main.png" alt="Springcakes" loading="lazy" /></div>
+          <div class="wr-img-wrap"><img src="assets/images/springcakes-main.webp" alt="Springcakes" loading="lazy" /></div>
           <div class="wr-arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
         </div>
       </a>
@@ -442,7 +456,7 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS SECTION -->
+  <!-- partial:testimonials -->
   <section class="testimonials" id="testimonials">
     <div class="testimonials-label">TESTIMONIALS</div>
     <div class="testimonials-inner">
@@ -476,8 +490,9 @@
       </div>
     </div>
   </section>
+  <!-- /partial:testimonials -->
 
-  <!-- TRUSTED BY SECTION -->
+  <!-- partial:trusted-by -->
   <section class="trusted-by" id="trusted">
     <div class="trusted-label">&#9702;TRUSTED BY&#9702;</div>
 
@@ -486,7 +501,7 @@
       <div class="marquee-track marquee-track--left">
         <!-- Set 1 -->
         <div class="logo-card"><span class="lc-logo"><img src="assets/images/logos/clients/outsource-global.png" alt="" width="53" height="64" loading="lazy" /></span>Outsource Global</div>
-        <div class="logo-card"><span class="lc-logo"><img src="assets/images/logos/clients/federal-ministry-finance.png" alt="" width="62" height="64" loading="lazy" /></span>Federal Ministry</div>
+        <div class="logo-card"><span class="lc-logo"><img src="assets/images/logos/clients/federal-ministry-finance.png" alt="" width="62" height="64" loading="lazy" /></span>Federal Ministry of Finance</div>
         <div class="logo-card"><span class="lc-logo"><img src="assets/images/logos/clients/idec.png" alt="" width="64" height="64" loading="lazy" /></span>Import Duty Exemption Certificate (IDEC)</div>
         <div class="logo-card"><span class="lc-logo"><img src="assets/images/logos/clients/vreg.png" alt="" width="64" height="64" loading="lazy" /></span>VREG Nigeria</div>
         <div class="logo-card"><span class="lc-logo"><img src="assets/images/logos/clients/withinehr.png" alt="" width="90" height="64" loading="lazy" /></span>WithinEHR</div>
@@ -523,8 +538,9 @@
       </div>
     </div>
   </section>
+  <!-- /partial:trusted-by -->
 
-    <!-- CONTACT / GET IN TOUCH -->
+  <!-- partial:contact -->
   <section class="contact" id="contact">
     <div class="contact-bg-lighting" aria-hidden="true"></div>
     <div class="contact-red-blob" aria-hidden="true">
@@ -615,6 +631,7 @@
       </div>
     </div>
   </section>
+  <!-- /partial:contact -->
 
   <!-- LIFE BEHIND THE DESK -->
   <section class="life-section" id="life">
@@ -638,7 +655,7 @@
               <span class="sprocket-hole"></span>
             </div>
             <div class="filmstrip-photo-wrap">
-              <img src="assets/images/life-headphones.png" alt="Emmanuel Brendan in creative focus" loading="lazy" style="object-position: center 75%;" />
+              <img src="assets/images/life-headphones.webp" alt="Emmanuel Brendan in creative focus" loading="lazy" style="object-position: center 75%;" />
             </div>
             <div class="sprocket-col right" aria-hidden="true">
               <span class="sprocket-hole"></span>
@@ -665,7 +682,7 @@
               <span class="sprocket-hole"></span>
             </div>
             <div class="filmstrip-photo-wrap">
-              <img src="assets/images/life-orange-office.png" alt="Emmanuel Brendan at executive office desk" loading="lazy" style="object-position: center 85%;" />
+              <img src="assets/images/life-orange-office.webp" alt="Emmanuel Brendan at executive office desk" loading="lazy" style="object-position: center 85%;" />
             </div>
             <div class="sprocket-col right" aria-hidden="true">
               <span class="sprocket-hole"></span>
@@ -692,7 +709,7 @@
               <span class="sprocket-hole"></span>
             </div>
             <div class="filmstrip-photo-wrap">
-              <img src="assets/images/life-behind-desk.png" alt="Emmanuel Brendan behind the desk" loading="lazy" style="object-position: center 65%;" />
+              <img src="assets/images/life-behind-desk.webp" alt="Emmanuel Brendan behind the desk" loading="lazy" style="object-position: center 65%;" />
             </div>
             <div class="sprocket-col right" aria-hidden="true">
               <span class="sprocket-hole"></span>
@@ -746,7 +763,7 @@
               <span class="sprocket-hole"></span>
             </div>
             <div class="filmstrip-photo-wrap">
-              <img src="assets/images/life-myka.png" alt="Emmanuel Brendan at Myka headquarters" loading="lazy" style="object-position: center 25%;" />
+              <img src="assets/images/life-myka.webp" alt="Emmanuel Brendan at Myka headquarters" loading="lazy" style="object-position: center 25%;" />
             </div>
             <div class="sprocket-col right" aria-hidden="true">
               <span class="sprocket-hole"></span>
@@ -857,7 +874,7 @@
               <span class="sprocket-hole"></span>
             </div>
             <div class="filmstrip-photo-wrap">
-              <img src="assets/images/life-headphones.png" alt="Emmanuel Brendan in creative focus" loading="lazy" style="object-position: center 75%;" />
+              <img src="assets/images/life-headphones.webp" alt="Emmanuel Brendan in creative focus" loading="lazy" style="object-position: center 75%;" />
             </div>
             <div class="sprocket-col right">
               <span class="sprocket-hole"></span>
@@ -884,7 +901,7 @@
               <span class="sprocket-hole"></span>
             </div>
             <div class="filmstrip-photo-wrap">
-              <img src="assets/images/life-orange-office.png" alt="Emmanuel Brendan at executive office desk" loading="lazy" style="object-position: center 85%;" />
+              <img src="assets/images/life-orange-office.webp" alt="Emmanuel Brendan at executive office desk" loading="lazy" style="object-position: center 85%;" />
             </div>
             <div class="sprocket-col right">
               <span class="sprocket-hole"></span>
@@ -911,7 +928,7 @@
               <span class="sprocket-hole"></span>
             </div>
             <div class="filmstrip-photo-wrap">
-              <img src="assets/images/life-behind-desk.png" alt="Emmanuel Brendan behind the desk" loading="lazy" style="object-position: center 65%;" />
+              <img src="assets/images/life-behind-desk.webp" alt="Emmanuel Brendan behind the desk" loading="lazy" style="object-position: center 65%;" />
             </div>
             <div class="sprocket-col right">
               <span class="sprocket-hole"></span>
@@ -965,7 +982,7 @@
               <span class="sprocket-hole"></span>
             </div>
             <div class="filmstrip-photo-wrap">
-              <img src="assets/images/life-myka.png" alt="Emmanuel Brendan at Myka headquarters" loading="lazy" style="object-position: center 25%;" />
+              <img src="assets/images/life-myka.webp" alt="Emmanuel Brendan at Myka headquarters" loading="lazy" style="object-position: center 25%;" />
             </div>
             <div class="sprocket-col right">
               <span class="sprocket-hole"></span>
@@ -1064,7 +1081,7 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- partial:footer -->
   <footer class="footer" id="footer">
     <div class="footer-container">
       <!-- TOP ACTIONS BAR -->
@@ -1095,7 +1112,7 @@
       <!-- CENTERPIECE (CHROME FLOWER & GIANT DISPLAY TYPOGRAPHY) -->
       <div class="footer-centerpiece">
         <div class="footer-flower-wrap">
-          <img class="footer-flower-img" src="assets/images/chrome-flower.png" alt="Metallic Chrome Daisy Artwork" width="1320" height="1260" loading="lazy" />
+          <img class="footer-flower-img" src="assets/images/chrome-flower.webp" alt="Metallic Chrome Daisy Artwork" width="1320" height="1260" loading="lazy" />
         </div>
         <div class="footer-big-name" aria-hidden="true">
           <span class="footer-name-part">EMMANUEL</span>
@@ -1118,8 +1135,10 @@
       </div>
     </div>
   </footer>
+  <!-- /partial:footer -->
 
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- partial:scripts -->
   <script src="assets/main.js"></script>
+  <!-- /partial:scripts -->
 </body>
 </html>

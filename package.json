@@ -1,0 +1,13 @@
+{
+  "name": "emmanuel-brendan-portfolio",
+  "private": true,
+  "description": "Portfolio site for Emmanuel Brendan — static HTML, CSS and vanilla JS.",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "sync": "node scripts/sync-partials.mjs",
+    "check": "node scripts/sync-partials.mjs --check"
+  }
+}

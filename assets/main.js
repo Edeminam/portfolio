@@ -1,510 +1,445 @@
 /* ============================================================
-   EMMANUEL BRENDAN — MAIN JAVASCRIPT
+   EMMANUEL BRENDAN — SITE SCRIPT
+   Each feature is a self-contained init function that exits early
+   when its markup is not on the current page.
    ============================================================ */
 
-(function () {
+(() => {
   'use strict';
 
-  /* ── PAGE LOADER ──────────────────────────────────────── */
-  const loader = document.createElement('div');
-  loader.className = 'page-loader';
-  loader.innerHTML = `
-    <div class="loader-inner">
-      <div class="loader-logo">EMMANUEL BRENDAN</div>
-      <div class="loader-bar"><div class="loader-bar-fill"></div></div>
-    </div>`;
-  document.body.prepend(loader);
-  document.body.style.overflow = 'hidden';
+  /* ── ENVIRONMENT ──────────────────────────────────────────── */
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Mouse-driven effects only make sense with a precise pointer that can hover
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-  window.addEventListener('load', () => {
-    setTimeout(() => {
+  const $ = (selector, scope = document) => scope.querySelector(selector);
+  const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
+
+  /** Run `fn` at most once per animation frame. */
+  function rafThrottle(fn) {
+    let queued = false;
+    let lastArgs;
+    return (...args) => {
+      lastArgs = args;
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(() => {
+        queued = false;
+        fn(...lastArgs);
+      });
+    };
+  }
+
+  /* ── PAGE LOADER ──────────────────────────────────────────── */
+  // Shows the brand intro, then reveals the page once it has loaded.
+  // The bar animation takes ~1.2s; the loader never blocks for more than 3s.
+  const LOADER_MIN_MS = 1200;
+  const LOADER_MAX_MS = 3000;
+
+  function initLoader(onDone) {
+    if (reducedMotion) {
+      onDone();
+      return;
+    }
+
+    const loader = document.createElement('div');
+    loader.className = 'page-loader';
+    loader.setAttribute('aria-hidden', 'true');
+    loader.innerHTML = `
+      <div class="loader-inner">
+        <div class="loader-logo">EMMANUEL BRENDAN</div>
+        <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+      </div>`;
+    document.body.prepend(loader);
+    document.body.style.overflow = 'hidden';
+
+    const start = performance.now();
+    let finished = false;
+
+    const finish = () => {
+      if (finished) return;
+      finished = true;
       loader.classList.add('done');
       document.body.style.overflow = '';
-      initAnimations();
-    }, 1100);
-  });
+      loader.addEventListener('transitionend', () => loader.remove(), { once: true });
+      onDone();
+    };
 
-  /* ── NAVBAR SCROLL ────────────────────────────────────── */
-  const navbar = document.getElementById('navbar');
-  let scrollTicking = false;
+    const finishAfterMinimum = () => {
+      setTimeout(finish, Math.max(0, LOADER_MIN_MS - (performance.now() - start)));
+    };
 
-  function onScroll() {
-    if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 20);
+    if (document.readyState === 'complete') finishAfterMinimum();
+    else window.addEventListener('load', finishAfterMinimum, { once: true });
+    setTimeout(finish, LOADER_MAX_MS);
   }
 
-  window.addEventListener('scroll', () => {
-    if (!scrollTicking) {
-      requestAnimationFrame(() => { onScroll(); scrollTicking = false; });
-      scrollTicking = true;
-    }
-  }, { passive: true });
-  onScroll();
-
-  /* ── HERO ANIMATIONS ──────────────────────────────────────── */
-  function initAnimations() {
-    // Hero elements
-    const nameParts = document.querySelectorAll('.hero-name-part');
-    const heroIcon = document.querySelector('.hero-icon-x');
-    const heroSub = document.querySelector('.hero-subtitle');
-    const heroStatus = document.querySelector('.hero-status-badge');
-
-    setTimeout(() => {
-      nameParts.forEach((el, i) => {
-        setTimeout(() => el.classList.add('visible'), i * 120);
-      });
-    }, 50);
-    setTimeout(() => heroIcon && heroIcon.classList.add('visible'), 350);
-    setTimeout(() => heroSub && heroSub.classList.add('visible'), 550);
-    setTimeout(() => heroStatus && heroStatus.classList.add('visible'), 750);
-
-    // Scroll-triggered reveal
-    initScrollReveal();
-    // Works section: case-study filters + floating preview
-    initWorksSection();
+  /* ── NAVBAR ───────────────────────────────────────────────── */
+  function initNavbar() {
+    const navbar = $('#navbar');
+    if (!navbar) return;
+    const update = () => navbar.classList.toggle('scrolled', window.scrollY > 20);
+    window.addEventListener('scroll', rafThrottle(update), { passive: true });
+    update();
   }
 
-  /* ── WORKS SECTION ─────────────────────────────────────── */
-  function initWorksSection() {
-    const workRows = document.querySelectorAll('.work-row');
-
-    // Case study page filter tabs
-    const csFilterTabs = document.querySelectorAll('.work-filter-tab');
-    const csCards      = document.querySelectorAll('.cs-card');
-
-    if (csFilterTabs.length) {
-      csFilterTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          const filter = tab.dataset.filter;
-          csFilterTabs.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-
-          csCards.forEach(card => {
-            const cat = card.dataset.category || '';
-            const show = filter === 'all' || cat.includes(filter);
-            card.classList.toggle('filtered-out', !show);
-          });
-        });
-      });
-    }
-
-    // Floating image preview — desktop only, not touch devices
-    const preview    = document.getElementById('work-preview');
-    const previewImg = document.getElementById('work-preview-img');
-    const isTouch    = window.matchMedia('(hover: none)').matches;
-
-    if (!preview || !previewImg || window.innerWidth <= 900 || isTouch) return;
-
-    preview.style.display = 'block';
-
-    let mouseX = 0, mouseY = 0;
-    let currentX = 0, currentY = 0;
-    let rafId = null;
-
-    document.addEventListener('mousemove', e => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    }, { passive: true });
-
-    function lerp(a, b, t) { return a + (b - a) * t; }
-
-    function animatePreview() {
-      currentX = lerp(currentX, mouseX, 0.1);
-      currentY = lerp(currentY, mouseY, 0.1);
-      preview.style.left = (currentX + 24) + 'px';
-      preview.style.top  = (currentY - preview.offsetHeight / 2) + 'px';
-      rafId = requestAnimationFrame(animatePreview);
-    }
-
-    // Cleanup RAF on page unload to prevent leaks
-    window.addEventListener('pagehide', () => {
-      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+  /* ── HERO INTRO (home) ────────────────────────────────────── */
+  function initHeroIntro() {
+    $$('.hero-name-part').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), 50 + i * 120);
     });
-
-    workRows.forEach(row => {
-      const imgSrc = row.querySelector('.wr-img-wrap img')?.src;
-      if (!imgSrc) return;
-
-      row.addEventListener('mouseenter', () => {
-        previewImg.src = imgSrc;
-        preview.classList.add('is-active');
-        if (!rafId) animatePreview();
-      });
-
-      row.addEventListener('mouseleave', () => {
-        preview.classList.remove('is-active');
-        cancelAnimationFrame(rafId);
-        rafId = null;
-      });
+    [['.hero-icon-x', 350], ['.hero-subtitle', 550], ['.hero-status-badge', 750]].forEach(([selector, delay]) => {
+      const el = $(selector);
+      if (el) setTimeout(() => el.classList.add('visible'), delay);
     });
   }
 
-  /* ── SCROLL REVEAL (IntersectionObserver) ─────────────── */
+  /* ── HERO PARALLAX (home) ─────────────────────────────────── */
+  function initHeroParallax() {
+    const portrait = $('.hero-portrait');
+    const hero = $('.hero');
+    if (!portrait || !hero || reducedMotion || !finePointer) return;
+
+    const update = () => {
+      const offset = Math.min(window.scrollY, hero.offsetHeight) * 0.22;
+      // translateX(-50%) keeps the portrait centred
+      portrait.style.transform = `translateX(-50%) translateY(${offset}px)`;
+    };
+    window.addEventListener('scroll', rafThrottle(update), { passive: true });
+  }
+
+  /* ── SCROLL REVEAL ────────────────────────────────────────── */
+  const AUTO_REVEAL = [
+    '.about-statement', '.about-body', '.stack-eyebrow', '.stack-col', '.works-header',
+    '.testimonials-label', '.testimonials-inner', '.trusted-label',
+    '.contact-left', '.contact-right', '.life-header', '.life-marquee-container', '.footer-container',
+  ].join(', ');
+
   function initScrollReveal() {
-    const autoReveal = document.querySelectorAll(
-      '.about-statement, .about-body, .stack-eyebrow, .stack-col, .works-header, ' +
-      '.testimonials-label, .testimonials-inner, .trusted-label, ' +
-      '.contact-left, .contact-right, .life-header, .life-marquee-container, .footer-container'
-    );
-    autoReveal.forEach(el => el.classList.add('reveal'));
-
-    const allReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
+    const reveal = (options) => new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    }, options);
 
-    allReveal.forEach(el => observer.observe(el));
+    $$(AUTO_REVEAL).forEach((el) => el.classList.add('reveal'));
+    const sectionObserver = reveal({ threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    $$('.reveal, .reveal-left, .reveal-right').forEach((el) => sectionObserver.observe(el));
 
-    // Stagger work rows on scroll
-    const workRows = document.querySelectorAll('.work-row');
-    const rowObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          rowObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
-
-    workRows.forEach((row, i) => {
+    // Work rows stagger in one after another
+    const rowObserver = reveal({ threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+    $$('.work-row').forEach((row, i) => {
       row.style.transitionDelay = `${i * 0.05}s`;
       rowObserver.observe(row);
     });
   }
 
-  /* ── TESTIMONIALS TABS ────────────────────────────────── */
-  const tabBtns = document.querySelectorAll('.tab-person');
-  const quotes = document.querySelectorAll('.testimonial-quote');
+  /* ── WORK LIST HOVER PREVIEW (home) ───────────────────────── */
+  function initWorkPreview() {
+    const preview = $('#work-preview');
+    const previewImg = $('#work-preview-img');
+    const rows = $$('.work-row');
+    if (!preview || !previewImg || !rows.length || !finePointer || window.innerWidth <= 900) return;
 
-  let tabIdx = 0;
-  let tabTimer = null;
+    preview.style.display = 'block';
 
-  function setTab(idx) {
-    tabIdx = idx;
-    tabBtns.forEach((b, i) => b.classList.toggle('active', i === idx));
-    quotes.forEach((q, i) => q.classList.toggle('active', i === idx));
-  }
+    let mouseX = 0;
+    let mouseY = 0;
+    let x = 0;
+    let y = 0;
+    let rafId = null;
 
-  // Auto-rotate every 5s; a manual pick restarts the countdown
-  function startTabRotation() {
-    clearInterval(tabTimer);
-    tabTimer = setInterval(() => setTab((tabIdx + 1) % tabBtns.length), 5000);
-  }
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    }, { passive: true });
 
-  if (tabBtns.length) {
-    tabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        setTab(Number(btn.dataset.tab));
-        startTabRotation();
+    // Ease the preview towards the cursor for a trailing effect
+    const follow = () => {
+      x += (mouseX - x) * 0.1;
+      y += (mouseY - y) * 0.1;
+      preview.style.left = `${x + 24}px`;
+      preview.style.top = `${y - preview.offsetHeight / 2}px`;
+      rafId = requestAnimationFrame(follow);
+    };
+    const stop = () => {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    };
+
+    rows.forEach((row) => {
+      const src = $('.wr-img-wrap img', row)?.src;
+      if (!src) return;
+      row.addEventListener('mouseenter', () => {
+        previewImg.src = src;
+        preview.classList.add('is-active');
+        if (!rafId) follow();
+      });
+      row.addEventListener('mouseleave', () => {
+        preview.classList.remove('is-active');
+        stop();
       });
     });
-    startTabRotation();
+    window.addEventListener('pagehide', stop);
   }
 
-  /* ── CONTACT FORM & EMAILJS INTEGRATION ───────────────── */
-  const EMAILJS_CONFIG = {
+  /* ── CASE STUDY FILTER (work page) ────────────────────────── */
+  function initCaseStudyFilter() {
+    const tabs = $$('.work-filter-tab');
+    const cards = $$('.cs-card');
+    if (!tabs.length) return;
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const filter = tab.dataset.filter;
+        tabs.forEach((t) => t.classList.toggle('active', t === tab));
+        cards.forEach((card) => {
+          const show = filter === 'all' || (card.dataset.category || '').includes(filter);
+          card.classList.toggle('filtered-out', !show);
+        });
+      });
+    });
+  }
+
+  /* ── TESTIMONIALS ─────────────────────────────────────────── */
+  const TESTIMONIAL_INTERVAL_MS = 5000;
+
+  function initTestimonials() {
+    const tabs = $$('.tab-person');
+    const quotes = $$('.testimonial-quote');
+    if (!tabs.length) return;
+
+    let current = 0;
+    let timer = null;
+
+    const show = (index) => {
+      current = index;
+      tabs.forEach((tab, i) => tab.classList.toggle('active', i === index));
+      quotes.forEach((quote, i) => quote.classList.toggle('active', i === index));
+    };
+    // A manual pick restarts the countdown
+    const restartRotation = () => {
+      clearInterval(timer);
+      if (!reducedMotion) {
+        timer = setInterval(() => show((current + 1) % tabs.length), TESTIMONIAL_INTERVAL_MS);
+      }
+    };
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        show(Number(tab.dataset.tab));
+        restartRotation();
+      });
+    });
+    restartRotation();
+  }
+
+  /* ── CONTACT FORM (EmailJS REST API) ──────────────────────── */
+  const EMAILJS = {
+    endpoint: 'https://api.emailjs.com/api/v1.0/email/send',
     serviceId: 'service_qx5cj9q',
     templateId: 'template_p0ewyov',
     publicKey: 'M3NF-YNY1Sdm99XHv',
-    recipientEmail: 'elebrendan@gmail.com'
+  };
+  const RECIPIENT = 'elebrendan@gmail.com';
+  const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const ARROW_ICON = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>';
+  const SPINNER_ICON = '<svg class="btn-spinner" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-opacity="0.25"/><path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"/></svg>';
+
+  const BUTTON_STATES = {
+    idle: { className: '', html: `<span>SUBMIT</span>${ARROW_ICON}` },
+    sending: { className: 'is-sending', html: `${SPINNER_ICON}<span>SENDING...</span>` },
+    success: { className: 'is-success', html: '<span>MESSAGE SENT ✓</span>' },
+    error: { className: 'is-error', html: '<span>FAILED TO SEND ✕</span>' },
+    retry: { className: '', html: `<span>TRY AGAIN</span>${ARROW_ICON}` },
   };
 
-  // Initialize EmailJS if the browser SDK is loaded
-  if (typeof emailjs !== 'undefined') {
-    try {
-      emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
-    } catch (initErr) {
-      console.warn('EmailJS SDK init warning:', initErr);
+  async function sendInquiry({ name, email, service, message }) {
+    const details = message || 'No additional project details provided.';
+    // The EmailJS template has used several placeholder names over time; send them all
+    const templateParams = {
+      name, from_name: name, user_name: name, sender_name: name,
+      email, from_email: email, user_email: email, reply_to: email,
+      service, service_type: service, project_service: service,
+      message: details, project_details: details,
+      to_email: RECIPIENT, to_name: 'Emmanuel Brendan', recipient: RECIPIENT,
+      subject: `New Project Inquiry from ${name} [${service}]`,
+      submission_date: new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' }),
+    };
+
+    const response = await fetch(EMAILJS.endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        service_id: EMAILJS.serviceId,
+        template_id: EMAILJS.templateId,
+        user_id: EMAILJS.publicKey,
+        template_params: templateParams,
+      }),
+    });
+    if (!response.ok) {
+      throw new Error(`EmailJS responded ${response.status}: ${await response.text()}`);
     }
   }
 
-  const form = document.getElementById('contact-form');
-  if (form) {
+  function initContactForm() {
+    const form = $('#contact-form');
+    if (!form) return;
+
+    const fields = {
+      name: $('#name', form),
+      email: $('#email', form),
+      service: $('#service', form),
+      message: $('#message', form),
+    };
+    const button = $('#form-submit', form);
+
+    const setButton = (state) => {
+      const { className, html } = BUTTON_STATES[state];
+      button.classList.remove('is-sending', 'is-success', 'is-error');
+      if (className) button.classList.add(className);
+      button.innerHTML = html;
+      button.disabled = state === 'sending' || state === 'success' || state === 'error';
+    };
+
+    const showToast = (type, html) => {
+      $('.form-toast', form)?.remove();
+      const toast = document.createElement('div');
+      toast.className = `form-toast form-toast--${type}`;
+      toast.setAttribute('role', type === 'error' ? 'alert' : 'status');
+      toast.innerHTML = html;
+      form.appendChild(toast);
+      return toast;
+    };
+
+    const markInvalid = (field) => {
+      field.setAttribute('aria-invalid', 'true');
+      field.focus();
+    };
+
+    // Validate in field order; return the first invalid field, if any
+    const firstInvalid = (values) => {
+      if (!values.name) return fields.name;
+      if (!EMAIL_PATTERN.test(values.email)) return fields.email;
+      if (!values.service) return fields.service;
+      return null;
+    };
+
+    Object.values(fields).forEach((field) => {
+      field?.addEventListener('input', () => field.removeAttribute('aria-invalid'));
+    });
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const nameInput = document.getElementById('name');
-      const emailInput = document.getElementById('email');
-      const serviceInput = document.getElementById('service');
-      const messageInput = document.getElementById('message');
-      const btn = document.getElementById('form-submit');
 
-      // Clear previous error states
-      [nameInput, emailInput, serviceInput].forEach(input => {
-        if (input) input.style.borderColor = '';
-      });
-
-      const nameVal = nameInput ? nameInput.value.trim() : '';
-      const emailVal = emailInput ? emailInput.value.trim() : '';
-      const serviceVal = serviceInput ? serviceInput.value : '';
-      const messageVal = messageInput ? messageInput.value.trim() : '';
-
-      // Validation
-      if (!nameVal) {
-        if (nameInput) {
-          nameInput.focus();
-          nameInput.style.borderColor = '#ef4444';
-        }
-        return;
-      }
-
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailVal || !emailPattern.test(emailVal)) {
-        if (emailInput) {
-          emailInput.focus();
-          emailInput.style.borderColor = '#ef4444';
-        }
-        return;
-      }
-
-      if (!serviceVal) {
-        if (serviceInput) {
-          serviceInput.focus();
-          serviceInput.style.borderColor = '#ef4444';
-        }
-        return;
-      }
-
-      // Map service code to readable title
-      const serviceTitles = {
-        'landing-page': 'Landing Page Design',
-        'website': 'Website Design',
-        'cro': 'CRO / UX Audit',
-        'branding': 'Branding & Identity'
+      const values = {
+        name: fields.name.value.trim(),
+        email: fields.email.value.trim(),
+        service: fields.service.value,
+        message: fields.message?.value.trim() ?? '',
       };
-      const readableService = serviceTitles[serviceVal] || serviceVal;
+      const invalid = firstInvalid(values);
+      if (invalid) {
+        markInvalid(invalid);
+        return;
+      }
 
-      // Loading state
-      btn.disabled = true;
-      btn.classList.add('is-sending');
-      btn.innerHTML = `
-        <svg class="btn-spinner" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
-          <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"></path>
-        </svg>
-        <span>SENDING...</span>
-      `;
-
-      // Clear existing toast if any
-      const existingToast = document.getElementById('form-toast');
-      if (existingToast) existingToast.remove();
-
-      // Exhaustive template parameters to map any placeholder in template_p0ewyov
-      const templateParams = {
-        name: nameVal,
-        from_name: nameVal,
-        user_name: nameVal,
-        sender_name: nameVal,
-
-        email: emailVal,
-        from_email: emailVal,
-        user_email: emailVal,
-        reply_to: emailVal,
-
-        service: readableService,
-        service_type: readableService,
-        project_service: readableService,
-
-        message: messageVal || 'No additional project details provided.',
-        project_details: messageVal || 'No additional project details provided.',
-
-        to_email: EMAILJS_CONFIG.recipientEmail,
-        to_name: 'Emmanuel Brendan',
-        recipient: EMAILJS_CONFIG.recipientEmail,
-
-        subject: `New Project Inquiry from ${nameVal} [${readableService}]`,
-        submission_date: new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })
-      };
+      const serviceLabel = fields.service.selectedOptions[0]?.textContent.trim() || values.service;
+      setButton('sending');
+      $('.form-toast', form)?.remove();
 
       try {
-        let sentSuccessfully = false;
-
-        // Strategy 1: Official EmailJS SDK if available
-        if (typeof emailjs !== 'undefined' && typeof emailjs.send === 'function') {
-          try {
-            await emailjs.send(
-              EMAILJS_CONFIG.serviceId,
-              EMAILJS_CONFIG.templateId,
-              templateParams,
-              EMAILJS_CONFIG.publicKey
-            );
-            sentSuccessfully = true;
-          } catch (sdkErr) {
-            console.warn('EmailJS SDK send failed, falling back to direct API:', sdkErr);
-          }
-        }
-
-        // Strategy 2: Direct EmailJS API call
-        if (!sentSuccessfully) {
-          const apiResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              service_id: EMAILJS_CONFIG.serviceId,
-              template_id: EMAILJS_CONFIG.templateId,
-              user_id: EMAILJS_CONFIG.publicKey,
-              template_params: templateParams
-            })
-          });
-
-          if (!apiResponse.ok) {
-            const errorBody = await apiResponse.text();
-            throw new Error(`EmailJS API returned status ${apiResponse.status}: ${errorBody}`);
-          }
-          sentSuccessfully = true;
-        }
-
-        // SUCCESS UI
-        btn.classList.remove('is-sending');
-        btn.classList.add('is-success');
-        btn.innerHTML = `<span>MESSAGE SENT ✓</span>`;
-
-        const toast = document.createElement('div');
-        toast.id = 'form-toast';
-        toast.className = 'form-toast form-toast--success';
-        toast.textContent = "Thank you! Your project details have been sent to Emmanuel. I'll get back to you within 24 hours.";
-        form.appendChild(toast);
+        await sendInquiry({ ...values, service: serviceLabel });
+        setButton('success');
         form.reset();
-
+        const toast = showToast('success', "Thank you! Your project details have been sent to Emmanuel. I'll get back to you within 24 hours.");
         setTimeout(() => {
-          btn.classList.remove('is-success');
-          btn.disabled = false;
-          btn.innerHTML = `
-            <span>SUBMIT</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-          `;
-          if (toast) {
-            toast.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-            toast.style.opacity = '0';
-            toast.style.transform = 'translateY(4px)';
-            setTimeout(() => toast.remove(), 400);
-          }
+          setButton('idle');
+          toast.classList.add('is-leaving');
+          toast.addEventListener('transitionend', () => toast.remove(), { once: true });
         }, 5000);
-
       } catch (err) {
-        console.error('Failed to send contact inquiry via EmailJS:', err);
-        btn.classList.remove('is-sending');
-        btn.classList.add('is-error');
-        btn.innerHTML = `<span>FAILED TO SEND ✕</span>`;
-
-        const toast = document.createElement('div');
-        toast.id = 'form-toast';
-        toast.className = 'form-toast form-toast--error';
-        toast.innerHTML = `Oops, something went wrong. You can reach Emmanuel directly at <a href="mailto:${EMAILJS_CONFIG.recipientEmail}" style="color: #fff; font-weight: 600; text-decoration: underline;">${EMAILJS_CONFIG.recipientEmail}</a>`;
-        form.appendChild(toast);
-
-        setTimeout(() => {
-          btn.classList.remove('is-error');
-          btn.disabled = false;
-          btn.innerHTML = `
-            <span>TRY AGAIN</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-          `;
-        }, 4500);
+        console.error('Contact form: failed to send inquiry', err);
+        setButton('error');
+        showToast('error', `Oops, something went wrong. You can reach Emmanuel directly at <a href="mailto:${RECIPIENT}">${RECIPIENT}</a>`);
+        setTimeout(() => setButton('retry'), 4500);
       }
     });
   }
 
-  /* ── CONTACT RED BLOB MOUSE PARALLAX ──────────────────── */
-  const contactSec = document.getElementById('contact');
-  const contactBlob = document.querySelector('.contact-red-blob');
-  if (contactSec && contactBlob && window.innerWidth > 768) {
-    contactSec.addEventListener('mousemove', (e) => {
-      const rect = contactSec.getBoundingClientRect();
-      const relX = (e.clientX - rect.left) / rect.width - 0.5;
-      const relY = (e.clientY - rect.top) / rect.height - 0.5;
-      contactBlob.style.transform = `translate(${relX * 36}px, ${relY * 36}px)`;
-    }, { passive: true });
+  /* ── CONTACT BLOB PARALLAX ────────────────────────────────── */
+  function initContactBlob() {
+    const section = $('#contact');
+    const blob = $('.contact-red-blob');
+    if (!section || !blob || reducedMotion || !finePointer) return;
 
-    contactSec.addEventListener('mouseleave', () => {
-      contactBlob.style.transform = 'translate(0px, 0px)';
+    section.addEventListener('mousemove', rafThrottle((e) => {
+      const rect = section.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      blob.style.transform = `translate(${x * 36}px, ${y * 36}px)`;
+    }), { passive: true });
+    section.addEventListener('mouseleave', () => {
+      blob.style.transform = '';
     });
   }
 
-  /* ── DOCK MENU BUTTON & POPOVER ──────────────────────── */
-  const menuBtn = document.getElementById('dock-menu-btn');
-  if (menuBtn) {
-    let popover = document.querySelector('.dock-menu-popover');
-    if (!popover) {
-      popover = document.createElement('div');
-      popover.className = 'dock-menu-popover';
-      const basePath = window.location.pathname.includes('/pages/') ? '../' : '';
-      popover.innerHTML = `
-        <a href="${basePath}index.html" class="dock-menu-item"><span>Home</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
-        <a href="${basePath}index.html#about" class="dock-menu-item"><span>About</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
-        <a href="${basePath}case-study.html" class="dock-menu-item"><span>Case Studies</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
-        <a href="${basePath}index.html#services" class="dock-menu-item"><span>Skills</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
-        <a href="${basePath}index.html#testimonials" class="dock-menu-item"><span>Testimonials</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
-        <a href="${basePath}index.html#contact" class="dock-menu-item"><span>Contact</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
-        <a href="https://calendar.app.google/o8xFfmjKJcM9aER78" target="_blank" rel="noopener" class="dock-menu-item" style="color: var(--red);"><span>Book A Call ↗</span></a>
-      `;
-      document.body.appendChild(popover);
-    }
+  /* ── DOCK MENU ────────────────────────────────────────────── */
+  function initDockMenu() {
+    const button = $('#dock-menu-btn');
+    const menu = $('#dock-menu');
+    if (!button || !menu) return;
 
-    menuBtn.addEventListener('click', (e) => {
+    const setOpen = (open) => {
+      menu.classList.toggle('open', open);
+      button.classList.toggle('active', open);
+      button.setAttribute('aria-expanded', String(open));
+    };
+
+    button.addEventListener('click', (e) => {
       e.stopPropagation();
-      const isOpen = popover.classList.toggle('open');
-      menuBtn.classList.toggle('active', isOpen);
+      setOpen(!menu.classList.contains('open'));
     });
-
     document.addEventListener('click', (e) => {
-      if (!popover.contains(e.target) && e.target !== menuBtn && !menuBtn.contains(e.target)) {
-        popover.classList.remove('open');
-        menuBtn.classList.remove('active');
-      }
+      if (!menu.contains(e.target)) setOpen(false);
     });
-
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        popover.classList.remove('open');
-        menuBtn.classList.remove('active');
+      if (e.key === 'Escape' && menu.classList.contains('open')) {
+        setOpen(false);
+        button.focus();
       }
     });
   }
 
-  /* ── PARALLAX HERO ────────────────────────────────────────── */
-  const heroPortrait = document.querySelector('.hero-portrait');
-  const heroSection = document.querySelector('.hero');
-  if (heroPortrait && heroSection && window.innerWidth > 768) {
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      if (scrollY < heroSection.offsetHeight) {
-        // Must preserve translateX(-50%) centering + add parallax
-        heroPortrait.style.transform = `translateX(-50%) translateY(${scrollY * 0.22}px)`;
-      } else {
-        heroPortrait.style.transform = 'translateX(-50%)';
-      }
-    }, { passive: true });
-  }
-
-  /* ── CURSOR GLOW (desktop) ────────────────────────────── */
-  if (window.innerWidth > 768) {
+  /* ── CURSOR GLOW ──────────────────────────────────────────── */
+  function initCursorGlow() {
+    if (!finePointer || reducedMotion) return;
     const glow = document.createElement('div');
-    glow.id = 'cursor-glow';
-    Object.assign(glow.style, {
-      position: 'fixed',
-      width: '360px',
-      height: '360px',
-      borderRadius: '50%',
-      background: 'radial-gradient(circle, rgba(192,57,43,0.06) 0%, transparent 70%)',
-      pointerEvents: 'none',
-      zIndex: '1',
-      transform: 'translate(-50%, -50%)',
-      transition: 'left 0.12s ease, top 0.12s ease',
-      left: '-500px', top: '-500px'
-    });
+    glow.className = 'cursor-glow';
+    glow.setAttribute('aria-hidden', 'true');
     document.body.appendChild(glow);
 
-    window.addEventListener('mousemove', (e) => {
-      glow.style.left = e.clientX + 'px';
-      glow.style.top = e.clientY + 'px';
-    }, { passive: true });
+    window.addEventListener('mousemove', rafThrottle((e) => {
+      glow.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+    }), { passive: true });
   }
 
+  /* ── BOOT ─────────────────────────────────────────────────── */
+  initNavbar();
+  initDockMenu();
+  initCaseStudyFilter();
+  initTestimonials();
+  initContactForm();
+  initContactBlob();
+  initHeroParallax();
+  initCursorGlow();
+
+  // Entrance animations wait for the loader so they play in view
+  initLoader(() => {
+    initHeroIntro();
+    initScrollReveal();
+    initWorkPreview();
+  });
 })();

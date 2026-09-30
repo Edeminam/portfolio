@@ -272,14 +272,18 @@ p, li { text-wrap: pretty; }
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.06);
   z-index: 1001;
   opacity: 0;
+  visibility: hidden; /* keeps closed-menu links out of the tab order */
   pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.25s;
 }
 .dock-menu-popover.open {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
   transform: translateX(-50%) translateY(0) scale(1);
+  transition-delay: 0s;
 }
+.dock-menu-item--accent { color: var(--red); }
 .dock-menu-item {
   display: flex;
   align-items: center;
@@ -1701,6 +1705,10 @@ p, li { text-wrap: pretty; }
   box-shadow: none;
 }
 
+.contact-form .form-field [aria-invalid="true"] {
+  border-color: #ef4444;
+}
+
 .contact-form .form-field textarea {
   resize: vertical;
   min-height: 44px;
@@ -1818,6 +1826,16 @@ p, li { text-wrap: pretty; }
   background: rgba(239, 68, 68, 0.12);
   border: 1px solid rgba(239, 68, 68, 0.32);
   color: #f87171;
+}
+.form-toast--error a {
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: underline;
+}
+.form-toast.is-leaving {
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 @keyframes spin {
@@ -2595,6 +2613,22 @@ p, li { text-wrap: pretty; }
 }
 @keyframes loaderFade { to { opacity: 1; } }
 @keyframes loaderFill { to { width: 100%; } }
+
+/* ── CURSOR GLOW (fine pointers only, added by main.js) ──── */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(192, 57, 43, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  transform: translate3d(-500px, -500px, 0);
+  transition: transform 0.12s ease;
+  will-change: transform;
+}
 
 /* ── SCROLL BAR STYLING ──────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }
