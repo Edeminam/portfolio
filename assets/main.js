@@ -544,6 +544,172 @@
     }), { passive: true });
   }
 
+  /* ── BRANDING (branding.html) ─────────────────────────────── */
+  // Entrance states in branding.css only apply under .br-motion, so the page
+  // stays fully visible when motion is reduced or this script never runs.
+  const BRAND_HERO_MS = 3600;
+  const BRAND_REVEAL = '.bx-head, .bx-row, .br-part, .brand-head, .brand-stage, .sys-grid, .mk-tile, .ph-tile';
+
+  function initBranding() {
+    if (!$('.branding')) return;
+    if (!reducedMotion) document.documentElement.classList.add('br-motion');
+    initBrandPalette();
+    initBrandBoard();
+    if (finePointer && !reducedMotion) initBrandPointer();
+  }
+
+  /** Runs after the loader so entrances play in view. */
+  function initBrandingReveal() {
+    if (!$('.branding')) return;
+    $('.bh-hero')?.classList.add('is-in');
+
+    const revealer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-in');
+        revealer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    $$('.bx-row').forEach((row, i) => { row.style.transitionDelay = `${i * 0.04}s`; });
+    $$(BRAND_REVEAL).forEach((el) => revealer.observe(el));
+
+    // Idle mockup motion only runs while its tile is on screen
+    const live = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => entry.target.classList.toggle('is-live', entry.isIntersecting));
+    }, { rootMargin: '120px 0px' });
+    $$('.mk-tile').forEach((tile) => live.observe(tile));
+
+    initBrandHero();
+  }
+
+  // Hero card cycles through every logo with a circular colour wipe
+  function initBrandHero() {
+    const hero = $('.bh-hero');
+    const slides = $$('.hs-slide');
+    if (!hero || slides.length < 2 || reducedMotion) return;
+
+    const index = $('.hs-index');
+    const name = $('.hs-name');
+    const sector = $('.hs-sector');
+    const caption = $('.hs-caption');
+    const progress = $('.hs-progress');
+    progress.style.setProperty('--hs-ms', `${BRAND_HERO_MS}ms`);
+
+    let current = 0;
+    let timer = null;
+    let heroVisible = true;
+
+    const restart = (el, cls) => {
+      el.classList.remove(cls);
+      void el.offsetWidth; // reflow so the animation plays again
+      el.classList.add(cls);
+    };
+
+    const show = (next) => {
+      slides.forEach((slide) => slide.classList.remove('is-prev'));
+      slides[current].classList.replace('is-active', 'is-prev');
+      slides[next].classList.add('is-active');
+      index.textContent = String(next + 1).padStart(2, '0');
+      name.textContent = slides[next].dataset.name;
+      sector.textContent = slides[next].dataset.sector;
+      restart(caption, 'swap');
+      restart(progress, 'run');
+      current = next;
+    };
+
+    const stop = () => {
+      clearInterval(timer);
+      timer = null;
+      progress.classList.remove('run');
+    };
+    const start = () => {
+      if (timer || !heroVisible || document.hidden) return;
+      restart(progress, 'run');
+      timer = setInterval(() => show((current + 1) % slides.length), BRAND_HERO_MS);
+    };
+
+    new IntersectionObserver(([entry]) => {
+      heroVisible = entry.isIntersecting;
+      if (heroVisible) start();
+      else stop();
+    }).observe(hero);
+    document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+  }
+
+  // Swatches copy their hex value
+  function initBrandPalette() {
+    $$('.sw').forEach((swatch) => {
+      const label = $('.sw-hex', swatch);
+      let resetTimer;
+      swatch.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(swatch.dataset.hex);
+        } catch {
+          return; // clipboard unavailable (insecure context or denied)
+        }
+        swatch.classList.add('copied');
+        label.textContent = 'Copied';
+        clearTimeout(resetTimer);
+        resetTimer = setTimeout(() => {
+          swatch.classList.remove('copied');
+          label.textContent = swatch.dataset.hex;
+        }, 1400);
+      });
+    });
+  }
+
+  // "Original board" and the photo mockups open full size in a dialog
+  function initBrandBoard() {
+    const dialog = $('#board-dialog');
+    if (!dialog) return;
+    const img = $('.board-img', dialog);
+
+    $$('[data-board]').forEach((button) => {
+      button.addEventListener('click', () => {
+        img.src = button.dataset.board;
+        img.alt = button.classList.contains('bh-board')
+          ? `${button.dataset.title} — original presentation board`
+          : `${button.dataset.title} mockup`;
+        dialog.showModal();
+      });
+    });
+    $('.board-close', dialog).addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) dialog.close();
+    });
+  }
+
+  // Mockup tiles tilt towards the cursor; stages carry a soft spotlight
+  function initBrandPointer() {
+    const TILT_DEG = 7;
+    $$('.mk-tile').forEach((tile) => {
+      const scene = $('.mk-scene', tile);
+      let inside = false;
+      tile.addEventListener('pointerenter', () => { inside = true; });
+      tile.addEventListener('pointermove', rafThrottle((e) => {
+        if (!inside) return;
+        const rect = tile.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        scene.style.setProperty('--ry', `${x * TILT_DEG}deg`);
+        scene.style.setProperty('--rx', `${-y * TILT_DEG}deg`);
+      }));
+      tile.addEventListener('pointerleave', () => {
+        inside = false;
+        scene.style.removeProperty('--rx');
+        scene.style.removeProperty('--ry');
+      });
+    });
+
+    $$('.brand-stage').forEach((stage) => {
+      stage.addEventListener('pointermove', rafThrottle((e) => {
+        const rect = stage.getBoundingClientRect();
+        stage.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+        stage.style.setProperty('--my', `${e.clientY - rect.top}px`);
+      }));
+    });
+  }
+
   /* ── BOOT ─────────────────────────────────────────────────── */
   initNavbar();
   initDockMenu();
@@ -554,11 +720,13 @@
   initHeroParallax();
   initHeroReveal();
   initCursorGlow();
+  initBranding();
 
   // Entrance animations wait for the loader so they play in view
   initLoader(() => {
     initHeroIntro();
     initScrollReveal();
     initWorkPreview();
+    initBrandingReveal();
   });
 })();

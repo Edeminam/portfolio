@@ -6,3 +6,6 @@ node_modules/
 
 # Original Twizll screen board (15.5 MB) — the site uses the optimised twizll-*.jpg/webp files
 assets/images/Twizll Mobile app - Buyers.png
+
+# Original logo boards and source logos (~18 MB) — branding.html uses the optimised files in assets/images/branding/
+assets/branding/
